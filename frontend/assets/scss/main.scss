@@ -1,0 +1,47 @@
+// External
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Source+Serif+Pro:400,700&display=swap');
+// @import '~sanitize.css'; // nisam siguran jel ovo dolayi s nuxtom ili kaj
+
+body {
+  background-color: #f0a;
+}
+
+// Base
+@import './base/mixins';
+
+// Layouts
+// @import 'layouts/app';
+// @import 'layouts/results';
+// @import 'layouts/admin/';
+// @import 'layouts/admin/editor';
+
+// Components
+@import '../../components/Button/';
+// @import '../../components/Icon/';
+// @import '../../components/Tag/';
+// @import '../../components/Prompt/';
+// @import '../../components/Table/';
+// @import '../../components/Pagination/';
+// @import '../../components/Reference/';
+// @import '../../components/Loader/';
+
+// @import '../../components/Category/';
+// @import '../../components/Category/Nav/';
+
+// @import '../../components/Form/';
+// @import '../../components/Form/Input/Text/';
+// @import '../../components/Form/Input/Range/';
+// @import '../../components/Form/Input/Select/';
+// @import '../../components/Form/Dropdown/';
+// @import '../../components/Form/Checkbox/';
+// @import '../../components/Form/MultiSelect/';
+// @import '../../components/Form/RangeSlider/';
+// @import '../../components/Form/FieldSection/';
+// @import '../../components/Form/Note/';
+
+// @import '../../components/Page/';
+// @import '../../components/Page/Header/';
+// @import '../../components/Page/Result/';
+
+// @import '../../components/Admin/TextEditor/';
+// @import '../../components/Admin/TextEditor/Modal';
