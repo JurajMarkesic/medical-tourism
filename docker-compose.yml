@@ -1,0 +1,150 @@
+version: "3.3"
+
+services:
+  api:
+    container_name: api
+    build:
+      context: api
+      dockerfile: docker/dev/Dockerfile-api
+      # target: development
+    volumes:
+      - ./api:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+      - 9229:9229
+    command: npm run start:debug
+    networks:
+      - api_network
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - postgres
+  frontend:
+    container_name: frontend
+    build:
+      context: frontend
+      dockerfile: docker/dev/Dockerfile-frontend
+      # target: development
+    command: npm run dev
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+    env_file:
+      - .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: ${FRONTEND_PORT}
+    networks:
+      - api_network
+  nginx:
+    container_name: nginx
+    build:
+      context: api
+      dockerfile: docker/dev/Dockerfile-nginx
+    ports:
+      - 80:80
+    environment:
+      APP_SERVER_NAME: ${APP_SERVER_NAME}
+      APP_PREFIX: ${APP_PREFIX}
+      APP_PORT: ${APP_PORT}
+      FRONTEND_PORT: ${FRONTEND_PORT}
+    networks:
+      - api_network
+    depends_on:
+      - api
+      - frontend
+  redis:
+    container_name: redis
+    image: redis:5
+    networks:
+      - api_network
+  postgres:
+    container_name: postgres
+    image: postgres:12
+    networks:
+      - api_network
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+      PG_DATA: /var/lib/postgresql/data
+    ports:
+      - ${DB_PORT}:${DB_PORT}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  postgres_exporter:
+    image: wrouesnel/postgres_exporter
+    depends_on:
+      - postgres
+    environment:
+      DATA_SOURCE_URI: ${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable
+      DATA_SOURCE_USER: ${DB_USER}
+      DATA_SOURCE_PASS: ${DB_PASSWORD}
+    ports:
+      - 9187:9187
+    networks:
+      - api_network
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - prometheus_data:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - "--config.file=/etc/prometheus/prometheus.yml"
+    ports:
+      - ${PROMETHEUS_PORT}:${PROMETHEUS_PORT}
+    networks:
+      - api_network
+  grafana:
+    image: grafana/grafana
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/config.ini:/etc/grafana/config.ini
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+    depends_on:
+      - prometheus
+    networks:
+      - api_network
+    ports:
+      - ${GRAFANA_PORT}:3000
+  node_exporter:
+    image: prom/node-exporter
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - "--path.procfs=/host/proc"
+      - "--path.sysfs=/host/sys"
+      - --collector.filesystem.ignored-mount-points
+      - "^/(sys|proc|dev|host|etc|rootfs/var/lib/docker/containers|rootfs/var/lib/docker/overlay2|rootfs/run/docker/netns|rootfs/var/lib/docker/aufs)($$|/)"
+    ports:
+      - 9100:9100
+    networks:
+      - api_network
+    restart: always
+  scope:
+    image: weaveworks/scope:1.13.0
+    network_mode: "host"
+    pid: "host"
+    privileged: true
+    labels:
+      - "works.weave.role=system"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
+    command:
+      - "--probe.docker=true"
+networks:
+  api_network:
+    driver: bridge
+volumes:
+  pgdata: {}
+  prometheus_data: {}
+  grafana_data: {}
