@@ -1,13 +1,7 @@
-// External
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,700|Source+Serif+Pro:400,700&display=swap');
-// @import '~sanitize.css'; // nisam siguran jel ovo dolayi s nuxtom ili kaj
-
-body {
-  background-color: #f0a;
-}
-
 // Base
-@import './base/mixins';
+@import './base/_mixins'; // magic. needs to be first
+@import './base/_variables'; // requires cleanup >> some unused stuff
+@import './base/_globals'; // contains resets and one-off properties
 
 // Layouts
 // @import 'layouts/app';
@@ -29,7 +23,7 @@ body {
 // @import '../../components/Category/Nav/';
 
 // @import '../../components/Form/';
-// @import '../../components/Form/Input/Text/';
+@import '../../components/Form/Input/Text/';
 // @import '../../components/Form/Input/Range/';
 // @import '../../components/Form/Input/Select/';
 // @import '../../components/Form/Dropdown/';

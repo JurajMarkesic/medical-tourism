@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background-color: $black;
+  color: $white;
+}
+
+:focus {
+  outline: em(5) dotted $button-outline-focus;
+}
+
+html {
+  scroll-behavior: smooth;
+  --sans-serif: #{$fontface-primary};
+}
+
+body {
+  font-family: var(--sans-serif); // Poppins
+  font-size: $font-size; // 16px >> defined in _variables.scss
+  line-height: $line-height; // 26px
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input {
+  border: em(1) solid $black;
+  background: $white;
+  font-family: $fontface-primary; // Poppins
+  font-size: $font-size;
+  line-height: $line-height;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: $fontface-primary; // Poppins
+  font-size: em(14);
+  line-height: em(24);
+}
+
+a {
+  color: $black;
+  line-height: em(26);
+  &:focus {
+    color: $yellow;
+  }
+}

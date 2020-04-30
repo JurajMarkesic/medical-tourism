@@ -1,0 +1,8 @@
+.input {
+  font-weight: 700;
+  padding: em(8);
+  &:hover {
+    background-color: $button-bg-hover;
+    color: $button-text-hover;
+  }
+}
