@@ -1,8 +1,17 @@
 .input {
-  font-weight: 700;
-  padding: em(8);
-  &:hover {
-    background-color: $button-bg-hover;
-    color: $button-text-hover;
+  &__icon {
+    position: absolute;
+    top: auto;
+    left: auto;
+    display: flex;
+    padding: em(9);
+  }
+  &__field {
+    font-weight: 700;
+    padding: em(8) em(42);
+    &:hover {
+      background-color: $input-bg-hover;
+      color: $input-text-hover;
+    }
   }
 }

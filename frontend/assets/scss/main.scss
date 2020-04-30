@@ -2,6 +2,7 @@
 @import './base/_mixins'; // magic. needs to be first
 @import './base/_variables'; // requires cleanup >> some unused stuff
 @import './base/_globals'; // contains resets and one-off properties
+@import './base/_accessibility'; // accessibility specific
 
 // Layouts
 // @import 'layouts/app';
@@ -11,7 +12,7 @@
 
 // Components
 @import '../../components/Button/';
-// @import '../../components/Icon/';
+@import '../../components/Icon/';
 // @import '../../components/Tag/';
 // @import '../../components/Prompt/';
 // @import '../../components/Table/';
@@ -23,7 +24,9 @@
 // @import '../../components/Category/Nav/';
 
 // @import '../../components/Form/';
+@import '../../components/Form/Field/';
 @import '../../components/Form/Input/Text/';
+@import '../../components/Form/Input/Search/';
 // @import '../../components/Form/Input/Range/';
 // @import '../../components/Form/Input/Select/';
 // @import '../../components/Form/Dropdown/';

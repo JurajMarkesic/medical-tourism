@@ -1,0 +1,11 @@
+.field {
+  &__bottom {
+    display: block;
+    background: $black;
+    width: 100%;
+    height: em(4);
+    position: absolute;
+    left: 0;
+    top: 100%;
+  }
+}

@@ -23,25 +23,25 @@
           <div class="field">
             <label class="label">firstName</label>
             <div class="control">
-              <input v-model="registerForm.firstName" type="text" class="input" name="firstName" required />
+              <input v-model="registerForm.firstName" type="text" class="input__field" name="firstName" required />
             </div>
           </div>
           <div class="field">
             <label class="label">lastName</label>
             <div class="control">
-              <input v-model="registerForm.lastName" type="text" class="input" name="lastName" required />
+              <input v-model="registerForm.lastName" type="text" class="input__field" name="lastName" required />
             </div>
           </div>
           <div class="field">
             <label class="label">Email</label>
             <div class="control">
-              <input v-model="registerForm.email" type="email" class="input" name="email" required />
+              <input v-model="registerForm.email" type="email" class="input__field" name="email" required />
             </div>
           </div>
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input v-model="registerForm.password" type="password" class="input" name="password" required />
+              <input v-model="registerForm.password" type="password" class="input__field" name="password" required />
             </div>
           </div>
           <div class="control">
@@ -61,13 +61,13 @@
           <div class="field">
             <label class="label">Email</label>
             <div class="control">
-              <input v-model="loginForm.email" type="email" class="input" name="email" />
+              <input v-model="loginForm.email" type="email" class="input__field" name="email" />
             </div>
           </div>
           <div class="field">
             <label class="label">Password</label>
             <div class="control">
-              <input v-model="loginForm.password" type="password" class="input" name="password" />
+              <input v-model="loginForm.password" type="password" class="input__field" name="password" />
             </div>
           </div>
           <div class="control">
@@ -150,30 +150,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-</style>
