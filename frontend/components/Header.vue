@@ -53,10 +53,12 @@
                 />
               </svg>
             </span>
+
             <span class="field">
               <input type="search" placeholder="Search..." class="input__field" />
               <span class="field__bottom"></span>
             </span>
+
             <button class="button search__button" type="submit">
               <span class="screen-reader-text">Search</span>
               <span class="icon search__icon">
