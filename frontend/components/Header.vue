@@ -16,10 +16,7 @@
               class="logo__circle-right"
               d="M53.67 9.62a39.51 39.51 0 0011.66 66.77A39.38 39.38 0 0139.5 86 39.5 39.5 0 1153.67 9.6z"
             />
-            <path
-              class="logo__overlap"
-              d="M65.33 76.38A39.51 39.51 0 0153.67 9.62a39.51 39.51 0 0111.66 66.76z"
-            />
+            <path class="logo__overlap" d="M65.33 76.38A39.51 39.51 0 0153.67 9.62a39.51 39.51 0 0111.66 66.76z" />
           </svg>
           <span class="screen-reader-text">Header title</span>
         </a>
