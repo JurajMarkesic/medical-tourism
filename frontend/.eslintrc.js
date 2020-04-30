@@ -23,4 +23,30 @@ module.exports = {
     'max-len': ['error', { code: 140 }],
     'no-console': 'off',
   },
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        'max-len': 'off',
+        'vue/max-len': [
+          'error',
+          {
+            code: 140,
+            template: 80000,
+            tabWidth: 2,
+            comments: 140,
+            ignorePattern: '',
+            ignoreComments: false,
+            ignoreTrailingComments: false,
+            ignoreUrls: false,
+            ignoreStrings: false,
+            ignoreTemplateLiterals: false,
+            ignoreRegExpLiterals: true,
+            ignoreHTMLAttributeValues: true,
+            ignoreHTMLTextContents: false,
+          },
+        ],
+      },
+    },
+  ],
 };

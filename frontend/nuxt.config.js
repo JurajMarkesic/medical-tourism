@@ -29,7 +29,7 @@ module.exports = {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~assets/scss/main.scss'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -50,11 +50,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/auth',
-    '@nuxtjs/style-resources',
   ],
-  styleResources: {
-    scss: ['~assets/scss/main.scss'],
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
