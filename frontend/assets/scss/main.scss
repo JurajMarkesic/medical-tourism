@@ -1,8 +1,11 @@
 // Base
-@import './base/_mixins'; // magic. needs to be first
-@import './base/_variables'; // requires cleanup >> some unused stuff
-@import './base/_globals'; // contains resets and one-off properties
-@import './base/_accessibility'; // accessibility specific
+@import './base/mixins'; // magic. needs to be first
+@import './base/variables'; // requires cleanup >> some unused stuff
+@import './base/globals'; // contains resets and one-off properties
+@import './base/accessibility'; // accessibility specific
+
+// Utilities
+@import './utilities/utility-classes'; // utility classes
 
 // Layouts
 // @import 'layouts/app';
@@ -11,34 +14,35 @@
 // @import 'layouts/admin/editor';
 
 // Components
-@import '../../components/Button/';
-@import '../../components/Icon/';
-// @import '../../components/Tag/';
-// @import '../../components/Prompt/';
-// @import '../../components/Table/';
-// @import '../../components/Pagination/';
-// @import '../../components/Reference/';
-// @import '../../components/Loader/';
+@import './components/Button/';
+@import './components/Icon/';
+// @import './components/Tag/';
+// @import './components/Prompt/';
+// @import './components/Table/';
+// @import './components/Pagination/';
+// @import './components/Reference/';
+// @import './components/Loader/';
 
-// @import '../../components/Category/';
-// @import '../../components/Category/Nav/';
+// @import './components/Category/';
+// @import './components/Category/Nav/';
 
-// @import '../../components/Form/';
-@import '../../components/Form/Field/';
-@import '../../components/Form/Input/Text/';
-@import '../../components/Form/Input/Search/';
-// @import '../../components/Form/Input/Range/';
-// @import '../../components/Form/Input/Select/';
-// @import '../../components/Form/Dropdown/';
-// @import '../../components/Form/Checkbox/';
-// @import '../../components/Form/MultiSelect/';
-// @import '../../components/Form/RangeSlider/';
-// @import '../../components/Form/FieldSection/';
-// @import '../../components/Form/Note/';
+// @import './components/Form/';
+@import './components/Form/Field/';
+@import './components/Form/Input/Text/';
+@import './components/Form/Input/Search/';
+// @import './components/Form/Input/Range/';
+// @import './components/Form/Input/Select/';
+// @import './components/Form/Dropdown/';
+// @import './components/Form/Checkbox/';
+// @import './components/Form/MultiSelect/';
+// @import './components/Form/RangeSlider/';
+// @import './components/Form/FieldSection/';
+// @import './components/Form/Note/';
 
-// @import '../../components/Page/';
-// @import '../../components/Page/Header/';
-// @import '../../components/Page/Result/';
+// @import './components/Page/';
+@import './components/Page/_header';
+@import './components/Page/_footer';
+// @import './components/Page/Result/';
 
-// @import '../../components/Admin/TextEditor/';
-// @import '../../components/Admin/TextEditor/Modal';
+// @import './components/Admin/TextEditor/';
+// @import './components/Admin/TextEditor/Modal';

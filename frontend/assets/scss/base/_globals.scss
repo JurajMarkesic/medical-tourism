@@ -9,10 +9,6 @@
   color: $white;
 }
 
-:focus {
-  outline: em(5) dotted $button-outline-focus;
-}
-
 html {
   scroll-behavior: smooth;
   --sans-serif: #{$fontface-primary};

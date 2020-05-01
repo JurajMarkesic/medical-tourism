@@ -25,7 +25,7 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#f06' },
+  loading: { color: '#00C7BD' },
   /*
    ** Global CSS
    */
@@ -68,6 +68,9 @@ module.exports = {
 
     // eslint-disable-next-line
     extend(config, ctx) {},
+  },
+  resolve: {
+    extensions: ['.vue'],
   },
 
   auth: {
