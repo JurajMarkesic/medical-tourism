@@ -1,3 +1,25 @@
+:focus {
+  outline: em(2) dotted $black;
+  outline-offset: 0;
+}
+
+[tabindex]:not([tabindex='-1']),
+a,
+button,
+input,
+select,
+textarea {
+  outline: 2px dotted transparent;
+  // transition: outline-offset 0.3s linear; // needs tweaking, later
+}
+[tabindex]:not([tabindex='-1']):focus,
+button:focus,
+input:focus,
+select:focus:focus,
+textarea:focus {
+  outline-offset: em(-4);
+}
+
 .screen-reader-text {
   border: 0;
   clip: rect(0 0 0 0);
@@ -7,4 +29,23 @@
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.webaim-skipto {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 2em;
+  padding: 1rem;
+  background-color: $black;
+  color: $white;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease-in-out, opacity 0.1s ease-in-out;
+  &:focus {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%);
+  }
 }

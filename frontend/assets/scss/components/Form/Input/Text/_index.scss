@@ -5,10 +5,17 @@
     left: auto;
     display: flex;
     padding: em(9);
+    opacity: 1;
+    transform: translateX(0);
+    transition-property: opacity, transform;
+    &.is-focused {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
   }
   &__field {
     font-weight: 700;
-    padding: em(8) em(42);
+    padding: em(8);
     &:hover {
       background-color: $input-bg-hover;
       color: $input-text-hover;

@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $gray-100;
+  padding: em(16);
+  &__title {
+    font-size: $font-size;
+  }
+  &__logo {
+    width: em(90);
+    display: block;
+  }
+}
+
+.logo {
+  &__circle-left {
+    fill: #f06;
+  }
+  &__circle-right {
+    fill: #000;
+  }
+  &__overlap {
+    fill: #888;
+  }
+}

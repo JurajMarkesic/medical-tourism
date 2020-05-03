@@ -7,7 +7,7 @@
 
       <h1 class="header__title">
         <nuxt-link to="/" class="link" title="Go to home page">
-          <svg class="header__logo">
+          <svg class="header__logo" viewBox="0 0 119 86">
             <path
               class="logo__circle-left"
               d="M79.5 79A39.5 39.5 0 1053.67 9.62a39.51 39.51 0 0111.66 66.76A39.4 39.4 0 0079.5 79z"
@@ -22,12 +22,14 @@
         </nuxt-link>
       </h1>
 
+      <HeaderSearchForm />
+
       <nav class="primary-nav" aria-labelledby="primary-nav-label">
         <!-- use aria-labeledby only when you have a label inside, like the one bellow -->
         <div id="primary-nav-label" hidden>Primary</div>
         <ul class="primary-nav__menu">
           <li class="primary-nav__item">
-            <nuxt-link to="/" class="primary-nav__link">Home</nuxt-link>
+            <nuxt-link id="webaim-primary-nav" to="/" class="primary-nav__link">Home</nuxt-link>
           </li>
           <li class="primary-nav__item">
             <nuxt-link to="/about" class="primary-nav__link">About</nuxt-link>
@@ -40,64 +42,17 @@
           </li>
         </ul>
       </nav>
-
-      <form role="search" aria-labelledby="search-label">
-        <div id="search-label" hidden>Site</div>
-        <label>
-          <span class="screen-reader-text">Search</span>
-          <span class="input search">
-            <span class="icon input__icon">
-              <svg class="icon__svg">
-                <path
-                  d="M9.857 3a6.857 6.857 0 015.387 11.1l4.899 4.9L19 20.143l-4.9-4.9A6.857 6.857 0 119.857 3zm0 12.343a5.486 5.486 0 100-10.972 5.486 5.486 0 000 10.972z"
-                />
-              </svg>
-            </span>
-
-            <span class="field">
-              <input type="search" placeholder="Search..." class="input__field" />
-              <span class="field__bottom"></span>
-            </span>
-
-            <button class="button search__button" type="submit">
-              <span class="screen-reader-text">Search</span>
-              <span class="icon search__icon">
-                <svg class="icon__svg button__icon">
-                  <path
-                    d="M9.857 3a6.857 6.857 0 015.387 11.1l4.899 4.9L19 20.143l-4.9-4.9A6.857 6.857 0 119.857 3zm0 12.343a5.486 5.486 0 100-10.972 5.486 5.486 0 000 10.972z"
-                  />
-                </svg>
-              </span>
-            </button>
-          </span>
-        </label>
-      </form>
     </header>
   </div>
 </template>
 
 <script>
+import HeaderSearchForm from '../HeaderSearchForm.vue';
+
 export default {
-  name: 'Header',
+  name: 'TheHeader',
+  components: {
+    HeaderSearchForm,
+  },
 };
 </script>
-
-<style lang="scss">
-.header {
-  &__logo {
-    width: 119px;
-    height: 86px;
-  }
-}
-.logo {
-  &__circle-left {
-    fill: #f06;
-  }
-  &__circle-right {
-    fill: #000;
-  }
-  &__overlap {
-    fill: #888;
-  }
-}
-</style>

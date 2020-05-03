@@ -9,6 +9,9 @@
     background-color: $button-bg-hover;
     color: $button-text-hover;
   }
+  &:focus {
+    outline-color: $white;
+  }
   &__icon {
     fill: $white;
   }
