@@ -1,0 +1,25 @@
+.input {
+  &__icon {
+    position: absolute;
+    top: auto;
+    left: auto;
+    display: flex;
+    padding: xem(9);
+    opacity: 1;
+    transform: translateX(0);
+    transition-property: opacity, transform;
+    &.is-focused {
+      opacity: 0;
+      transform: translateX(-100%);
+    }
+  }
+  &__field {
+    font-weight: 700;
+    padding: xem(8);
+    background-color: $white;
+    &:hover {
+      background-color: $input-bg-hover;
+      color: $input-text-hover;
+    }
+  }
+}

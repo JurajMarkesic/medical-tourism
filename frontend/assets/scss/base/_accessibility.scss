@@ -1,5 +1,5 @@
 :focus {
-  outline: em(2) dotted $black;
+  outline: xem(2) dotted $black;
   outline-offset: 0;
 }
 
@@ -17,7 +17,7 @@ button:focus,
 input:focus,
 select:focus:focus,
 textarea:focus {
-  outline-offset: em(-4);
+  outline-offset: xem(-4);
 }
 
 .screen-reader-text {

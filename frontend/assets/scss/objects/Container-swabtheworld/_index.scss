@@ -1,0 +1,27 @@
+// ==========================================================================
+// Objects / Container - swabtheworld
+// ==========================================================================
+
+.o-container {
+  max-width: rem($container-width + (40px * 2));
+  &.-small {
+    // font-size: 14px;
+    // line-height: 17.5px;
+    // max-width: 498.75px;
+    max-width: 35.625rem; // compiles to this value
+  }
+
+  @media (max-width: $to-medium) {
+    padding-right: rem(20px);
+    padding-left: rem(20px);
+  }
+
+  @media (min-width: $from-medium) {
+    padding-right: rem(40px);
+    padding-left: rem(40px);
+    &.-medium {
+      padding-right: rem(80px);
+      padding-left: rem(80px);
+    }
+  }
+}

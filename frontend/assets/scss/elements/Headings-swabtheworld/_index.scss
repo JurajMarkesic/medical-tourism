@@ -1,0 +1,66 @@
+.o-h {
+  line-height: 1.17;
+  font-weight: $normal;
+  font-weight: $medium;
+}
+
+h1,
+.o-h1 {
+  @extend .o-h;
+  @media (max-width: $to-small) {
+    font-size: xem(40.25);
+  }
+  @media (min-width: $from-small) and (max-width: $to-medium) {
+    font-size: xem(64.4);
+  }
+  @media (min-width: $from-medium) {
+    font-size: xem(80.5);
+  }
+}
+h2,
+.o-h2 {
+  @extend .o-h;
+  @media (max-width: $to-small) {
+    font-size: xem(22.05);
+  }
+  @media (min-width: $from-small) and (max-width: $to-medium) {
+    font-size: xem(50.4);
+  }
+  @media (min-width: $from-medium) {
+    font-size: xem(63);
+  }
+}
+h3,
+.o-h3 {
+  @extend .o-h;
+  @media (max-width: $to-small) {
+    font-size: xem(32);
+  }
+  @media (min-width: $from-small) and (max-width: $to-medium) {
+    font-size: xem(43.4);
+  }
+  @media (min-width: $from-medium) {
+    font-size: 3.5vw;
+  }
+  &.-small {
+    @media (min-width: $from-medium) {
+      font-size: 2.4vw;
+    }
+  }
+}
+
+h4,
+.o-h4 {
+  @extend .o-h;
+  font-size: xem(17.5);
+}
+h5,
+.o-h5 {
+  @extend .o-h;
+  font-size: xem(15.75);
+}
+h6,
+.o-h6 {
+  @extend .o-h;
+  font-size: xem(14);
+}

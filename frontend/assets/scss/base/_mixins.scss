@@ -5,7 +5,7 @@
 // }
 
 // EM formula
-@function em($target, $context: $font-size) {
+@function xem($target, $context: $font-size) {
   @if (type-of($context) == 'number' and not unitless($context)) {
     $context: $context / ($context * 0 + 1);
   }
