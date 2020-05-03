@@ -1,0 +1,54 @@
+.c-pager {
+  text-align: center;
+  ul {
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    margin: xem(35);
+    li {
+      display: inline-block;
+      font-size: 1.125rem;
+      line-height: 1;
+      margin: 0 0.625rem;
+    }
+    a {
+      position: relative;
+      z-index: 1;
+      &:before {
+        content: '';
+        z-index: -1;
+        background-color: #fff;
+        width: 1.875rem;
+        height: 1.875rem;
+        transform: translate3d(-50%, -50%, 0) scale(0);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+      }
+    }
+  }
+}
+
+.c-pager ul a.active:before,
+.c-pager ul a:hover:before,
+li.active .c-pager ul a:before {
+  transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.c-pager_arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  &.-prev {
+    transform: scaleX(-1);
+  }
+  svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}

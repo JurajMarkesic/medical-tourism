@@ -4,45 +4,52 @@
 @import './base/globals'; // contains resets and one-off properties
 @import './base/accessibility'; // accessibility specific
 
+// Tools
+@import './tools/Functions/';
+@import './tools/Mixins/';
+@import './tools/Widths/';
+
+// Generic
+@import './generic/Generic/';
+@import './generic/Form/';
+@import './generic/Media/';
+
+// Elements
+// @import './elements/Headings/';
+@import './elements/Headings-swabtheworld/';
+
+// Components OLD
+@import './componentsold/Button/';
+@import './componentsold/Icon/';
+@import './componentsold/Form/Field/';
+@import './componentsold/Form/Input/Text/';
+@import './componentsold/Form/Input/Search/';
+
+@import './componentsold/Page/_header';
+@import './componentsold/Page/_footer';
+
+// Objects
+@import './objects/Container/';
+@import './objects/Button/';
+@import './objects/Button-Rail/';
+@import './objects/Form/';
+
+@import './objects/Section-swabtheworld/';
+@import './objects/Layout-swabtheworld/';
+// @import './objects/Title/';
+@import './objects/Title-swabtheworld/';
+@import './objects/Label-swabtheworld/';
+
+// Components NEW
+@import './components/Header-Page/';
+@import './components/Filters-swabtheworld/';
+@import './components/Preview-swabtheworld/';
+@import './components/Pager-swabtheworld/';
+
+// Utilities OLD
+@import './utilitiesold/utility-classes'; // utility classes
+
 // Utilities
-@import './utilities/utility-classes'; // utility classes
-
-// Layouts
-// @import 'layouts/app';
-// @import 'layouts/results';
-// @import 'layouts/admin/';
-// @import 'layouts/admin/editor';
-
-// Components
-@import './components/Button/';
-@import './components/Icon/';
-// @import './components/Tag/';
-// @import './components/Prompt/';
-// @import './components/Table/';
-// @import './components/Pagination/';
-// @import './components/Reference/';
-// @import './components/Loader/';
-
-// @import './components/Category/';
-// @import './components/Category/Nav/';
-
-// @import './components/Form/';
-@import './components/Form/Field/';
-@import './components/Form/Input/Text/';
-@import './components/Form/Input/Search/';
-// @import './components/Form/Input/Range/';
-// @import './components/Form/Input/Select/';
-// @import './components/Form/Dropdown/';
-// @import './components/Form/Checkbox/';
-// @import './components/Form/MultiSelect/';
-// @import './components/Form/RangeSlider/';
-// @import './components/Form/FieldSection/';
-// @import './components/Form/Note/';
-
-// @import './components/Page/';
-@import './components/Page/_header';
-@import './components/Page/_footer';
-// @import './components/Page/Result/';
-
-// @import './components/Admin/TextEditor/';
-// @import './components/Admin/TextEditor/Modal';
+@import './utilities/Widths';
+// @import './utilities/Helpers';
+@import './utilities/Helpers-swabtheworld/';

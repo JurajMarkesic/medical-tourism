@@ -1,0 +1,29 @@
+.search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: xem(4);
+  margin-top: xem(-4);
+  pointer-events: none;
+  &__input {
+    padding: xem(8) xem(42);
+  }
+  &__button {
+    position: absolute;
+    top: auto;
+    right: 0;
+    padding: xem(8);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(100%);
+    transition-property: opacity, transform;
+    transition-delay: 0.15s;
+    &.is-focused {
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateX(0);
+      transition-delay: 0.3s;
+    }
+  }
+}

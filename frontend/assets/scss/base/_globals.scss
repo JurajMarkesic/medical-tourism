@@ -12,6 +12,7 @@
 html {
   scroll-behavior: smooth;
   --sans-serif: #{$fontface-primary};
+  word-break: break-word; // breaks words to prevent overflow in all browsers
 }
 
 body {
@@ -26,12 +27,7 @@ img {
 }
 
 input {
-  border: none;
-  background: $white;
-  font-family: $fontface-primary; // Poppins
-  font-size: $font-size;
   line-height: $line-height;
-  box-shadow: inset 0 0 0 em(1) $black;
   &::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
     color: $black;
@@ -59,13 +55,13 @@ button {
   background: transparent;
   cursor: pointer;
   font-family: $fontface-primary; // Poppins
-  font-size: em(16);
-  line-height: em(26);
+  font-size: xem(16);
+  line-height: xem(26);
 }
 
 a {
   color: $black;
-  line-height: em(26);
+  line-height: xem(26);
   &:focus {
     color: $yellow;
   }
