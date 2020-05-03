@@ -135,6 +135,112 @@
       <input hidden class="" type="week" />
       <!-- [end] -->
     </section>
+
+    <section class="cards" style="min-height: 100vh;">
+      <!-- [begin] not used -->
+      <article class="c-card">
+        <div class="c-card__media">
+          <img src="//placedog.net/400/300" />
+        </div>
+        <div class="c-card__body">
+          <div class="c-card__title">
+            <h1 class="o-title">Card title</h1>
+          </div>
+          <div class="c-card__subtitle">Secondary text</div>
+          <div class="c-card__text">
+            Greyhound divisively hello coldly wonderfully marginally far upon excluding.
+          </div>
+        </div>
+      </article>
+      <!-- [end] -->
+
+      <!-- [begin] not used -->
+      <article class="clinic-card">
+        <img
+          data-src="https://res.cloudinary.com/junomedical/image/upload/f_auto,w_350,c_scale,fl_progressive/clinic/liv_team_edited2"
+          alt="Liv Hospital Ulus Istanbul"
+          class="js-lazy"
+          src="https://res.cloudinary.com/junomedical/image/upload/f_auto,w_350,c_scale,fl_progressive/clinic/liv_team_edited2"
+          data-loaded="true"
+        />
+        <div class="clinic-card__title">
+          <h3>Liv Hospital Ulus Istanbul</h3>
+        </div>
+        <div class="clinic-card__details"><span>Istanbul, Turkey</span></div>
+        <div class="clinic-card__reviews">
+          <span class="clinic-card__reviews__subtitle ">FUE Hair Transplant Review</span>
+          <span class="reviews-teaser reviews-teaser--no-extension"
+            >I thought the entire experience was exceptional, I would hihly recommend it. i JUMPED AROUND A BIT BETWEEN
+            DIFFERENT AGENTS, THIS WAS A LITTLE CONFUSING</span
+          >
+          <div class="reviews-author">
+            <span class="font-semibold">Paul C.</span> <span>Canada</span> <span>October 2019</span>
+          </div>
+        </div>
+        <div class="clinic-card__from"><span>Gastric Sleeve from</span></div>
+        <div class="clinic-card__price">
+          <span class="uppercase">PRICE UPON REQUEST</span>
+        </div>
+        <div class="clinic-card__price">
+          <span class="uppercase">Price</span> <span class="clinic-card__price__value">€ 5,850</span>
+        </div>
+        <a class="clinic-card__button">Details</a>
+      </article>
+      <!-- [end] -->
+    </section>
+
+    <section class="cards" style="min-height: 100vh;">
+      <!-- [begin] not used -->
+      <article class="c-card">
+        <div class="c-card__media">
+          <img src="//placedog.net/400/300" />
+        </div>
+        <div class="c-card__body">
+          <div class="c-card__title">
+            <h1 class="o-title">Card title</h1>
+          </div>
+          <div class="c-card__subtitle">Secondary text</div>
+          <div class="c-card__text">
+            Greyhound divisively hello coldly wonderfully marginally far upon excluding.
+          </div>
+        </div>
+      </article>
+      <!-- [end] -->
+
+      <!-- [begin] not used -->
+      <article class="clinic-card">
+        <img
+          data-src="https://res.cloudinary.com/junomedical/image/upload/f_auto,w_350,c_scale,fl_progressive/clinic/liv_team_edited2"
+          alt="Liv Hospital Ulus Istanbul"
+          class="js-lazy"
+          src="https://res.cloudinary.com/junomedical/image/upload/f_auto,w_350,c_scale,fl_progressive/clinic/liv_team_edited2"
+          data-loaded="true"
+        />
+        <div class="clinic-card__title">
+          <h3>Liv Hospital Ulus Istanbul</h3>
+        </div>
+        <div class="clinic-card__details"><span>Istanbul, Turkey</span></div>
+        <div class="clinic-card__reviews">
+          <span class="clinic-card__reviews__subtitle ">FUE Hair Transplant Review</span>
+          <span class="reviews-teaser reviews-teaser--no-extension"
+            >I thought the entire experience was exceptional, I would hihly recommend it. i JUMPED AROUND A BIT BETWEEN
+            DIFFERENT AGENTS, THIS WAS A LITTLE CONFUSING</span
+          >
+          <div class="reviews-author">
+            <span class="font-semibold">Paul C.</span> <span>Canada</span> <span>October 2019</span>
+          </div>
+        </div>
+        <div class="clinic-card__from"><span>Gastric Sleeve from</span></div>
+        <div class="clinic-card__price">
+          <span class="uppercase">PRICE UPON REQUEST</span>
+        </div>
+        <div class="clinic-card__price">
+          <span class="uppercase">Price</span> <span class="clinic-card__price__value">€ 5,850</span>
+        </div>
+        <a class="clinic-card__button">Details</a>
+      </article>
+      <!-- [end] -->
+    </section>
   </div>
 </template>
 
