@@ -1,0 +1,46 @@
+.o-video {
+  position: relative;
+}
+
+.o-video,
+.o-video.-full {
+  width: 100%;
+  overflow: hidden;
+}
+
+.o-video.-full {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+}
+
+.o-video_button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.o-video_media {
+  width: 100%;
+}
+
+@media (max-width: 699px) {
+  .o-video_media {
+    width: calc(100% + 4px);
+    margin-bottom: -4px;
+  }
+}
+
+.o-video.-full .o-video_media {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}

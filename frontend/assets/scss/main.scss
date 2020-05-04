@@ -33,6 +33,7 @@
 @import './objects/Container-swabtheworld/';
 @import './objects/Button/';
 @import './objects/Button-Rail/';
+@import './objects/Button-Round-swabtheworld/';
 @import './objects/Form/';
 
 @import './objects/Section-swabtheworld/';
@@ -40,12 +41,17 @@
 // @import './objects/Title/';
 @import './objects/Title-swabtheworld/';
 @import './objects/Label-swabtheworld/';
+@import './objects/Wysiwyg-swabtheworld/';
+@import './objects/Video-swabtheworld/';
+@import './objects/Shred-swabtheworld/';
 
 // Components NEW
 @import './components/Header-Page/';
 @import './components/Filters-swabtheworld/';
 @import './components/Preview-swabtheworld/';
 @import './components/Pager-swabtheworld/';
+@import './components/Anchor-Nav-swabtheworld/';
+@import './components/Rail-Static-swabtheworld/';
 
 // Utilities OLD
 @import './utilitiesold/utility-classes'; // utility classes
