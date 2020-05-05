@@ -37,6 +37,7 @@
 @import './objects/Form/';
 
 @import './objects/Section-swabtheworld/';
+@import './objects/Icon-custom/';
 @import './objects/Layout-swabtheworld/';
 // @import './objects/Title/';
 @import './objects/Title-swabtheworld/';
@@ -44,6 +45,8 @@
 @import './objects/Wysiwyg-swabtheworld/';
 @import './objects/Video-swabtheworld/';
 @import './objects/Shred-swabtheworld/';
+@import './objects/Image-swabtheworld/';
+@import './objects/Table-swabtheworld/';
 
 // Components NEW
 @import './components/Header-Page/';
@@ -52,6 +55,7 @@
 @import './components/Pager-swabtheworld/';
 @import './components/Anchor-Nav-swabtheworld/';
 @import './components/Rail-Static-swabtheworld/';
+@import './components/Splash-swabtheworld/';
 
 // Utilities OLD
 @import './utilitiesold/utility-classes'; // utility classes

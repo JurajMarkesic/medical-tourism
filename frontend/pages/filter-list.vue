@@ -91,11 +91,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Croatia (Hrvatska), France, Japan</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -120,11 +120,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Lebanon</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -149,11 +149,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Philippines</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -178,11 +178,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Afghanistan, Viet Nam</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -207,11 +207,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — WHITE, BLACK</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -236,11 +236,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Viet Nam</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -268,11 +268,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Philippines</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -297,11 +297,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Philippines</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -326,11 +326,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Syria</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
@@ -355,11 +355,11 @@
 
                         <span class="c-preview_content_info">Ethnicity — Turkey</span>
 
-                        <spa class="c-preview_content_arrow">
+                        <span class="c-preview_content_arrow">
                           <svg viewBox="0 0 20 16.8">
                             <path d="M12,16.8l-1.4-1.4l6-6H0v-2h16.6l-6-6L12,0l7.7,7.7c0.4,0.4,0.4,1,0,1.4L12,16.8z" />
                           </svg>
-                        </spa>
+                        </span>
                       </div>
                     </div>
                   </a>
