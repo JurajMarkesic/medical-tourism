@@ -1,7 +1,7 @@
 import { CacheModule, Global, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PrometheusModule } from '@willsoto/nestjs-prometheus';
+// import { PrometheusModule } from '@willsoto/nestjs-prometheus';
 import * as redisStore from 'cache-manager-redis-store';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -43,7 +43,7 @@ import { UsersModule } from './users/users.module';
       }),
       inject: [ConfigService],
     }),
-    PrometheusModule.register(),
+    // PrometheusModule.register(),
     CommonModule,
     AuthModule,
     UsersModule,
