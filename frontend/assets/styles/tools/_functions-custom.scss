@@ -1,0 +1,7 @@
+// experimantal EM formula
+@function xem($target, $context: $font-size) {
+  @if (type-of($context) == 'number' and not unitless($context)) {
+    $context: $context / ($context * 0 + 1);
+  }
+  @return ($target / $context) * 1em;
+}

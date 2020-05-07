@@ -1,26 +1,10 @@
 <template>
   <div>
-    <header class="header">
+    <header class="c-header">
       <a class="webaim-skipto" href="#webaim-primary-nav">Jump to Primary Navigation</a>
       <a class="webaim-skipto" href="#webaim-secondary-nav">Jump to Secondary Navigation</a>
       <a class="webaim-skipto" href="#webaim-tertiary-nav">Jump to Tertiary Navigation</a>
-
-      <h1 class="header__title">
-        <nuxt-link to="/" class="link" title="Go to home page">
-          <svg class="header__logo" viewBox="0 0 119 86">
-            <path
-              class="logo__circle-left"
-              d="M79.5 79A39.5 39.5 0 1053.67 9.62a39.51 39.51 0 0111.66 66.76A39.4 39.4 0 0079.5 79z"
-            />
-            <path
-              class="logo__circle-right"
-              d="M53.67 9.62a39.51 39.51 0 0011.66 66.77A39.38 39.38 0 0139.5 86 39.5 39.5 0 1153.67 9.6z"
-            />
-            <path class="logo__overlap" d="M65.33 76.38A39.51 39.51 0 0153.67 9.62a39.51 39.51 0 0111.66 66.76z" />
-          </svg>
-          <span class="screen-reader-text">Header title</span>
-        </nuxt-link>
-      </h1>
+      <!-- <div class="c-header_button || js-toggle-button"></div> -->
 
       <HeaderSearchForm />
 
@@ -42,6 +26,25 @@
           </li>
         </ul>
       </nav>
+
+      <h1 class="c-header_title">
+        <nuxt-link to="/" class="c-header_logo" title="Go to home page">
+          <span class="c-header_logo_inner">
+            <svg role="img" viewBox="0 0 119 86">
+              <path
+                class="logo__circle-left"
+                d="M79.5 79A39.5 39.5 0 1053.67 9.62a39.51 39.51 0 0111.66 66.76A39.4 39.4 0 0079.5 79z"
+              />
+              <path
+                class="logo__circle-right"
+                d="M53.67 9.62a39.51 39.51 0 0011.66 66.77A39.38 39.38 0 0139.5 86 39.5 39.5 0 1153.67 9.6z"
+              />
+              <path class="logo__overlap" d="M65.33 76.38A39.51 39.51 0 0153.67 9.62a39.51 39.51 0 0111.66 66.76z" />
+            </svg>
+          </span>
+          <span class="u-screen-reader-text">Name of the company</span>
+        </nuxt-link>
+      </h1>
     </header>
   </div>
 </template>

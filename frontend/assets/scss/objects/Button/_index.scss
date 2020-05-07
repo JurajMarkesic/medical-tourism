@@ -1,6 +1,9 @@
 // ==========================================================================
 // Objects / Buttons
 // ==========================================================================
+//
+// 1. depending on the project, if all buttons are full widht no need for modifier
+
 .o-button {
   position: relative;
   z-index: 1;
@@ -9,8 +12,13 @@
   font-size: xem(24);
   background-color: $black;
   transition: color 0.3s $easing;
-  width: 100%;
+  // width: 100%; /* [1] */
   text-align: left;
+
+  &-fillwidth {
+    /* [1] */
+    width: 100%;
+  }
 
   &::before {
     content: '';

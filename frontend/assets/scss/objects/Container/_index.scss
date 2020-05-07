@@ -21,7 +21,7 @@
 .o-container {
   margin-right: auto;
   margin-left: auto;
-  max-width: rem($container-width + (40px * 2));
+  // max-width: rem($container-width + (40px * 2));
 
   @media (max-width: $to-small) {
     padding-right: 20px;

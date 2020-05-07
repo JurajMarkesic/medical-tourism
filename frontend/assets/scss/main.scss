@@ -1,55 +1,81 @@
+// ==========================================================================
+// Main
+// ==========================================================================
+
+// Settings
+// ==========================================================================
+@import 'settings/config.colors';
+@import 'settings/config';
+
 // Base
-@import './base/mixins'; // magic. needs to be first
-@import './base/variables'; // requires cleanup >> some unused stuff
-@import './base/globals'; // contains resets and one-off properties
-@import './base/accessibility'; // accessibility specific
+// @import './base/mixins'; // magic. needs to be first
+// @import './base/variables'; // requires cleanup >> some unused stuff
+// @import './base/globals'; // contains resets and one-off properties
+// @import './base/accessibility'; // accessibility specific
 
 // Tools
 @import './tools/Functions/';
 @import './tools/Mixins/';
+// @import "tools/fonts";
+// @import "tools/layout";
 @import './tools/Widths/';
+// @import "tools/family";
 
-// Generic
+// Generic *** reset tags
+// @import "node_modules/normalize.css/normalize";
 @import './generic/Generic/';
-@import './generic/Form/';
 @import './generic/Media/';
+@import './generic/Form/';
+// @import "generic/button";
 
 // Elements
 // @import './elements/Headings/';
-@import './elements/Headings-swabtheworld/';
+// @import './elements/Headings-swabtheworld/';
 
 // Components OLD
-@import './componentsold/Button/';
-@import './componentsold/Icon/';
-@import './componentsold/Form/Field/';
-@import './componentsold/Form/Input/Text/';
-@import './componentsold/Form/Input/Search/';
+// @import './componentsold/Button/';
+// @import './componentsold/Icon/';
+// @import './componentsold/Form/Field/';
+// @import './componentsold/Form/Input/Text/';
+// @import './componentsold/Form/Input/Search/';
 
 @import './componentsold/Page/_header';
 @import './componentsold/Page/_footer';
 
 // Objects
 @import './objects/Container/';
-@import './objects/Button/';
-@import './objects/Button-Rail/';
-@import './objects/Form/';
+// @import './objects/Container-swabtheworld/';
+@import './objects/Button/'; // O K
+// @import './objects/Button-Rail-swabtheworld/';
+// @import './objects/Button-Round-swabtheworld/';
+@import './objects/Form/'; // O K
 
-@import './objects/Section-swabtheworld/';
-@import './objects/Layout-swabtheworld/';
+// @import './objects/Section-swabtheworld/';
+// @import './objects/Icon-custom/';
+@import './objects/Layout/'; // O K
+// @import './objects/Layout-swabtheworld/';
 // @import './objects/Title/';
-@import './objects/Title-swabtheworld/';
-@import './objects/Label-swabtheworld/';
+// @import './objects/Title-swabtheworld/';
+// @import './objects/Label-swabtheworld/';
+// @import './objects/Wysiwyg-swabtheworld/';
+// @import './objects/Video-swabtheworld/';
+// @import './objects/Shred-swabtheworld/';
+// @import './objects/Image-swabtheworld/';
+// @import './objects/Table-swabtheworld/';
 
 // Components NEW
-@import './components/Header-Page/';
-@import './components/Filters-swabtheworld/';
-@import './components/Preview-swabtheworld/';
-@import './components/Pager-swabtheworld/';
+// @import './components/Header-Page/';
+// @import './components/Filters-swabtheworld/';
+// @import './components/Preview-swabtheworld/';
+// @import './components/Pager-swabtheworld/';
+// @import './components/Anchor-Nav-swabtheworld/';
+// @import './components/Rail-Static-swabtheworld/';
+// @import './components/Splash-swabtheworld/';
 
 // Utilities OLD
-@import './utilitiesold/utility-classes'; // utility classes
+// @import './utilitiesold/utility-classes'; // utility classes
 
 // Utilities
-@import './utilities/Widths';
+// @import './utilities/Widths';
 // @import './utilities/Helpers';
-@import './utilities/Helpers-swabtheworld/';
+// @import './utilities/Helpers-swabtheworld/';

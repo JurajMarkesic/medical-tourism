@@ -1,18 +1,19 @@
-// ==========================================================================
-// Objects / Buttons (special)
-// ==========================================================================
 .o-button-rail {
   background-color: $white;
-  width: 15rem;
+  // width: 15rem;
+  width: xem(270);
   white-space: nowrap;
   line-height: 1;
   text-transform: uppercase;
-  font-size: 0;
-  padding: 1.875rem 0;
+  // font-size: 0;
+  // padding: 1.875rem 0;
+  padding: xem(32) 0;
   overflow: hidden;
   position: relative;
   z-index: 1;
-  display: inline-block;
+  // display: inline-block;
+  display: inline-flex;
+
   &:before {
     content: '';
     position: absolute;
@@ -40,7 +41,8 @@
 // elements
 
 .o-button-rail_label {
-  padding-right: 3.75rem;
+  // padding-right: 3.75rem;
+  padding-right: xem(68);
   animation: buttonRail 3s linear infinite;
   display: inline-block;
   font-size: 1rem;

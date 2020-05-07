@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-wrapper" :class="{ 'is-ready': isReady }">
     <TheHeader />
     <nuxt />
     <TheFooter />
@@ -14,6 +14,19 @@ export default {
   components: {
     TheHeader,
     TheFooter,
+  },
+  data() {
+    return {
+      isReady: false,
+    };
+  },
+  mounted() {
+    setTimeout(this.pageLoaded, 0);
+  },
+  methods: {
+    pageLoaded() {
+      this.isReady = true;
+    },
   },
 };
 </script>

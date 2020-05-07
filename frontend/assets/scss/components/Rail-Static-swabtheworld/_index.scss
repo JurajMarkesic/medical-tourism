@@ -1,0 +1,42 @@
+.c-rail-static {
+  white-space: nowrap;
+  font-size: 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid #5fecc8;
+  border-bottom: 1px solid #5fecc8;
+  transform: translateZ(0);
+  &.-slow .c-rail-static_item {
+    animation: railStatic 6s linear infinite;
+    animation-play-state: paused;
+  }
+}
+
+.c-rail-static_label {
+  font-size: 2.375rem;
+  padding-right: 5rem;
+  display: inline-block;
+}
+
+.c-rail-static_item {
+  display: inline-block;
+  animation: railStatic 3s linear infinite;
+  animation-play-state: paused;
+}
+
+.c-rail-static.is-show .c-rail-static.-slow .c-rail-static_item,
+.c-rail-static.is-show .c-rail-static_item {
+  animation-play-state: running;
+}
+
+@keyframes railStatic {
+  0% {
+    transform: translateZ(0);
+  }
+  to {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.c-splash .c-rail-static {
+  border-color: #fff;
+}
