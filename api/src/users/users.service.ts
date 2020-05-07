@@ -29,6 +29,7 @@ export class UsersService {
 
     users = await this.usersRepository.find();
     this.cacheStore.set('all_users', users, { ttl: 20 });
+
     this.logger.log('Querying all users!');
     return users;
   }
