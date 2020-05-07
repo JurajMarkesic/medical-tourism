@@ -74,15 +74,20 @@ module.exports = {
   },
 
   auth: {
-    redirect: false,
+    redirect: {
+      login: '/',
+    },
     strategies: {
       local: {
         endpoints: {
           login: { url: '/auth/login', method: 'post', propertyName: 'accessToken' },
           user: { url: '/auth/me', method: 'get', propertyName: false },
-          logout: false,
+          logout: '/',
         },
       },
+    },
+    cookie: {
+      maxAge: 3599,
     },
   },
 };
