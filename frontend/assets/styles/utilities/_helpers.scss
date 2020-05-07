@@ -76,8 +76,8 @@
 // }
 
 /**
-* Completely remove from the flow but leave available to screen readers.
-*/
+ * Completely remove from the flow but leave available to screen readers.
+ */
 .u-screen-reader-text {
   @include u-accessibly-hidden;
 }
@@ -89,12 +89,12 @@
 }
 
 /*
-* Extends the `.screen-reader-text` class to allow the element
-* to be focusable when navigated to via the keyboard.
-*
-* @link https://www.drupal.org/node/897638
-* @todo Define styles when focused.
-*/
+ * Extends the `.screen-reader-text` class to allow the element
+ * to be focusable when navigated to via the keyboard.
+ *
+ * @link https://www.drupal.org/node/897638
+ * @todo Define styles when focused.
+ */
 .u-screen-reader-text.-focusable {
   @include u-accessibly-focusable;
 }

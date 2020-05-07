@@ -1,22 +1,22 @@
 // ==========================================================================
 // Objects / Buttons
 // ==========================================================================
-//
-// 1. depending on the project, if all buttons are full widht no need for modifier
-
 .o-button {
   position: relative;
   z-index: 1;
   color: white;
-  padding: xem(32) xem(35);
-  font-size: xem(24);
+  // padding: rem(32px) rem(35px);
+  // font-size: rem(24px);
   background-color: $black;
   transition: color 0.3s $easing;
-  // width: 100%; /* [1] */
+  //   width: 100%;
   text-align: left;
 
-  &-fillwidth {
-    /* [1] */
+  &.-padding {
+    padding: xem(32) xem(35);
+  }
+
+  &.-fullwidth {
     width: 100%;
   }
 
@@ -47,10 +47,11 @@
 .o-button_icon {
   display: inline-block;
   vertical-align: middle;
-  width: xem(20, 24);
-  height: xem(20, 24);
-  //   margin-right: xem($unit / 4);
-  margin-right: 15px; // TEMP
+  // width: rem(55px);
+  // height: rem(55px);
+  // margin-right: rem($unit / 4);
+  width: xem(24);
+  height: xem(24);
 
   svg {
     display: block;
@@ -62,6 +63,6 @@
 .o-button_arrow {
   position: absolute;
   top: 50%;
-  right: xem(35);
+  right: rem(35px);
   transform: translateY(-50%);
 }
