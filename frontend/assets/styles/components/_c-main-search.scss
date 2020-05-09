@@ -37,8 +37,6 @@
 
 .c-main-search_controls_wrapper {
   display: block;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
   opacity: 0;
   transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -47,7 +45,9 @@
   position: relative;
   display: flex;
   // align-items: center;
-  transform: translateY(-100%);
+  padding-top: xem(64, 28);
+  padding-bottom: xem(64, 28);
+  transform: translateY(-100%) skew(3deg, -3deg);
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
