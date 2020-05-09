@@ -7,4 +7,8 @@ export class CreateDto {
   })
   @IsNotEmpty()
   name: string;
+  @IsNotEmpty()
+  role: string;
+  @IsNotEmpty()
+  description: string;
 }

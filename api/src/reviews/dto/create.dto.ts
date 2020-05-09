@@ -7,4 +7,10 @@ export class CreateDto {
   })
   @IsNotEmpty()
   name: string;
+
+  @IsNotEmpty()
+  body: string;
+
+  @IsNotEmpty()
+  rating: boolean;
 }

@@ -9,4 +9,10 @@ export class Review {
 
   @Column({ length: 255 })
   name: string;
+
+  @Column({ type: 'text' })
+  body: string;
+
+  @Column()
+  rating: boolean;
 }
