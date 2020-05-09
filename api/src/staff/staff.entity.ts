@@ -9,4 +9,10 @@ export class Staff {
 
   @Column({ length: 255 })
   name: string;
+
+  @Column({ length: 255 })
+  role: string;
+
+  @Column({ type: 'text' })
+  description: string;
 }
