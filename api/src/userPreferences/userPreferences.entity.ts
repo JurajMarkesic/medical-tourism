@@ -1,9 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({
-  name: 'preferences',
+  name: 'userPreferences',
 })
-export class Preference {
+export class UserPreferences {
   @PrimaryGeneratedColumn()
   id: number;
 

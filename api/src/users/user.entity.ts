@@ -1,5 +1,7 @@
 import { Exclude } from 'class-transformer';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Clinic } from '../clinics/clinic.entity';
+import { UserPreferences } from '../userPreferences/userPreferences.entity';
 import { PasswordTransformer } from './password.transformer';
 
 // test comment
@@ -18,6 +20,16 @@ export class User {
 
   @Column({ length: 255 })
   email: string;
+
+  @OneToMany(
+    type => Clinic,
+    clinic => clinic.user,
+  )
+  clinics: Clinic[];
+
+  @OneToOne(type => UserPreferences)
+  @JoinColumn()
+  preferences: UserPreferences;
 
   @Column({
     name: 'password',

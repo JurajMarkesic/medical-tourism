@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Clinic } from '../clinics/clinic.entity';
 
 @Entity({
   name: 'reviews',
@@ -15,4 +16,10 @@ export class Review {
 
   @Column()
   rating: boolean;
+
+  @ManyToOne(
+    type => Clinic,
+    clinic => clinic.reviews,
+  )
+  clinic: Clinic;
 }

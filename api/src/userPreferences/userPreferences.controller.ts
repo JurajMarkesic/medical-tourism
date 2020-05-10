@@ -1,17 +1,17 @@
 import { Body, CacheInterceptor, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateDto } from './dto';
-import { PreferencesService } from './preferences.service';
+import { UserPreferencesService } from './userPreferences.service';
 
-@Controller('preferences')
+@Controller('userPreferences')
 @UseInterceptors(CacheInterceptor)
-@ApiTags('preferences')
-export class PreferencesController {
-  constructor(private readonly preferencesService: PreferencesService) {}
+@ApiTags('userPreferences')
+export class UserPreferencesController {
+  constructor(private readonly userPreferencesService: UserPreferencesService) {}
 
   @Get()
   findAll() {
-    return this.preferencesService.getAll();
+    return this.userPreferencesService.getAll();
   }
 
   @Post()
@@ -19,6 +19,6 @@ export class PreferencesController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   register(@Body() payload: CreateDto): Promise<any> {
-    return this.preferencesService.create(payload);
+    return this.userPreferencesService.create(payload);
   }
 }
