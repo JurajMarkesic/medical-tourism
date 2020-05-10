@@ -39,81 +39,81 @@
 //
 
 .o-layout {
-    @include o-layout;
+  @include o-layout;
 
-    // Gutter modifiers
-    &.-gutter {
-        margin-left: rem(-$unit);
-    }
+  // Gutter modifiers
+  &.-gutter {
+    margin-left: rem(-$unit);
+  }
 
-    &.-gutter-small {
-        margin-left: rem(-$unit/2);
-    }
+  &.-gutter-small {
+    margin-left: rem(-$unit/2);
+  }
 
-    // Horizontal aligment modifiers
-    &.-center {
-        text-align: center;
-    }
+  // Horizontal aligment modifiers
+  &.-center {
+    text-align: center;
+  }
 
-    &.-right {
-        text-align: right;
-    }
+  &.-right {
+    text-align: right;
+  }
 
-    &.-reverse {
-        direction: rtl;
-
-        &.-flex {
-            flex-direction: row-reverse;
-        }
-    }
+  &.-reverse {
+    direction: rtl;
 
     &.-flex {
-         display: flex;
+      flex-direction: row-reverse;
+    }
+  }
 
-         &.-top {
-            align-items: flex-start;
-         }
-         &.-middle {
-            align-items: center;
-         }
-         &.-bottom {
-            align-items: flex-end;
-         }
+  &.-flex {
+    display: flex;
+
+    &.-top {
+      align-items: flex-start;
     }
-    &.-stretch {
-        align-items: stretch;
+    &.-middle {
+      align-items: center;
     }
+    &.-bottom {
+      align-items: flex-end;
+    }
+  }
+  &.-stretch {
+    align-items: stretch;
+  }
 }
 
 .o-layout_item {
-    @include o-layout_item;
+  @include o-layout_item;
 
-    // Gutter modifiers
-    .o-layout.-gutter > & {
-        padding-left: rem($unit);
-    }
+  // Gutter modifiers
+  .o-layout.-gutter > & {
+    padding-left: rem($unit);
+  }
 
-    .o-layout.-gutter-small > & {
-        padding-left: rem($unit/2);
-    }
+  .o-layout.-gutter-small > & {
+    padding-left: rem($unit/2);
+  }
 
-    // Vertical alignment modifiers
-    .o-layout.-middle > & {
-        vertical-align: middle;
-    }
+  // Vertical alignment modifiers
+  .o-layout.-middle > & {
+    vertical-align: middle;
+  }
 
-    .o-layout.-bottom > & {
-        vertical-align: bottom;
-    }
+  .o-layout.-bottom > & {
+    vertical-align: bottom;
+  }
 
-    // Horizontal aligment modifiers
-    .o-layout.-center > &,
-    .o-layout.-right > &,
-    .o-layout.-reverse > & {
-        text-align: left;
-    }
+  // Horizontal aligment modifiers
+  .o-layout.-center > &,
+  .o-layout.-right > &,
+  .o-layout.-reverse > & {
+    text-align: left;
+  }
 
-    .o-layout.-reverse > & {
-        direction: ltr;
-    }
+  .o-layout.-reverse > & {
+    direction: ltr;
+  }
 }

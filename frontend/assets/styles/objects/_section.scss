@@ -1,0 +1,16 @@
+.o-section {
+  position: relative;
+
+  @media (max-width: $to-large) {
+    padding-bottom: 10vh;
+    margin-bottom: 10vh;
+  }
+
+  @media (min-width: $from-large) {
+    margin-bottom: 35vh;
+  }
+
+  &.-padding-top {
+    padding-top: xem(90);
+  }
+}

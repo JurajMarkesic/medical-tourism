@@ -16,7 +16,7 @@
             <nuxt-link id="webaim-primary-nav" to="/" class="c-primary-nav_link">Home</nuxt-link>
           </li>
           <li class="c-primary-nav_item">
-            <nuxt-link to="/about" class="c-primary-nav_link">About</nuxt-link>
+            <nuxt-link to="/clinics" class="c-primary-nav_link">Clinics</nuxt-link>
           </li>
           <li class="c-primary-nav_item">
             <nuxt-link to="/blog" class="c-primary-nav_link">Blog</nuxt-link>
