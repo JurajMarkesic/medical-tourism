@@ -25,10 +25,15 @@ $input-icon-color: 424242; // No #
 
   &:focus {
     border-color: gray;
+    &::placeholder {
+      letter-spacing: 0.15em;
+      font-weight: 400;
+    }
   }
 
   &::placeholder {
     color: gray;
+    transition: letter-spacing 0.3s $Power2EaseOut;
   }
 }
 

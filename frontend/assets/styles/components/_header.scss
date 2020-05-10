@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  // align-items: center;
   background: $gray-100;
 }
 .c-header_logo {
@@ -11,6 +11,7 @@
 
 .c-header_logo_inner {
   display: block;
+  height: 100%;
   transform: translateY(100%);
   transition: transform 0.3s $Power2EaseOut;
 
@@ -35,14 +36,11 @@
   }
 }
 
-.logo {
-  &__circle-left {
-    fill: rgb(28, 147, 245);
+.c-logo {
+  &_m {
+    fill: #00c7bd;
   }
-  &__circle-right {
-    fill: rgb(144, 123, 235);
-  }
-  &__overlap {
-    fill: rgb(255, 255, 255);
+  &_plus {
+    fill: #fff;
   }
 }
