@@ -40,6 +40,7 @@
 @import 'objects/form';
 @import 'objects/button';
 @import 'objects/icon';
+@import 'objects/section';
 // @import 'objects/scroll';
 @import 'objects/title';
 @import 'objects/image';
@@ -88,3 +89,6 @@
 // ==========================================================================
 @import 'components/c-main-search';
 @import 'components/c-primary-nav';
+@import 'components/c-filters';
+@import 'components/c-preview';
+@import 'components/c-pager';
