@@ -7,4 +7,10 @@ export class CreateDto {
   })
   @IsNotEmpty()
   name: string;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  clinic: number;
 }

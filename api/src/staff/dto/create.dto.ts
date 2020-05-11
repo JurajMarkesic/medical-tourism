@@ -7,8 +7,21 @@ export class CreateDto {
   })
   @IsNotEmpty()
   name: string;
+
+  @ApiProperty({
+    required: true,
+  })
   @IsNotEmpty()
   role: string;
-  @IsNotEmpty()
+
+  @ApiProperty({
+    required: false,
+  })
   description: string;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  clinic: number;
 }

@@ -15,7 +15,7 @@ export class Review {
   body: string;
 
   @Column()
-  rating: boolean;
+  stars: number;
 
   @ManyToOne(
     type => Clinic,

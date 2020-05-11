@@ -7,4 +7,9 @@ export class CreateDto {
   })
   @IsNotEmpty()
   name: string;
+
+  @ApiProperty({
+    required: false,
+  })
+  parent?: number;
 }
