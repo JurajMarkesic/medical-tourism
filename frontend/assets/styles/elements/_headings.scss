@@ -3,8 +3,8 @@
 // ==========================================================================
 
 @mixin h {
-    margin-top: 0;
-    line-height: $line-height-h;
+  margin-top: 0;
+  line-height: $line-height-h;
 }
 
 //
@@ -15,10 +15,16 @@
 //
 //
 .o-h {
-    @include h;
-    margin-bottom: 0;
-    line-height: 1;
-    font-weight: $normal;
+  @include h;
+  margin-bottom: 0;
+  line-height: 1;
+  font-weight: $normal;
+}
+
+.-no-style {
+  font-size: 1em;
+  // font-weight:400;
+  // line-height: normal;
 }
 
 //
@@ -30,52 +36,58 @@
 //   <h2 class="o-h1"></h2>
 //
 //
-h1, .o-h1 {
-    @extend .o-h;
+h1,
+.o-h1 {
+  @extend .o-h;
 
-    line-height: 0.9;
-    text-transform: uppercase;
+  line-height: 0.9;
+  text-transform: uppercase;
 
-    @media (max-width: $to-small) {
-        font-size: 12vw;
-    }
+  @media (max-width: $to-small) {
+    font-size: 12vw;
+  }
 
-    @media (min-width: $from-small) and (max-width: $to-huge) {
-        font-size: $font-size-h1;
-    }
+  @media (min-width: $from-small) and (max-width: $to-huge) {
+    font-size: $font-size-h1;
+  }
 
-    @media (min-width: $from-huge) {
-        font-size: 12vw;
-    }
+  @media (min-width: $from-huge) {
+    font-size: 12vw;
+  }
 }
 
-h2, .o-h2 {
-    @extend .o-h;
+h2,
+.o-h2 {
+  @extend .o-h;
 
-    font-size: rem($font-size-h2);
+  font-size: rem($font-size-h2);
 }
 
-h3, .o-h3 {
-    @extend .o-h;
+h3,
+.o-h3 {
+  @extend .o-h;
 
-    font-size: rem($font-size-h3);
+  font-size: rem($font-size-h3);
 }
 
-h4, .o-h4 {
-    @extend .o-h;
-    line-height: 1.2;
+h4,
+.o-h4 {
+  @extend .o-h;
+  line-height: 1.2;
 
-    font-size: rem($font-size-h4);
+  font-size: rem($font-size-h4);
 }
 
-h5, .o-h5 {
-    @extend .o-h;
+h5,
+.o-h5 {
+  @extend .o-h;
 
-    font-size: rem($font-size-h5);
+  font-size: rem($font-size-h5);
 }
 
-h6, .o-h6 {
-    @extend .o-h;
+h6,
+.o-h6 {
+  @extend .o-h;
 
-    font-size: rem($font-size-h6);
+  font-size: rem($font-size-h6);
 }
