@@ -1,18 +1,9 @@
-import {
-  Column,
-  Entity,
-  JoinColumn,
-  JoinTable,
-  ManyToMany,
-  ManyToOne,
-  OneToMany,
-  OneToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Amenity } from '../amenities/amenities.entity';
 import { City } from '../cities/cities.entity';
 import { ClinicPreferences } from '../clinicPreferences/clinicPreferences.entity';
 import { Review } from '../reviews/reviews.entity';
+import { Staff } from '../staff/staff.entity';
 import { Treatment } from '../treatments/treatments.entity';
 import { User } from '../users/user.entity';
 
@@ -30,7 +21,6 @@ export class Clinic {
   address: string;
 
   @OneToOne(type => ClinicPreferences)
-  @JoinColumn()
   preferences: ClinicPreferences;
 
   @ManyToOne(
@@ -56,6 +46,12 @@ export class Clinic {
     treatment => treatment.clinic,
   )
   treatments: Treatment[];
+
+  @OneToMany(
+    type => Staff,
+    staff => staff.clinic,
+  )
+  staff: Staff[];
 
   @ManyToMany(type => Amenity)
   @JoinTable()
