@@ -1,5 +1,5 @@
 import { Exclude } from 'class-transformer';
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Clinic } from '../clinics/clinic.entity';
 import { UserPreferences } from '../userPreferences/userPreferences.entity';
 import { PasswordTransformer } from './password.transformer';
@@ -28,7 +28,6 @@ export class User {
   clinics: Clinic[];
 
   @OneToOne(type => UserPreferences)
-  @JoinColumn()
   preferences: UserPreferences;
 
   @Column({

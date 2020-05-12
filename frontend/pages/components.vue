@@ -104,6 +104,20 @@
         </label>
         <!-- [end] -->
 
+        <!-- [begin] RADIO INPUT -->
+        <div class="radio-toggle">
+          <input id="id-vanilla" class="o-radio" type="radio" name="choose-ice-cream" />
+          <label class="o-radio-label" for="id-vanilla">
+            <span class="o-radio-label_text">vanilla</span>
+          </label>
+
+          <input id="id-chocolate" class="o-radio" type="radio" name="choose-ice-cream" />
+          <label class="o-radio-label" for="id-chocolate">
+            <span class="o-radio-label_text">chocolate</span>
+          </label>
+        </div>
+        <!-- [end] -->
+
         <!-- [begin] E-MAIL INPUT -->
         <label class="o-label" for="id-email">E-mail (label)</label>
         <input id="id-email" class="o-input" type="email" />

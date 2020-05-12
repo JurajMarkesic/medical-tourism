@@ -17,7 +17,7 @@
       &:before {
         content: '';
         z-index: -1;
-        background-color: #fff;
+        background-color: #00c7bd;
         width: 1.875rem;
         height: 1.875rem;
         transform: translate3d(-50%, -50%, 0) scale(0);
@@ -27,6 +27,9 @@
         left: 50%;
         display: block;
         transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+      }
+      &.active {
+        color: white;
       }
     }
   }

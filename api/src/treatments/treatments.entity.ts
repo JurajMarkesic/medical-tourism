@@ -15,6 +15,9 @@ export class Treatment {
   @Column()
   price: number;
 
+  @Column({ type: 'text' })
+  description: string;
+
   @ManyToOne(
     type => Clinic,
     clinic => clinic.treatments,

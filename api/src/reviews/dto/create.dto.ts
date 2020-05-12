@@ -8,9 +8,21 @@ export class CreateDto {
   @IsNotEmpty()
   name: string;
 
+  @ApiProperty({
+    required: true,
+  })
   @IsNotEmpty()
   body: string;
 
+  @ApiProperty({
+    required: true,
+  })
   @IsNotEmpty()
-  rating: boolean;
+  starts: number;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  clinic: number;
 }

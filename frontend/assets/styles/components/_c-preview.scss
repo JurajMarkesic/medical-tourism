@@ -3,7 +3,7 @@
     max-width: xem(787.5);
   }
   @media (min-width: $from-small) {
-    max-width: 85%;
+    // max-width: 85%;
     margin: 0 auto;
   }
 }
@@ -13,7 +13,7 @@
   display: block;
   margin-bottom: xem(70);
   &:hover {
-    .c-preview_content {
+    .c-preview_body {
       color: #fff;
       &:before {
         transform: scaleX(1);
@@ -38,13 +38,13 @@
   background-position: 50%;
 }
 
-.c-preview_content {
-  padding: xem(17.5);
+.c-preview_body {
+  padding: xem(16);
+  //   padding: 5%; // 5% of preview card width
   background-color: #fff;
-  height: xem(160);
   z-index: 1;
   position: relative;
-  transition: color 0.3s cubic-bezier(0.4, 0, 0, 1);
+  transition: color 0.3s $easing;
   &:before {
     content: '';
     position: absolute;
@@ -52,25 +52,26 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #3c6d79;
+    background-color: #00c7bd;
     z-index: -1;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0, 1);
+    transition: transform 0.3s $easing;
     transform-origin: center bottom;
     transform: scaleY(0);
   }
 }
 
-.c-preview_content_inner {
-  position: relative;
-  height: 100%;
-  transform: translateZ(0);
+// .c-preview_body_inner {
+//   position: relative;
+//   height: 100%;
+//   transform: translateZ(0);
+// }
+
+.c-preview_title {
+  //   width: 80%;
+  font-size: xem(36);
 }
 
-.c-preview_content_title {
-  width: 80%;
-}
-
-.c-preview_content_arrow {
+.c-preview_arrow {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -79,24 +80,24 @@
   width: 1.25rem;
 }
 
-.c-preview_content_arrow svg {
+.c-preview_arrow svg {
   display: block;
   width: 100%;
   height: 100%;
 }
 
-.c-preview_content_info,
-.c-preview_content_type {
+.c-preview_info,
+.c-preview_type {
   font-size: 0.875rem;
 }
 
-.c-preview_content_type {
+.c-preview_type {
   position: absolute;
   top: 0;
   right: 0;
 }
 
-.c-preview_content_info {
+.c-preview_info {
   position: absolute;
   bottom: 0;
   left: 0;
