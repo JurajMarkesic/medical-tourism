@@ -27,6 +27,9 @@ export class Treatment {
   @ManyToOne(
     type => Category,
     Category => Category.treatments,
+    {
+      eager: true,
+    },
   )
   category: Category;
 }

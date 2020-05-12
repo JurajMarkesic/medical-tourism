@@ -1,1 +1,2 @@
-export { CreateDto } from './create.dto';
+export { CategoryCreateDto } from './create.dto';
+

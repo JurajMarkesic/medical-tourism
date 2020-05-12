@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { City } from './cities.entity';
-import { CreateDto } from './dto';
+import { CityCreateDto } from './dto';
 
 @Injectable()
 export class CitiesService {
@@ -41,7 +41,7 @@ export class CitiesService {
       .getOne();
   }
 
-  async create(payload: CreateDto): Promise<City> {
+  async create(payload: CityCreateDto): Promise<City> {
     const oldCity = await this.getByName(payload.name);
 
     if (oldCity) {

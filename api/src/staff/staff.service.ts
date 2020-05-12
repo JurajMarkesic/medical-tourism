@@ -2,46 +2,46 @@ import { CacheStore, CACHE_MANAGER, Inject, Injectable, NotAcceptableException }
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
-import { CreateDto } from './dto';
+import { StaffCreateDto } from './dto';
 import { Staff } from './staff.entity';
 
 @Injectable()
 export class StaffsService {
   constructor(
     @InjectRepository(Staff)
-    private readonly staffsRepository: Repository<Staff>,
+    private readonly staffRepository: Repository<Staff>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
   ) {}
 
   async getAll() {
-    let staffs = await this.cacheStore.get('all_staffs');
+    let staff = await this.cacheStore.get('all_staff');
 
-    if (staffs) {
-      this.logger.log('Getting all staffs from cache.');
-      return staffs;
+    if (staff) {
+      this.logger.log('Getting all staff from cache.');
+      return staff;
     }
 
-    staffs = await this.staffsRepository.find();
-    this.cacheStore.set('all_staffs', staffs, { ttl: 20 });
+    staff = await this.staffRepository.find();
+    this.cacheStore.set('all_staff', staff, { ttl: 20 });
 
-    this.logger.log('Querying all staffs!');
-    return staffs;
+    this.logger.log('Querying all staff!');
+    return staff;
   }
 
   async get(id: number): Promise<Staff> {
-    return this.staffsRepository.findOne(id);
+    return this.staffRepository.findOne(id);
   }
 
   async getByName(name: string) {
-    return await this.staffsRepository
-      .createQueryBuilder('staffs')
-      .where('staffs.name = :name')
+    return await this.staffRepository
+      .createQueryBuilder('staff')
+      .where('staff.name = :name')
       .setParameter('name', name)
       .getOne();
   }
 
-  async create(payload: CreateDto): Promise<Staff> {
+  async create(payload: StaffCreateDto): Promise<Staff> {
     const oldStaff = await this.getByName(payload.name);
 
     if (oldStaff) {
@@ -49,6 +49,6 @@ export class StaffsService {
     }
 
     //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.staffsRepository.save(this.staffsRepository.create(payload));
+    return await this.staffRepository.save(this.staffRepository.create(payload));
   }
 }

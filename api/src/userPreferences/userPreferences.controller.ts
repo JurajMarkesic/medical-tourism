@@ -1,6 +1,6 @@
 import { Body, CacheInterceptor, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { CreateDto } from './dto';
+import { UserPreferencesCreateDto } from './dto';
 import { UserPreferencesService } from './userPreferences.service';
 
 @Controller('userPreferences')
@@ -18,7 +18,7 @@ export class UserPreferencesController {
   @ApiResponse({ status: 201, description: 'Successful Registration' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  register(@Body() payload: CreateDto): Promise<any> {
+  register(@Body() payload: UserPreferencesCreateDto): Promise<any> {
     return this.userPreferencesService.create(payload);
   }
 }

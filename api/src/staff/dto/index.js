@@ -1,1 +1,2 @@
-export { CreateDto } from './create.dto';
+export { StaffCreateDto } from './create.dto';
+
