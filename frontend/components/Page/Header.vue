@@ -24,6 +24,9 @@
           <li class="c-primary-nav_item">
             <nuxt-link to="/contact" class="c-primary-nav_link">Contact</nuxt-link>
           </li>
+          <li class="c-primary-nav_item">
+            <button class="c-primary-nav_link">Login</button>
+          </li>
         </ul>
       </nav>
 

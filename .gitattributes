@@ -2,3 +2,4 @@
 Dockerfile  eol=lf
 *.sh        eol=lf
 *.vue       eol=lf
+*.js        eol=lf
