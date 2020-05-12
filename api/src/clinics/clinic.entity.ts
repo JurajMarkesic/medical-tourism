@@ -20,40 +20,63 @@ export class Clinic {
   @Column({ length: 500 })
   address: string;
 
-  @OneToOne(type => ClinicPreferences)
+  @OneToOne(
+    type => ClinicPreferences,
+    preferences => preferences.clinic,
+    {
+      eager: true,
+    },
+  )
   preferences: ClinicPreferences;
 
   @ManyToOne(
     type => User,
     user => user.clinics,
+    {
+      eager: true,
+    },
   )
   user: User;
 
   @ManyToOne(
     type => City,
     city => city.clinics,
+    {
+      eager: true,
+    },
   )
   city: City;
 
   @OneToMany(
     type => Review,
     review => review.clinic,
+    {
+      eager: true,
+    },
   )
   reviews: Review[];
 
   @OneToMany(
     type => Treatment,
     treatment => treatment.clinic,
+    {
+      eager: true,
+    },
   )
   treatments: Treatment[];
 
   @OneToMany(
     type => Staff,
     staff => staff.clinic,
+    {
+      eager: true,
+    },
   )
   staff: Staff[];
 
-  @ManyToMany(type => Amenity)
+  @ManyToMany(type => Amenity, {
+    eager: true,
+  })
   @JoinTable()
   amenities: Amenity[];
 }

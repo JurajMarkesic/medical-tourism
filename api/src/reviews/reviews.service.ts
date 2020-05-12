@@ -2,7 +2,7 @@ import { CacheStore, CACHE_MANAGER, Inject, Injectable, NotAcceptableException }
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
-import { CreateDto } from './dto';
+import { ReviewCreateDto } from './dto';
 import { Review } from './reviews.entity';
 
 @Injectable()
@@ -41,7 +41,7 @@ export class ReviewsService {
       .getOne();
   }
 
-  async create(payload: CreateDto): Promise<Review> {
+  async create(payload: ReviewCreateDto): Promise<Review> {
     const oldReview = await this.getByName(payload.name);
 
     if (oldReview) {

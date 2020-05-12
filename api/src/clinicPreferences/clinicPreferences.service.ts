@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { ClinicPreferences } from './clinicPreferences.entity';
-import { CreateDto } from './dto';
+import { ClinicPreferencesCreateDto } from './dto';
 
 @Injectable()
 export class ClinicPreferencesService {
@@ -41,7 +41,7 @@ export class ClinicPreferencesService {
       .getOne();
   }
 
-  async create(payload: CreateDto): Promise<ClinicPreferences> {
+  async create(payload: ClinicPreferencesCreateDto): Promise<ClinicPreferences> {
     const oldClinicPreferences = await this.getByName(payload.name);
 
     if (oldClinicPreferences) {

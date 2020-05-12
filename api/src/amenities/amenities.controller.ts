@@ -1,7 +1,7 @@
 import { Body, CacheInterceptor, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AmenitiesService } from './amenities.service';
-import { CreateDto } from './dto';
+import { AmenityCreateDto } from './dto';
 
 @Controller('amenities')
 @UseInterceptors(CacheInterceptor)
@@ -18,7 +18,7 @@ export class AmenitiesController {
   @ApiResponse({ status: 201, description: 'Successful Registration' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  register(@Body() payload: CreateDto): Promise<any> {
+  register(@Body() payload: AmenityCreateDto): Promise<any> {
     return this.amenitiesService.create(payload);
   }
 }

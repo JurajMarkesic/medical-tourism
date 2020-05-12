@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 
-export class CreateDto {
+export class StaffCreateDto {
   @ApiProperty({
     required: true,
   })

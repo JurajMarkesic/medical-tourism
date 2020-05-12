@@ -27,7 +27,13 @@ export class User {
   )
   clinics: Clinic[];
 
-  @OneToOne(type => UserPreferences)
+  @OneToOne(
+    type => UserPreferences,
+    preferences => preferences.user,
+    {
+      eager: true,
+    },
+  )
   preferences: UserPreferences;
 
   @Column({

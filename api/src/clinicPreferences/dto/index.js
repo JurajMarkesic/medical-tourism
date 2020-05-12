@@ -1,1 +1,2 @@
-export { CreateDto } from './create.dto';
+export { ClinicPreferencesCreateDto } from './create.dto';
+
