@@ -1,0 +1,48 @@
+.c-accordion {
+  border-bottom: 1px solid $black;
+}
+
+.c-accordion.is-active .c-accordion_head_icon:after {
+  transform: scaleY(0);
+}
+
+.c-accordion_head {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.c-accordion_head_icon {
+  position: relative;
+  display: block;
+  width: 1.33333rem;
+  height: 1.33333rem;
+  &:after,
+  &:before {
+    content: '';
+    position: absolute;
+    background-color: #68f;
+  }
+  &:before {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+  &:after {
+    top: 0;
+    left: 50%;
+    width: 1px;
+    height: calc(100% + 1px);
+    transition: transform 0.25s cubic-bezier(0.475, 0.425, 0, 0.995);
+  }
+}
+
+.c-accordion_body {
+  display: none;
+  overflow: hidden;
+}
+
+.c-accordions_body_content {
+  padding: 0 8.88889rem 2.22222rem 4.44444rem;
+}
