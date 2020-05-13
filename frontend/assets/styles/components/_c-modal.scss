@@ -1,0 +1,125 @@
+
+.c-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 60;
+	pointer-events: none;
+	visibility: hidden;
+	transition: visibility .45s cubic-bezier(.4,0,0,1);
+}
+
+.c-modal_container {
+	-webkit-overflow-scrolling: touch;
+	height: 100vh;
+	background-color: #fff;
+	position: absolute;
+	right: 0;
+	top: 0;
+	overflow: auto;
+	transition: transform .45s cubic-bezier(.4,0,0,1);
+	transform: translate3d(100%,0,0);
+	width: 100%;
+	overflow-x: hidden;
+
+	@media (min-width: $from-small) and (max-width: $to-medium) {
+		width: 66.66667%;
+	}
+
+	@media (min-width: $from-medium) {
+		width: 40%;
+	}
+}
+
+.c-modal_content {
+	padding: 3.21429rem 1.07143rem;
+	&.-smaller {
+		// max-width: 28.57143rem;
+		max-width: xem(400);
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+.c-modal_title {
+	// font-size: 7.85714rem;
+	font-size: xem(110);
+	line-height: 1;
+	// margin-bottom: 6.42857rem;
+	margin-bottom: xem(90, 110);
+	display: block;
+
+	@media (max-width: $to-tiny) {
+		// font-size: 4.28571rem;
+		font-size: xem(64);
+	}
+	@media (max-width: $to-small) {
+		// font-size: 5.71429rem;
+		font-size: xem(86);
+	}
+}
+
+
+.u-margin-bottom-2 { // put something similar on the form element instead of this
+	// margin-bottom: 2.14286rem!important;
+}
+
+.c-modal_close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: xem(135);
+	height: xem(135);
+	transform: rotate(45deg);
+	pointer-events: all;
+	z-index: 2;
+	opacity: 0;
+	transition: opacity .45s cubic-bezier(.4,0,0,1);
+}
+.c-modal_close:before {
+	content: "";
+	background-color: #000;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height: 100%;
+	width: 1px;
+	transform: translateX(-50%);
+}
+.c-modal_close:after {
+	content: "";
+	background-color: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 1px;
+	width: 100%;
+	transform: translateY(-50%);
+}
+.c-modal_background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #000;
+	opacity: 0;
+	z-index: -1;
+	transition: opacity .45s cubic-bezier(.4,0,0,1);
+}
+
+.c-modal.is-open {
+	pointer-events: all;
+	visibility: visible;
+}
+.c-modal.is-open .c-modal_container {
+	transform: none;
+}
+.c-modal.is-open .c-modal_close {
+	opacity: 1;
+}
+.c-modal.is-open .c-modal_background {
+	opacity: .5;
+}
