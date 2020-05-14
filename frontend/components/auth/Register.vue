@@ -57,7 +57,7 @@
     <div class="o-layout -gutter || u-text-center">
       <div class="o-layout_item || o-wysiwyg">
         <a @click.prevent="changeAuthComponent('Login')">Login</a>
-        <a @click.prevent="changeAuthComponent('Register')">Create new account</a>
+        <a @click.prevent="changeAuthComponent('Forgotten Password')">Forgotten password</a>
       </div>
     </div>
   </div>
