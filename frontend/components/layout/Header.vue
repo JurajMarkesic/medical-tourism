@@ -13,9 +13,6 @@
         <div id="primary-nav-label" hidden>Primary</div>
         <ul class="c-primary-nav_menu">
           <li class="c-primary-nav_item">
-            <nuxt-link id="webaim-primary-nav" to="/" class="c-primary-nav_link">Home</nuxt-link>
-          </li>
-          <li class="c-primary-nav_item">
             <nuxt-link to="/clinics" class="c-primary-nav_link">Clinics</nuxt-link>
           </li>
           <li class="c-primary-nav_item">
