@@ -2,9 +2,11 @@
   <section class="c-modal" :class="{ 'is-open': isOpen }">
     <div class="c-modal_container">
       <div class="c-modal_content -smaller">
-        <span class="c-modal_title">{{ shownAuthComponent }}</span>
+        <span class="c-modal_title">
+          <slot name="title"></slot>
+        </span>
 
-        <slot></slot>
+        <slot name="content"></slot>
       </div>
     </div>
 
@@ -15,8 +17,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
-
 export default {
   props: {
     isOpen: {
@@ -27,11 +27,6 @@ export default {
       type: String,
       required: true,
     },
-  },
-  computed: {
-    ...mapState({
-      shownAuthComponent: (state) => state.common.shownAuthComponent,
-    }),
   },
   methods: {
     close() {

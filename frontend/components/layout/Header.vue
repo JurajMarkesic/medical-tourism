@@ -48,7 +48,12 @@
     </header>
 
     <Modal :is-open="isAuthModalOpened" closing-mutation="common/toggleAuthModal">
-      <AuthWrapper></AuthWrapper>
+      <template v-slot:title>
+        {{ shownAuthComponent }}
+      </template>
+      <template v-slot:content>
+        <AuthWrapper></AuthWrapper>
+      </template>
     </Modal>
   </div>
 </template>
@@ -61,7 +66,6 @@ import AuthWrapper from '../auth/AuthWrapper.vue';
 import HeaderSearchForm from '../HeaderSearchForm.vue';
 
 export default {
-  name: 'TheHeader',
   components: {
     HeaderSearchForm,
     Modal,
@@ -72,6 +76,7 @@ export default {
       isLoggedIn: (state) => state.auth.loggedIn,
       user: (state) => state.auth.user,
       isAuthModalOpened: (state) => state.common.isAuthModalOpened,
+      shownAuthComponent: (state) => state.common.shownAuthComponent,
     }),
   },
   methods: {
