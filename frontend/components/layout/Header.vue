@@ -24,8 +24,15 @@
           <li class="c-primary-nav_item">
             <nuxt-link to="/contact" class="c-primary-nav_link">Contact</nuxt-link>
           </li>
-          <li class="c-primary-nav_item">
-            <button class="c-primary-nav_link">Login</button>
+
+          <li v-if="isLoggedIn" class="c-primary-nav_item">
+            {{ user.firstName }}
+            DROPDOWN:
+            <nuxt-link class="navbar-item" to="/profile">My Profile</nuxt-link>
+            <button class="c-primary-nav_link" @click="logout()">Logout</button>
+          </li>
+          <li v-else class="c-primary-nav_item">
+            <button class="c-primary-nav_link" @click="openAuthModal()">Login/Register</button>
           </li>
         </ul>
       </nav>
@@ -42,16 +49,41 @@
         </nuxt-link>
       </h1>
     </header>
+
+    <Modal :is-open="isAuthModalOpened" closing-mutation="common/toggleAuthModal">
+      <AuthWrapper></AuthWrapper>
+    </Modal>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
+import Modal from '../blocks/Modal.vue';
+import AuthWrapper from '../auth/AuthWrapper.vue';
 import HeaderSearchForm from '../HeaderSearchForm.vue';
 
 export default {
   name: 'TheHeader',
   components: {
     HeaderSearchForm,
+    Modal,
+    AuthWrapper,
+  },
+  computed: {
+    ...mapState({
+      isLoggedIn: (state) => state.auth.loggedIn,
+      user: (state) => state.auth.user,
+      isAuthModalOpened: (state) => state.common.isAuthModalOpened,
+    }),
+  },
+  methods: {
+    openAuthModal() {
+      this.$store.commit('common/toggleAuthModal');
+    },
+    async logout() {
+      await this.$auth.logout();
+    },
   },
 };
 </script>

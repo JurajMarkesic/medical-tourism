@@ -1,19 +1,19 @@
 <template>
   <div class="page-wrapper" :class="{ 'is-ready': isReady }">
-    <TheHeader />
+    <Header />
     <nuxt />
-    <TheFooter />
+    <Footer />
   </div>
 </template>
 
 <script>
-import TheHeader from '../components/Page/Header.vue';
-import TheFooter from '../components/Page/Footer.vue';
+import Header from '../components/layout/Header.vue';
+import Footer from '../components/layout/Footer.vue';
 
 export default {
   components: {
-    TheHeader,
-    TheFooter,
+    Header,
+    Footer,
   },
   data() {
     return {

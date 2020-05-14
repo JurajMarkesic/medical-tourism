@@ -22,6 +22,7 @@ module.exports = {
     'comma-dangle': [2, 'always-multiline'],
     'max-len': ['error', { code: 140 }],
     'no-console': 'off',
+    'no-param-reassign': 'off',
   },
   overrides: [
     {

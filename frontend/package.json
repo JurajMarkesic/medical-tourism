@@ -21,6 +21,7 @@
     "cross-env": "^5.2.0",
     "eslint-config-airbnb-base": "^14.1.0",
     "fastify": "^1.13.3",
+    "normalize.css": "^8.0.1",
     "nuxt": "^2.0.0",
     "vuex": "^3.3.0"
   },
