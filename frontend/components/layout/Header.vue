@@ -47,42 +47,24 @@
       </h1>
     </header>
 
-    <Modal :is-open="shownAuthComponent === 'Login' && isAuthModalOpened" closing-mutation="common/toggleAuthModal">
-      <template v-slot:title>
-        {{ shownAuthComponent }}
-      </template>
-      <template v-slot:content>
-        <Login />
-      </template>
-    </Modal>
+    <AuthModal :is-selected="shownAuthComponent === 'Login'">
+      <Login />
+    </AuthModal>
 
-    <Modal :is-open="shownAuthComponent === 'Register' && isAuthModalOpened" closing-mutation="common/toggleAuthModal">
-      <template v-slot:title>
-        {{ shownAuthComponent }}
-      </template>
-      <template v-slot:content>
-        <Register />
-      </template>
-    </Modal>
+    <AuthModal :is-selected="shownAuthComponent === 'Register'">
+      <Register />
+    </AuthModal>
 
-    <Modal
-      :is-open="shownAuthComponent === 'Forgotten Password' && isAuthModalOpened"
-      closing-mutation="common/toggleAuthModal"
-    >
-      <template v-slot:title>
-        {{ shownAuthComponent }}
-      </template>
-      <template v-slot:content>
-        <ForgottenPasword />
-      </template>
-    </Modal>
+    <AuthModal :is-selected="shownAuthComponent === 'Forgotten Password'">
+      <ForgottenPasword />
+    </AuthModal>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 
-import Modal from '../blocks/Modal.vue';
+import AuthModal from '../auth/AuthModal.vue';
 import HeaderSearchForm from '../HeaderSearchForm.vue';
 import Login from '../auth/Login.vue';
 import Register from '../auth/Register.vue';
@@ -91,7 +73,7 @@ import ForgottenPasword from '../auth/ForgottenPasword.vue';
 export default {
   components: {
     HeaderSearchForm,
-    Modal,
+    AuthModal,
     Login,
     Register,
     ForgottenPasword,

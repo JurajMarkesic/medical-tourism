@@ -14,7 +14,7 @@
 export default {
   methods: {
     changeAuthComponent(componentName) {
-      this.$store.dispatch('common/changeShownAuthComponent', componentName);
+      this.$store.commit('common/changeShownAuthComponent', componentName);
     },
   },
 };
