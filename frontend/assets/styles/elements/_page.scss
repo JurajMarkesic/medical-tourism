@@ -52,6 +52,10 @@ html {
   // }
 }
 
+::-webkit-scrollbar {
+  width: 0!important;
+}
+
 ::selection {
   background-color: $selection-background-color;
   color: $selection-text-color;

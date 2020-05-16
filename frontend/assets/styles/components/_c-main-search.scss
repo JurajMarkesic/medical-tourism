@@ -9,7 +9,7 @@
 }
 
 .c-main-search_panel {
-  position: fixed;
+  position: absolute;
   top: auto;
   left: 0;
   bottom: auto;
@@ -55,6 +55,8 @@
   border-bottom-width: xem(3, 18);
   padding: 0 xem(24);
   font-weight: 700;
+  font-size: 1em;
+  box-shadow: none;
 }
 
 .c-main-search_controls_submit {

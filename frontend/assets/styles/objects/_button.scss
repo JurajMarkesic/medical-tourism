@@ -13,7 +13,8 @@
   text-align: left;
 
   &.-padding {
-    padding: xem(32) xem(35);
+    // padding: xem(32) xem(35); // not good
+    padding: 2em 3em;
   }
 
   &.-fullwidth {
@@ -30,7 +31,7 @@
     z-index: -1;
     transform: scaleY(0);
     transform-origin: center top;
-    background-color: $white;
+    background-color: $clinic-green;
     transition: transform 0.3s $easing;
   }
 

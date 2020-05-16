@@ -6,7 +6,8 @@
 // =============================================================================
 .o-label {
   display: block;
-  margin-bottom: rem(15px);
+  font-size: xem(15, 12);
+  margin-bottom: xem(12);
   cursor: pointer;
 }
 
@@ -14,17 +15,36 @@
 // =============================================================================
 $input-icon-color: 424242; // No #
 
+.o-input-wrap {
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.o-input-wrap.is-error .o-input-message {
+  color: $input-error;
+}
+.o-input-message {
+  display: block;
+  position: relative;
+  padding-top: .53571rem; // needs work
+}
+.o-input-wrap.is-success .o-input,
+.o-input-wrap.is-success .o-select,
+.o-input-wrap.is-success .o-textarea {
+  border-color: #f06; // needs work
+}
+
 .o-input {
-  padding: rem(10px);
+  padding: xem(12);
   //   border-width: 1px;
   //   border-width: xem(3, 18);
-  // border-bottom-width: xem(3, 18);
-  font-size: 16px;
-  border-width: xem(3);
+  // border-bottom-width: xem(3);
+  font-size: xem(16, 12);
+  // border-width: xem(3);
   border-style: solid;
   border-color: black;
   background-color: white;
-  //   box-shadow: inset 0 0 0 xem(3) black;
+  box-shadow: 0 xem(3) 0 0 black;
 
   &:focus {
     border-color: gray;
@@ -54,6 +74,7 @@ $checkbox-icon-color: $input-icon-color;
     + .o-checkbox-label {
       &::before {
         border-color: gray;
+        outline: 3px dotted $black;
       }
     }
   }

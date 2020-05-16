@@ -14,7 +14,7 @@
 .c-modal_container {
 	-webkit-overflow-scrolling: touch;
 	height: 100vh;
-	background-color: #fff;
+	background-color: #e6e6e6;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -34,10 +34,11 @@
 }
 
 .c-modal_content {
-	padding: 3.21429rem 1.07143rem;
+	// padding: 3.21429rem 1.07143rem;
+	padding: 6em 3em;
 	&.-smaller {
 		// max-width: 28.57143rem;
-		max-width: xem(400);
+		max-width: xem(560);
 		margin-left: auto;
 		margin-right: auto;
 	}
