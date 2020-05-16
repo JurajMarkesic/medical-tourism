@@ -106,6 +106,7 @@ export default {
   },
   methods: {
     openAuthModal() {
+      this.$store.commit('common/changeShownAuthComponent', 'Login');
       this.$store.commit('common/toggleAuthModal');
     },
     async logout() {
