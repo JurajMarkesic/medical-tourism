@@ -47,12 +47,30 @@
       </h1>
     </header>
 
-    <Modal :is-open="isAuthModalOpened" closing-mutation="common/toggleAuthModal">
+    <Modal :is-open="shownAuthComponent === 'Login'" closing-mutation="common/toggleAuthModal">
       <template v-slot:title>
         {{ shownAuthComponent }}
       </template>
       <template v-slot:content>
-        <AuthWrapper></AuthWrapper>
+        <Login />
+      </template>
+    </Modal>
+
+    <Modal :is-open="shownAuthComponent === 'Register'" closing-mutation="common/toggleAuthModal">
+      <template v-slot:title>
+        {{ shownAuthComponent }}
+      </template>
+      <template v-slot:content>
+        <Register />
+      </template>
+    </Modal>
+
+    <Modal :is-open="shownAuthComponent === 'Forgotten Password'" closing-mutation="common/toggleAuthModal">
+      <template v-slot:title>
+        {{ shownAuthComponent }}
+      </template>
+      <template v-slot:content>
+        <ForgottenPasword />
       </template>
     </Modal>
   </div>
@@ -62,14 +80,18 @@
 import { mapState } from 'vuex';
 
 import Modal from '../blocks/Modal.vue';
-import AuthWrapper from '../auth/AuthWrapper.vue';
 import HeaderSearchForm from '../HeaderSearchForm.vue';
+import Login from '../auth/Login.vue';
+import Register from '../auth/Register.vue';
+import ForgottenPasword from '../auth/ForgottenPasword.vue';
 
 export default {
   components: {
     HeaderSearchForm,
     Modal,
-    AuthWrapper,
+    Login,
+    Register,
+    ForgottenPasword,
   },
   computed: {
     ...mapState({

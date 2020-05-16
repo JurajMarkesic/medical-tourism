@@ -2,3 +2,5 @@
 -email
 -forgotten password
 -treatment search
+-contact
+-blog
