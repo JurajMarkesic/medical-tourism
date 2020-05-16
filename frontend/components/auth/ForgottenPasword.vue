@@ -14,11 +14,7 @@
 export default {
   methods: {
     changeAuthComponent(componentName) {
-      this.$store.commit('common/toggleAuthModal');
-      setTimeout(() => {
-        this.$store.commit('common/changeShownAuthComponent', componentName);
-        this.$store.commit('common/toggleAuthModal');
-      }, 500);
+      this.$store.dispatch('common/changeShownAuthComponent', componentName);
     },
   },
 };
