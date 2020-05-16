@@ -47,7 +47,7 @@
       </h1>
     </header>
 
-    <Modal :is-open="shownAuthComponent === 'Login'" closing-mutation="common/toggleAuthModal">
+    <Modal :is-open="shownAuthComponent === 'Login' && isAuthModalOpened" closing-mutation="common/toggleAuthModal">
       <template v-slot:title>
         {{ shownAuthComponent }}
       </template>
@@ -56,7 +56,7 @@
       </template>
     </Modal>
 
-    <Modal :is-open="shownAuthComponent === 'Register'" closing-mutation="common/toggleAuthModal">
+    <Modal :is-open="shownAuthComponent === 'Register' && isAuthModalOpened" closing-mutation="common/toggleAuthModal">
       <template v-slot:title>
         {{ shownAuthComponent }}
       </template>
@@ -65,7 +65,10 @@
       </template>
     </Modal>
 
-    <Modal :is-open="shownAuthComponent === 'Forgotten Password'" closing-mutation="common/toggleAuthModal">
+    <Modal
+      :is-open="shownAuthComponent === 'Forgotten Password' && isAuthModalOpened"
+      closing-mutation="common/toggleAuthModal"
+    >
       <template v-slot:title>
         {{ shownAuthComponent }}
       </template>
