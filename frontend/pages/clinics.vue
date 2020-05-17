@@ -2,34 +2,35 @@
   <div :class="{ 'is-loaded': isLoaded }">
     <section class="o-section -padding-top" data-colorset="generic">
       <div class="o-container">
-        <div class="o-layout -gutter">
-          <div class="o-layout_item u-1/4@from-medium || u-margin-bottom-2 u-relative o-title-wrap">
-            <span class="o-h3 o-title -last-horizontal" :class="{ 'is-show': isShow }">
-              <span class="o-title_row">
-                <span class="o-title_row_inner">Meet</span>
-              </span>
-              <span class="o-title_row">
-                <span class="o-title_row_inner">them </span>
-              </span>
-              <span class="o-title_row">
-                <span class="o-title_row_inner">here</span>
-              </span>
-              <span class="o-title_row">
-                <span class="o-title_row_inner">
-                  Browse Rhinoplasty clinics worldwide and find the right fit for you. Below are starting prices at each
-                  clinic. (quno)
-                </span>
-                <span class="o-title_row_inner">
-                  Ear Nose and Throat Clinics Milan, Italy (what clinic)
-                </span>
-                <span class="o-title_row_inner">
-                  All 10 clinics that provide Ear Nose and Throat in Milan, Italy (what clinic)
-                </span>
-              </span>
-            </span>
-          </div>
+        <div class="o-layout -gutter -reverse">
+          <div class="o-layout_item u-1/3@from-medium u-1/4@from-big">
+            <span class="o-label || u-margin-bottom">Sort by:</span>
+            <form class="c-filters_container">
+              <div class="c-filters_item">
+                <label class="c-filters_item_label" for="sortBySelector">Sort by</label>
+                <select id="sortBySelector" class="c-filters_item_select">
+                  <option value="">Sort by</option>
+                  <option value="">Overall score</option>
+                  <option value="">Number of Reviews</option>
+                  <option value="">A-Z</option>
+                  <option value="">Z-A</option>
+                  <option value="">Price - lowest first</option>
+                  <option value="">Price - highest first</option>
+                </select>
 
-          <div class="o-layout_item u-3/4@from-medium">
+                <span class="c-filters_item_arrow || o-icon">
+                  <svg viewBox="0 0 21 24">
+                    <path
+                      d="M11.188 0v20.521l8.086-8.086 1.285 1.285L10.28 24 0 13.72l1.285-1.285 8.086 8.086V0h1.817z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="o-layout -gutter">
+          <div class="o-layout_item u-1/3@from-medium u-1/4@from-big">
             <div class="c-filters || u-margin-bottom-4">
               <span class="o-label || u-margin-bottom">Filter by:</span>
               <form class="c-filters_container">
@@ -39,7 +40,7 @@
                     <span class="o-checkbox-label_text">Display priced listings only</span>
                   </label>
                 </div>
-                <div class="c-filters_item || o-button">
+                <div class="c-filters_item">
                   <label class="c-filters_item_label" for="citySelector">Choose a City</label>
                   <select id="citySelector" class="c-filters_item_select">
                     <option value="">Choose a City</option>
@@ -59,30 +60,11 @@
                     </svg>
                   </span>
                 </div>
-
-                <div class="c-filters_item || o-button">
-                  <label class="c-filters_item_label" for="sortBySelector">Sort by</label>
-                  <select id="sortBySelector" class="c-filters_item_select">
-                    <option value="">Sort by</option>
-                    <option value="">Overall score</option>
-                    <option value="">Number of Reviews</option>
-                    <option value="">A-Z</option>
-                    <option value="">Z-A</option>
-                    <option value="">Price - lowest first</option>
-                    <option value="">Price - highest first</option>
-                  </select>
-
-                  <span class="c-filters_item_arrow || o-icon">
-                    <svg viewBox="0 0 21 24">
-                      <path
-                        d="M11.188 0v20.521l8.086-8.086 1.285 1.285L10.28 24 0 13.72l1.285-1.285 8.086 8.086V0h1.817z"
-                      />
-                    </svg>
-                  </span>
-                </div>
               </form>
             </div>
+          </div>
 
+          <div class="o-layout_item  u-2/3@from-medium u-3/4@from-big">
             <div id="preview-list" class="c-preview-list">
               <div class="o-layout -gutter">
                 <article class="o-layout_item || u-1/2@from-small">
