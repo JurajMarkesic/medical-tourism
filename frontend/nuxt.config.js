@@ -90,4 +90,8 @@ module.exports = {
       maxAge: 3599,
     },
   },
+
+  router: {
+    middleware: 'closeMobileNav',
+  },
 };

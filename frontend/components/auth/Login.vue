@@ -11,9 +11,9 @@
           type="email"
           required=""
         />
-        <span class="o-input-message" style=""
+        <!-- <span class="o-input-message" style=""
           >Please include an '@' in the email address. 'VALUE' is missing an '@'.</span
-        >
+        > -->
       </div>
 
       <div class="o-input-wrap">
@@ -28,10 +28,10 @@
         />
       </div>
 
-      <div class="o-form-agreement || u-margin-bottom-2">
+      <!-- <div class="o-form-agreement || u-margin-bottom-2">
         <input id="LOGIN-MODAL-REMEMBER" class="o-checkbox" type="checkbox" name="remember-me" />
         <label class="o-form-agreement_label || o-checkbox-label" for="LOGIN-MODAL-REMEMBER">Remember me?</label>
-      </div>
+      </div> -->
 
       <button type="submit" class="o-button -padding">
         <span class="o-button_label">Sign in</span>
