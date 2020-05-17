@@ -4,13 +4,13 @@
       <div class="o-container">
         <div class="o-layout -gutter -reverse">
           <div class="o-layout_item u-1/3@from-medium u-1/4@from-big">
-            <span class="o-label || u-margin-bottom">Sort by:</span>
+            <!-- <span class="o-label || u-margin-bottom">Sort by:</span> -->
             <form class="c-filters_container">
               <div class="c-filters_item">
                 <label class="c-filters_item_label" for="sortBySelector">Sort by</label>
                 <select id="sortBySelector" class="c-filters_item_select">
-                  <option value="">Sort by</option>
-                  <option value="">Overall score</option>
+                  <!-- <option value="">Sort by</option> -->
+                  <option value="">Relevancy</option>
                   <option value="">Number of Reviews</option>
                   <option value="">A-Z</option>
                   <option value="">Z-A</option>

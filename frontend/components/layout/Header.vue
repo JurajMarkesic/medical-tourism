@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="c-header" :class="{ 'is-open': isOpen }">
+    <header class="c-header" :class="{ 'is-open': isMobileNavOpened }">
       <a class="webaim-skipto" href="#webaim-primary-nav">Jump to Primary Navigation</a>
       <a class="webaim-skipto" href="#webaim-secondary-nav">Jump to Secondary Navigation</a>
       <a class="webaim-skipto" href="#webaim-tertiary-nav">Jump to Tertiary Navigation</a>
@@ -9,7 +9,7 @@
       <HeaderSearchForm />
 
       <nav class="c-primary-nav" aria-labelledby="primary-nav-label">
-        <button class="c-button-close" @click="isOpen = false">
+        <button class="c-button-close" @click="toggleMobileNav()">
           <span class="u-screen-reader-text">Main menu</span>
         </button>
         <!-- use aria-labeledby only when you have a label inside, like the one bellow -->
@@ -41,11 +41,12 @@
         </nuxt-link>
       </h1>
 
-      <button class="c-primary-nav_toggle" @click="isOpen = true">
+      <button class="c-primary-nav_toggle" @click="toggleMobileNav()">
         <span class="u-screen-reader-text">Main menu</span>
       </button>
     </header>
 
+    <!-- All 3 auth modals need to be rendered for the transition to work. -->
     <AuthModal :is-selected="shownAuthComponent === 'Login'">
       <Login />
     </AuthModal>
@@ -79,23 +80,17 @@ export default {
     Register,
     ForgottenPasword,
   },
-  data() {
-    return {
-      isOpen: false,
-    };
-  },
   computed: {
     ...mapState({
       isLoggedIn: (state) => state.auth.loggedIn,
       user: (state) => state.auth.user,
-      isAuthModalOpened: (state) => state.common.isAuthModalOpened,
+      isMobileNavOpened: (state) => state.common.isMobileNavOpened,
       shownAuthComponent: (state) => state.common.shownAuthComponent,
     }),
   },
   methods: {
-    openAuthModal() {
-      this.$store.commit('common/changeShownAuthComponent', 'Login');
-      this.$store.commit('common/toggleAuthModal');
+    toggleMobileNav() {
+      this.$store.commit('common/toggleMobileNav');
     },
     async logout() {
       await this.$auth.logout();

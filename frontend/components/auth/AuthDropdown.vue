@@ -34,7 +34,6 @@ export default {
     ...mapState({
       isLoggedIn: (state) => state.auth.loggedIn,
       user: (state) => state.auth.user,
-      isAuthModalOpened: (state) => state.common.isAuthModalOpened,
       shownAuthComponent: (state) => state.common.shownAuthComponent,
     }),
   },

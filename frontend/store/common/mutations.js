@@ -5,4 +5,7 @@ export default {
   toggleAuthModal(state) {
     state.isAuthModalOpened = !state.isAuthModalOpened;
   },
+  toggleMobileNav(state) {
+    state.isMobileNavOpened = !state.isMobileNavOpened;
+  },
 };
