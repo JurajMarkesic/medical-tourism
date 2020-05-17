@@ -10,7 +10,7 @@
       </div>
     </div>
 
-    <button class="c-modal_close" type="button" @click="close()"></button>
+    <button class="c-button-close" type="button" @click="close()"></button>
 
     <div class="c-modal_background"></div>
   </section>

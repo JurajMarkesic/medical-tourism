@@ -4,6 +4,7 @@
   justify-content: space-between;
   // align-items: center;
   background: $gray-100;
+  z-index: 10;
 }
 .c-header_logo {
   font-size: $font-size; // needed to reset h1 size

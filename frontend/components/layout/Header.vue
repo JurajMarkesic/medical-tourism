@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="c-header">
+    <header class="c-header" :class="{ 'is-open': isOpen }">
       <a class="webaim-skipto" href="#webaim-primary-nav">Jump to Primary Navigation</a>
       <a class="webaim-skipto" href="#webaim-secondary-nav">Jump to Secondary Navigation</a>
       <a class="webaim-skipto" href="#webaim-tertiary-nav">Jump to Tertiary Navigation</a>
@@ -9,6 +9,9 @@
       <HeaderSearchForm />
 
       <nav class="c-primary-nav" aria-labelledby="primary-nav-label">
+        <button class="c-button-close" @click="isOpen = false">
+          <span class="u-screen-reader-text">Main menu</span>
+        </button>
         <!-- use aria-labeledby only when you have a label inside, like the one bellow -->
         <div id="primary-nav-label" hidden>Primary</div>
         <ul class="c-primary-nav_menu">
@@ -22,15 +25,7 @@
             <nuxt-link to="/contact" class="c-primary-nav_link">Contact</nuxt-link>
           </li>
 
-          <li v-if="isLoggedIn" class="c-primary-nav_item">
-            {{ user.firstName }}
-            DROPDOWN:
-            <nuxt-link class="navbar-item" to="/profile">My Profile</nuxt-link>
-            <button class="c-primary-nav_link" @click="logout()">Logout</button>
-          </li>
-          <li v-else class="c-primary-nav_item">
-            <button class="c-primary-nav_link" @click="openAuthModal()">Login/Register</button>
-          </li>
+          <AuthDropdown></AuthDropdown>
         </ul>
       </nav>
 
@@ -45,6 +40,10 @@
           <span class="u-screen-reader-text">Name of the company</span>
         </nuxt-link>
       </h1>
+
+      <button class="c-primary-nav_toggle" @click="isOpen = true">
+        <span class="u-screen-reader-text">Main menu</span>
+      </button>
     </header>
 
     <AuthModal :is-selected="shownAuthComponent === 'Login'">
@@ -64,6 +63,7 @@
 <script>
 import { mapState } from 'vuex';
 
+import AuthDropdown from '../auth/AuthDropdown.vue';
 import AuthModal from '../auth/AuthModal.vue';
 import HeaderSearchForm from '../HeaderSearchForm.vue';
 import Login from '../auth/Login.vue';
@@ -73,10 +73,16 @@ import ForgottenPasword from '../auth/ForgottenPasword.vue';
 export default {
   components: {
     HeaderSearchForm,
+    AuthDropdown,
     AuthModal,
     Login,
     Register,
     ForgottenPasword,
+  },
+  data() {
+    return {
+      isOpen: false,
+    };
   },
   computed: {
     ...mapState({

@@ -1,0 +1,37 @@
+.c-button-close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: xem(135);
+	height: xem(135);
+	transform: rotate(45deg);
+	z-index: 2;
+	pointer-events: none;
+	opacity: 0;
+	transition: opacity .45s cubic-bezier(.4,0,0,1);
+}
+.c-button-close:before {
+	content: "";
+	background-color: #000;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	height: 100%;
+	width: 1px;
+	transform: translateX(-50%);
+}
+.c-button-close:after {
+	content: "";
+	background-color: #000;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 1px;
+	width: 100%;
+	transform: translateY(-50%);
+}
+
+.is-open .c-button-close {
+	pointer-events: all;
+	opacity: 1;
+}
