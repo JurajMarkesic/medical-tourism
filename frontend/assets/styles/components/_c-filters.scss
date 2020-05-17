@@ -25,29 +25,7 @@
 
 .c-filters_item {
   position: relative;
-
-  @media (max-width: $to-medium) {
-    width: 100%;
-  }
-  @media (min-width: $from-medium) {
-    width: 50%;
-  }
-  //   &:first-child {
-  //     @media (min-width: $from-medium) {
-  //       border-right: 1px solid #00c7bd;
-  //     }
-  //     &:not(:last-child) {
-  //       @media (max-width: $to-medium) {
-  //         border-bottom: 1px solid #00c7bd;
-  //       }
-  //     }
-  //   }
-
-  &.-fullwidth {
-    @media (min-width: $from-medium) {
-      width: 100%;
-    }
-  }
+  width: 100%;
 }
 
 .c-filters_item_checkbox_label {
@@ -99,7 +77,7 @@
   display: block;
   opacity: 0;
   padding: 1em;
-  padding-right: 4em;
+  // padding-right: 4em;
   font-size: 1.5em;
   pointer-events: none;
 }
