@@ -1,35 +1,89 @@
 .c-primary-nav {
   width: 100%;
+  @media (max-width: $to-small) {
+    background-color: #e6e6e6;
+    padding: xem(60) xem(20);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    z-index: 5;
+    transform: scale(0.75);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s $easing, opacity 0.45s $easing;
+  }
+}
+.c-primary-nav_toggle {
+  width: xem(120);
+  height: xem(120);
+  position: relative;
+  @media (min-width: $from-small) {
+    display: none;
+  }
+  &:before, &:after {
+    content: "";
+    background-color: #000;
+    position: absolute;
+    left: 10%;
+    height: 1px;
+    width: 80%;
+  }
+  &:before {
+    top: 40%;
+  }
+  &:after {
+    top: 60%;
+  }
 }
 
 .c-primary-nav_menu {
-  display: flex;
-  justify-content: space-evenly;
-  font-size: xem(24);
-  height: 100%;
+  font-size: 2em;
+  @media (min-width: $from-small) {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: xem(24);
+    height: 100%;
+  }
 }
 
 .c-primary-nav_item {
-  display: flex;
-  flex: 1;
+  @media (min-width: $from-small) {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+  }
 }
 
 .c-primary-nav_link {
+  position: relative;
+  color: $link-color;
   display: flex;
   flex: 1;
-  justify-content: center;
-  align-items: center;
-  transition: color 0.3s $easing;
-
-  @media (min-width: $from-large) {
-    @include u-hocus {
-      color: $link-hover-color;
-    }
+  font-weight: 700;
+  transition: color 0.3s $easing, letter-spacing 0.3s $easing;
+  @include u-hocus {
+    color: $link-hover-color;
+    font-weight: 400;
+    letter-spacing: 0.075em;
   }
-
-  color: $link-color;
+  
+  @media (min-width: $from-small) {
+    justify-content: center;
+    align-items: center;
+    font-weight: 400;
+  }
   
   &:focus {
     outline-offset: xem(-4);
   }
+}
+
+.is-open .c-primary-nav {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: all;
 }

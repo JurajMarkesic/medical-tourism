@@ -1,0 +1,23 @@
+.c-popup {
+	@media (min-width: $from-small) {
+		position: absolute;
+		top: 100%;
+		left: auto;
+	}
+}
+.c-popup_item {
+	line-height: 1;
+	overflow: hidden;
+}
+.c-popup_item_link {
+	@media (min-width: $from-small) {
+		transform: translateY(100%);
+		transition: transform 0.3s $easing;
+	}
+}
+
+.is-open .c-popup_item_link {
+	@media (min-width: $from-small) {
+		transform: translateY(0);
+	}
+}
