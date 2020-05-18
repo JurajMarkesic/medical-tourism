@@ -47,7 +47,7 @@
 @import 'objects/title';
 @import 'objects/image';
 // @import "objects/crop";
-// @import "objects/table";
+@import "objects/table";
 
 // Vendors
 // ==========================================================================
@@ -98,3 +98,4 @@
 @import 'components/c-pager';
 @import 'components/c-modal';
 @import 'components/c-button-close';
+@import 'components/c-anchor-nav';
