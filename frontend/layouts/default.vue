@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div class="page-wrapper" :class="{ 'is-ready': isReady }">
     <Header />
     <nuxt />
     <Footer />
@@ -22,8 +22,12 @@ export default {
   },
   mounted() {
     this.initResizeListeners();
+    this.pageLoaded();
   },
   methods: {
+    pageLoaded() {
+      this.isReady = true;
+    },
     initResizeListeners() {
       if (matchMedia) {
         const mq = window.matchMedia('(min-width: 992px)');
