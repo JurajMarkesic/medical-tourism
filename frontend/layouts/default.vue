@@ -21,11 +21,25 @@ export default {
     };
   },
   mounted() {
+    this.initResizeListeners();
     setTimeout(this.pageLoaded, 0);
   },
   methods: {
     pageLoaded() {
       this.isReady = true;
+    },
+    initResizeListeners() {
+      if (matchMedia) {
+        const mq = window.matchMedia('(min-width: 992px)');
+
+        mq.addListener(() => {
+          this.$store.commit('common/changeIsMobile', window.innerWidth <= 1024);
+        });
+      } else {
+        window.addEventListener('resize', () => {
+          this.$store.commit('common/changeIsMobile', window.innerWidth <= 1024);
+        });
+      }
     },
   },
 };
