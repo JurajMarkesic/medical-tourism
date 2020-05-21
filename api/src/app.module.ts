@@ -10,6 +10,7 @@ import { ClinicsModule } from './clinics/clinics.module';
 import { CommonModule } from './common/common.module';
 import configuration from './config';
 import { UsersModule } from './users/users.module';
+import { ImageUploadModule } from './imageUpload/imageUpload.module'
 
 @Global()
 @Module({
@@ -45,6 +46,7 @@ import { UsersModule } from './users/users.module';
     }),
     // PrometheusModule.register(),
     CommonModule,
+    ImageUploadModule,
     AuthModule,
     UsersModule,
     ClinicsModule,
