@@ -1,9 +1,10 @@
 import { Controller, Post, Req, Res } from '@nestjs/common';
 import { ImageUploadService } from './imageUpload.service';
 
-@Controller('fileupload')
+@Controller('upload')
 export class ImageUploadController {
   constructor(private readonly imageUploadService: ImageUploadService) {}
+
   @Post()
   async create(@Req() request, @Res() response) {
     try {

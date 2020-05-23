@@ -4,19 +4,21 @@ import * as AWS from 'aws-sdk';
 import * as multerS3 from 'multer-s3';
 import { ConfigService } from '@nestjs/config';
 
+const s3 = new AWS.S3();
+
 @Injectable()
 export class ImageUploadService {
-  private s3;
-
   constructor(
     private readonly configService: ConfigService,
   ) {
     AWS.config.update({
       accessKeyId: this.configService.get<string>('aws.key'),
       secretAccessKey: this.configService.get<string>('aws.secret'),
+      region: 'eu-central-1',
+      signatureVersion: 'v4',
     });
   }
-
+  
   async fileUpload(@Req() req, @Res() res) {
     try {
       this.upload(req, res, function(error) {
@@ -34,7 +36,7 @@ export class ImageUploadService {
 
   upload = multer({
     storage: multerS3({
-      s3: new AWS.S3(),
+      s3: s3,
       bucket: this.configService.get<string>('aws.bucket'),
       acl: 'public-read',
       key: function(request, file, cb) {
