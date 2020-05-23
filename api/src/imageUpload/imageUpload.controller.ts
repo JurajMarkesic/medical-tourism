@@ -3,7 +3,7 @@ import { ImageUploadService } from './imageUpload.service';
 
 @Controller('upload')
 export class ImageUploadController {
-  constructor(private readonly imageUploadService: ImageUploadService) {}
+  constructor(private readonly imageUploadService: ImageUploadService) { }
 
   @Post()
   async create(@Req() request, @Res() response) {
@@ -12,7 +12,7 @@ export class ImageUploadController {
     } catch (error) {
       return response
         .status(500)
-        .json(`Failed to upload image file: ${error.message}`);
+        .json(`Failed to upload files.`${ error.message }`);
     }
   }
 }

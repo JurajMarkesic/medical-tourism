@@ -23,7 +23,7 @@ import { ImageUploadModule } from './imageUpload/imageUpload.module'
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
-        // Type cast important to specify which TypeOrmModuleOptions useFactory() is returning
+        // Type cast important to specify which variant of TypeOrmModuleOptions useFactory() should return
         type: configService.get<string>('database.provider', 'postgres') as 'postgres',
         host: configService.get<string>('database.host', 'localhost'),
         port: configService.get<number>('database.port', 5432),
@@ -67,4 +67,4 @@ import { ImageUploadModule } from './imageUpload/imageUpload.module'
     }),
   ],
 })
-export class AppModule {}
+export class AppModule { }
