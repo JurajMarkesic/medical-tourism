@@ -1,4 +1,3 @@
--gallery entity, aws s3 upload + fetch
 -email
 -forgotten password
 -treatment search
