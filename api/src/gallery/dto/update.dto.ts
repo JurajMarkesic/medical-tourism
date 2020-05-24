@@ -1,24 +1,18 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 
-export class ReviewCreateDto {
+export class GalleryUpdateDto {
   @ApiProperty({
     required: true,
   })
   @IsNotEmpty()
-  name: string;
+  id: number;
 
   @ApiProperty({
     required: true,
   })
   @IsNotEmpty()
-  body: string;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsNotEmpty()
-  stars: number;
+  images: string;
 
   @ApiProperty({
     required: true,

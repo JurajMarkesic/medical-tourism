@@ -4,7 +4,7 @@ import { InjectMetric } from '@willsoto/nestjs-prometheus';
 import * as crypto from 'crypto';
 import { Counter } from 'prom-client';
 import { Repository } from 'typeorm';
-import { RegisterDto } from '../auth/dto';
+import { RegisterDto, UpdateUserDto } from '../auth/dto';
 import { LoggerService } from './../common/LoggerService';
 import { User } from './user.entity';
 
@@ -16,7 +16,7 @@ export class UsersService {
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
     @InjectMetric('all_users_count') public counter: Counter<string>,
-  ) {}
+  ) { }
 
   async getAll() {
     this.counter.inc();
@@ -65,5 +65,15 @@ export class UsersService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.usersRepository.save(this.usersRepository.create(payload));
+  }
+
+  async update(payload: UpdateUserDto): Promise<User> {
+    const oldUser = await this.get(payload.id);
+
+    if (!oldUser) {
+      throw new NotAcceptableException('User with provided id not yet created.');
+    }
+
+    return await this.usersRepository.save(payload);
   }
 }

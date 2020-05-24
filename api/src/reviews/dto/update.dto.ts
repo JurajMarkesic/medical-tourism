@@ -1,7 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 
-export class ReviewCreateDto {
+export class ReviewUpdateDto {
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  id: number;
+
   @ApiProperty({
     required: true,
   })

@@ -1,7 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
 
-export class ReviewCreateDto {
+export class StaffUpdateDto {
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  id: number;
+
   @ApiProperty({
     required: true,
   })
@@ -12,13 +18,12 @@ export class ReviewCreateDto {
     required: true,
   })
   @IsNotEmpty()
-  body: string;
+  role: string;
 
   @ApiProperty({
-    required: true,
+    required: false,
   })
-  @IsNotEmpty()
-  starts: number;
+  description: string;
 
   @ApiProperty({
     required: true,

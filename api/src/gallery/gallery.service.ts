@@ -2,7 +2,7 @@ import { CacheStore, CACHE_MANAGER, Inject, Injectable, NotAcceptableException }
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
-import { GalleryCreateDto } from './dto';
+import { GalleryCreateDto, GalleryUpdateDto } from './dto';
 import { Gallery } from './gallery.entity';
 
 @Injectable()
@@ -50,5 +50,15 @@ export class GallerysService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.galleryRepository.save(this.galleryRepository.create(payload));
+  }
+
+  async update(payload: GalleryUpdateDto): Promise<Gallery> {
+    const oldGallery = await this.get(payload.id);
+
+    if (!oldGallery) {
+      throw new NotAcceptableException('Gallery with provided id not yet created.');
+    }
+
+    return await this.galleryRepository.save(payload);
   }
 }

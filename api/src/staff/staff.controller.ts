@@ -1,13 +1,13 @@
-import { Body, CacheInterceptor, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { StaffCreateDto } from './dto';
+import { StaffCreateDto, StaffuUdateDto } from './dto';
 import { StaffsService } from './staff.service';
 
 @Controller('staff')
 @UseInterceptors(CacheInterceptor)
 @ApiTags('staff')
 export class StaffsController {
-  constructor(private readonly staffService: StaffsService) {}
+  constructor(private readonly staffService: StaffsService) { }
 
   @Get()
   findAll() {
@@ -15,10 +15,18 @@ export class StaffsController {
   }
 
   @Post()
-  @ApiResponse({ status: 201, description: 'Successful Registration' })
+  @ApiResponse({ status: 201, description: 'Successful creation' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  register(@Body() payload: StaffCreateDto): Promise<any> {
+  create(@Body() payload: StaffCreateDto): Promise<any> {
     return this.staffService.create(payload);
+  }
+
+  @Put()
+  @ApiResponse({ status: 200, description: 'Successful update' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  update(@Body() payload: StaffuUdateDto): Promise<any> {
+    return this.staffService.update(payload);
   }
 }

@@ -2,7 +2,7 @@ import { CacheStore, CACHE_MANAGER, Inject, Injectable, NotAcceptableException }
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
-import { TreatmentCreateDto } from './dto';
+import { TreatmentCreateDto, TreatmentUpdateDto } from './dto';
 import { Treatment } from './treatments.entity';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class TreatmentsService {
     private readonly treatmentsRepository: Repository<Treatment>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) {}
+  ) { }
 
   async getAll() {
     let treatments = await this.cacheStore.get('all_treatments');
@@ -50,5 +50,15 @@ export class TreatmentsService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.treatmentsRepository.save(this.treatmentsRepository.create(payload));
+  }
+
+  async update(payload: TreatmentUpdateDto): Promise<Treatment> {
+    const oldTreatment = await this.get(payload.id);
+
+    if (!oldTreatment) {
+      throw new NotAcceptableException('Treatment with provided id not yet created.');
+    }
+
+    return await this.treatmentsRepository.save(payload);
   }
 }

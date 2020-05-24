@@ -1,6 +1,6 @@
-import { Body, CacheInterceptor, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { GalleryCreateDto } from './dto';
+import { GalleryCreateDto, GalleryUpdateDto } from './dto';
 import { GallerysService } from './gallery.service';
 
 @Controller('gallery')
@@ -15,10 +15,18 @@ export class GallerysController {
   }
 
   @Post()
-  @ApiResponse({ status: 201, description: 'Successful Registration' })
+  @ApiResponse({ status: 201, description: 'Successful creation' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  register(@Body() payload: GalleryCreateDto): Promise<any> {
+  create(@Body() payload: GalleryCreateDto): Promise<any> {
     return this.galleryService.create(payload);
+  }
+
+  @Put()
+  @ApiResponse({ status: 200, description: 'Successful update' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  update(@Body() payload: GalleryUpdateDto): Promise<any> {
+    return this.galleryService.update(payload);
   }
 }

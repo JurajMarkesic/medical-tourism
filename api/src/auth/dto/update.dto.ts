@@ -1,28 +1,35 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
-export class ReviewCreateDto {
+export class UpdateUserDto {
   @ApiProperty({
     required: true,
   })
   @IsNotEmpty()
-  name: string;
+  id: number;
 
   @ApiProperty({
     required: true,
   })
-  @IsNotEmpty()
-  body: string;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsNotEmpty()
-  stars: number;
+  @IsEmail()
+  email: string;
 
   @ApiProperty({
     required: true,
   })
   @IsNotEmpty()
-  clinic: number;
+  firstName: string;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  lastName: string;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsNotEmpty()
+  @MinLength(5)
+  password: string;
 }
