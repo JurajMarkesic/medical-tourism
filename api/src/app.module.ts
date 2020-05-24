@@ -11,6 +11,7 @@ import { CommonModule } from './common/common.module';
 import configuration from './config';
 import { UsersModule } from './users/users.module';
 import { ImageUploadModule } from './imageUpload/imageUpload.module'
+import { MailerModule } from '@nestjs-modules/mailer';
 
 @Global()
 @Module({
@@ -36,13 +37,29 @@ import { ImageUploadModule } from './imageUpload/imageUpload.module'
     }),
     CacheModule.registerAsync({
       imports: [ConfigModule],
+      inject: [ConfigService],
       useFactory: async (configService: ConfigService) => ({
         store: redisStore,
         host: 'redis',
         port: configService.get<string>('cache.port'),
         ttl: configService.get<string>('cache.ttl'),
       }),
+    }),
+    MailerModule.forRootAsync({
+      imports: [ConfigModule],
       inject: [ConfigService],
+      useFactory: () => ({
+        transport: {
+          host: 'mailhog',
+          port: 1025,
+          ignoreTLS: true,
+          secure: false,
+          // auth: {
+          //   user: process.env.MAILDEV_INCOMING_USER,
+          //   pass: process.env.MAILDEV_INCOMING_PASS,
+          // },
+        }
+      }),
     }),
     // PrometheusModule.register(),
     CommonModule,

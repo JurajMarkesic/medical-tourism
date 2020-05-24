@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { Amenity } from './amenities.entity';
 import { AmenityCreateDto, AmenityUpdateDto } from './dto';
+import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class AmenitiesService {
@@ -12,6 +13,7 @@ export class AmenitiesService {
     private readonly amenitiesRepository: Repository<Amenity>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
+    private readonly mailerService: MailerService,
   ) { }
 
   async getAll() {
@@ -47,6 +49,18 @@ export class AmenitiesService {
     if (oldAmenity) {
       throw new NotAcceptableException('Amenity with provided name already created.');
     }
+
+    this
+      .mailerService
+      .sendMail({
+        to: 'test@nestjs.com', // list of receivers
+        from: '"Medicro" medicro@primrose.agency',
+        subject: 'Testing Nest MailerModule ✔', // Subject line
+        text: 'welcome', // plaintext body
+        html: '<b>New amenity created</b>', // HTML body content
+      })
+      .then(() => { })
+      .catch(() => { });
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.amenitiesRepository.save(this.amenitiesRepository.create(payload));

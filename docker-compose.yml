@@ -130,6 +130,13 @@ services:
   # networks:
   #   - api_network
   # restart: always
+  mailhog:
+    image: mailhog/mailhog
+    ports: 
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
+    networks:
+      - api_network
   scope:
     image: weaveworks/scope:1.13.0
     network_mode: "host"
