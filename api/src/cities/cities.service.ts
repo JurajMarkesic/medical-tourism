@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { City } from './cities.entity';
-import { CityCreateDto } from './dto';
+import { CityCreateDto, CityUpdateDto } from './dto';
 
 @Injectable()
 export class CitiesService {
@@ -12,7 +12,7 @@ export class CitiesService {
     private readonly citiesRepository: Repository<City>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) {}
+  ) { }
 
   async getAll() {
     let cities = await this.cacheStore.get('all_cities');
@@ -50,5 +50,15 @@ export class CitiesService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.citiesRepository.save(this.citiesRepository.create(payload));
+  }
+
+  async update(payload: CityUpdateDto): Promise<City> {
+    const oldCity = await this.get(payload.id);
+
+    if (!oldCity) {
+      throw new NotAcceptableException('City with provided id not yet created.');
+    }
+
+    return await this.citiesRepository.save(payload);
   }
 }

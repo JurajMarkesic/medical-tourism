@@ -18,7 +18,7 @@ export class ReviewCreateDto {
     required: true,
   })
   @IsNotEmpty()
-  starts: number;
+  stars: number;
 
   @ApiProperty({
     required: true,

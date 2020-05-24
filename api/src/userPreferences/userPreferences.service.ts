@@ -2,7 +2,7 @@ import { CacheStore, CACHE_MANAGER, Inject, Injectable, NotAcceptableException }
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
-import { UserPreferencesCreateDto } from './dto';
+import { UserPreferencesCreateDto, UserPreferencesUpdateDto } from './dto';
 import { UserPreferences } from './userPreferences.entity';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class UserPreferencesService {
     private readonly userPreferencesRepository: Repository<UserPreferences>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) {}
+  ) { }
 
   async getAll() {
     let userPreferences = await this.cacheStore.get('all_userPreferences');
@@ -50,5 +50,15 @@ export class UserPreferencesService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.userPreferencesRepository.save(this.userPreferencesRepository.create(payload));
+  }
+
+  async update(payload: UserPreferencesUpdateDto): Promise<UserPreferences> {
+    const oldUserPreferences = await this.get(payload.id);
+
+    if (!oldUserPreferences) {
+      throw new NotAcceptableException('UserPreferences with provided id not yet created.');
+    }
+
+    return await this.userPreferencesRepository.save(payload);
   }
 }

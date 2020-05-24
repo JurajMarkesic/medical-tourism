@@ -1,13 +1,13 @@
-import { Body, CacheInterceptor, Controller, Get, Post, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ClinicPreferencesService } from './clinicPreferences.service';
-import { ClinicPreferencesCreateDto } from './dto';
+import { ClinicPreferencesCreateDto, ClinicPreferencesUpdateDto } from './dto';
 
 @Controller('clinicPreferences')
 @UseInterceptors(CacheInterceptor)
 @ApiTags('clinicPreferences')
 export class ClinicPreferencesController {
-  constructor(private readonly clinicPreferencesService: ClinicPreferencesService) {}
+  constructor(private readonly clinicPreferencesService: ClinicPreferencesService) { }
 
   @Get()
   findAll() {
@@ -15,10 +15,18 @@ export class ClinicPreferencesController {
   }
 
   @Post()
-  @ApiResponse({ status: 201, description: 'Successful Registration' })
+  @ApiResponse({ status: 201, description: 'Successful creation' })
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  register(@Body() payload: ClinicPreferencesCreateDto): Promise<any> {
+  create(@Body() payload: ClinicPreferencesCreateDto): Promise<any> {
     return this.clinicPreferencesService.create(payload);
+  }
+
+  @Put()
+  @ApiResponse({ status: 201, description: 'Successful creation' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  update(@Body() payload: ClinicPreferencesUpdateDto): Promise<any> {
+    return this.clinicPreferencesService.update(payload);
   }
 }

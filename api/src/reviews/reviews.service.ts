@@ -2,7 +2,7 @@ import { CacheStore, CACHE_MANAGER, Inject, Injectable, NotAcceptableException }
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
-import { ReviewCreateDto } from './dto';
+import { ReviewCreateDto, ReviewUpdateDto } from './dto';
 import { Review } from './reviews.entity';
 
 @Injectable()
@@ -12,7 +12,7 @@ export class ReviewsService {
     private readonly reviewsRepository: Repository<Review>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) {}
+  ) { }
 
   async getAll() {
     let reviews = await this.cacheStore.get('all_reviews');
@@ -50,5 +50,15 @@ export class ReviewsService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.reviewsRepository.save(this.reviewsRepository.create(payload));
+  }
+
+  async update(payload: ReviewUpdateDto): Promise<Review> {
+    const oldReview = await this.get(payload.id);
+
+    if (!oldReview) {
+      throw new NotAcceptableException('Review with provided id not yet created.');
+    }
+
+    return await this.reviewsRepository.save(payload);
   }
 }

@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { Amenity } from './amenities.entity';
-import { AmenityCreateDto } from './dto';
+import { AmenityCreateDto, AmenityUpdateDto } from './dto';
 
 @Injectable()
 export class AmenitiesService {
@@ -12,7 +12,7 @@ export class AmenitiesService {
     private readonly amenitiesRepository: Repository<Amenity>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) {}
+  ) { }
 
   async getAll() {
     let amenities = await this.cacheStore.get('all_amenities');
@@ -50,5 +50,15 @@ export class AmenitiesService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.amenitiesRepository.save(this.amenitiesRepository.create(payload));
+  }
+
+  async update(payload: AmenityUpdateDto): Promise<Amenity> {
+    const oldAmenity = await this.get(payload.id);
+
+    if (!oldAmenity) {
+      throw new NotAcceptableException('Amenity does not exit.');
+    }
+
+    return await this.amenitiesRepository.save(payload);
   }
 }

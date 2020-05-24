@@ -2,6 +2,7 @@ import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, 
 import { Amenity } from '../amenities/amenities.entity';
 import { City } from '../cities/cities.entity';
 import { ClinicPreferences } from '../clinicPreferences/clinicPreferences.entity';
+import { Gallery } from '../gallery/gallery.entity';
 import { Review } from '../reviews/reviews.entity';
 import { Staff } from '../staff/staff.entity';
 import { Treatment } from '../treatments/treatments.entity';
@@ -28,6 +29,15 @@ export class Clinic {
     },
   )
   preferences: ClinicPreferences;
+
+  @OneToOne(
+    type => Gallery,
+    gallery => gallery.clinic,
+    {
+      eager: true,
+    },
+  )
+  gallery: Gallery;
 
   @ManyToOne(
     type => User,

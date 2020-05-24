@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { ClinicPreferences } from './clinicPreferences.entity';
-import { ClinicPreferencesCreateDto } from './dto';
+import { ClinicPreferencesCreateDto, ClinicPreferencesUpdateDto } from './dto';
 
 @Injectable()
 export class ClinicPreferencesService {
@@ -12,7 +12,7 @@ export class ClinicPreferencesService {
     private readonly clinicPreferencesRepository: Repository<ClinicPreferences>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) {}
+  ) { }
 
   async getAll() {
     let clinicPreferences = await this.cacheStore.get('all_clinicPreferences');
@@ -50,5 +50,15 @@ export class ClinicPreferencesService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.clinicPreferencesRepository.save(this.clinicPreferencesRepository.create(payload));
+  }
+
+  async update(payload: ClinicPreferencesUpdateDto): Promise<ClinicPreferences> {
+    const oldClinicPreferences = await this.get(payload.id);
+
+    if (!oldClinicPreferences) {
+      throw new NotAcceptableException('ClinicPreference with provided id not yet created.');
+    }
+
+    return await this.clinicPreferencesRepository.save(payload);
   }
 }

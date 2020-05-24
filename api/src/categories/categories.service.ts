@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { Category } from './categories.entity';
-import { CreateDto } from './dto';
+import { CategoryCreateDto, CategoryUpdateDto } from './dto';
 
 @Injectable()
 export class CategoriesService {
@@ -12,7 +12,7 @@ export class CategoriesService {
     private readonly categoriesRepository: Repository<Category>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) {}
+  ) { }
 
   async getAll() {
     let categories = await this.cacheStore.get('all_categories');
@@ -41,7 +41,7 @@ export class CategoriesService {
       .getOne();
   }
 
-  async create(payload: CreateDto): Promise<Category> {
+  async create(payload: CategoryCreateDto): Promise<Category> {
     const oldCategory = await this.getByName(payload.name);
 
     if (oldCategory) {
@@ -50,5 +50,15 @@ export class CategoriesService {
 
     //@ts-ignore - wrong return type interference from an overloaded function
     return await this.categoriesRepository.save(this.categoriesRepository.create(payload));
+  }
+
+  async update(payload: CategoryUpdateDto): Promise<Category> {
+    const oldCategory = await this.get(payload.id);
+
+    if (!oldCategory) {
+      throw new NotAcceptableException('Category with provided id not yet created.');
+    }
+
+    return await this.categoriesRepository.save(payload);
   }
 }

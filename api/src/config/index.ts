@@ -18,4 +18,9 @@ export default () => ({
     secret: process.env.JWT_SECRET,
     ttl: process.env.JWT_TTL,
   },
+  aws: {
+    key: process.env.AWS_KEY,
+    secret: process.env.AWS_SECRET,
+    bucket: process.env.AWS_BUCKET_NAME,
+  }
 });

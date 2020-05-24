@@ -5,6 +5,7 @@ import { CitiesModule } from '../cities/cities.module';
 import { ClinicPreferencesModule } from '../clinicPreferences/clinicPreferences.module';
 import { ReviewsModule } from '../reviews/reviews.module';
 import { StaffModule } from '../staff/staff.module';
+import { GalleryModule } from '../gallery/gallery.module';
 import { TreatmentsModule } from '../treatments/treatments.module';
 import { CommonModule } from './../common/common.module';
 import { Clinic } from './clinic.entity';
@@ -19,10 +20,11 @@ import { ClinicsService } from './clinics.service';
     CitiesModule,
     ReviewsModule,
     TreatmentsModule,
+    GalleryModule,
     StaffModule,
     AmenitiesModule,
   ],
   providers: [ClinicsService],
   controllers: [ClinicsController],
 })
-export class ClinicsModule {}
+export class ClinicsModule { }
