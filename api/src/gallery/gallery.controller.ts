@@ -2,14 +2,12 @@ import { Body, CacheInterceptor, Controller, Get, Post, Param, Put, Req, Res, Us
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { GalleryCreateDto, GalleryUpdateDto } from './dto';
 import { GallerysService } from './gallery.service';
-import { ImageUploadService } from '../imageUpload/imageUpload.service'
 
 @Controller('gallery')
 @UseInterceptors(CacheInterceptor)
 @ApiTags('gallery')
 export class GallerysController {
-  constructor(private readonly galleryService: GallerysService,
-    private readonly imageUploadService: ImageUploadService) { }
+  constructor(private readonly galleryService: GallerysService) { }
 
   @Get()
   findAll() {
