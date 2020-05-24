@@ -1,13 +1,15 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Param, Put, Req, Res, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { GalleryCreateDto, GalleryUpdateDto } from './dto';
 import { GallerysService } from './gallery.service';
+import { ImageUploadService } from '../imageUpload/imageUpload.service'
 
 @Controller('gallery')
 @UseInterceptors(CacheInterceptor)
 @ApiTags('gallery')
 export class GallerysController {
-  constructor(private readonly galleryService: GallerysService) { }
+  constructor(private readonly galleryService: GallerysService,
+    private readonly imageUploadService: ImageUploadService) { }
 
   @Get()
   findAll() {
@@ -29,4 +31,5 @@ export class GallerysController {
   update(@Body() payload: GalleryUpdateDto): Promise<any> {
     return this.galleryService.update(payload);
   }
+
 }

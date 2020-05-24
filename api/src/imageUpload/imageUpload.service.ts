@@ -27,35 +27,36 @@ export class ImageUploadService {
     });
   }
 
-  async fileUpload(@Req() req, @Res() res) {
-    try {
-      const upload = multer({
-        storage: this.storage,
-        fileFilter: this.imageFilter,
-      }).any();
+  async fileUpload(@Req() request, @Res() response): Promise<any> {
+    return new Promise((resolve, reject) => {
+      try {
+        const upload = multer({
+          storage: this.storage,
+          fileFilter: this.imageFilter,
+        }).any();
 
-      upload(req, res, function (error) {
-        if (error) {
-          console.log(error);
-          return res.status(404).json(`Failed to upload files: ${error}`);
-        }
-
-        //Return info about created files
-        return res.status(201).json(req.files);
-      });
-    } catch (error) {
-      console.log(error);
-      return res.status(500).json(`Failed to upload files: ${error}`);
-    }
+        upload(request, response, function (error: String) {
+          if (error) {
+            console.log(error);
+            reject(`Failed to upload files: ${error}`);
+          }
+          //Return info about created files
+          resolve(request.files);
+        });
+      } catch (error) {
+        console.log(error);
+        reject(`Failed to upload files: ${error}`);
+      }
+    });
   }
 
   /**
    * Rejects all files if any of them are not an image.
-   * @param req 
+   * @param request 
    * @param file 
    * @param cb 
    */
-  protected imageFilter(req, file, cb) {
+  protected imageFilter(request, file, cb) {
     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
       return cb(new Error('Only image files are allowed!'), false);
     }
