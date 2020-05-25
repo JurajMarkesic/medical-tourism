@@ -41,6 +41,16 @@ export class TreatmentsService {
       .getOne();
   }
 
+  async findByName(name: string) {
+    return await this.treatmentsRepository
+      .createQueryBuilder('treatments')
+      .where('treatments.name ILike :name')
+      .setParameter('name', `%${name}%`)
+      .leftJoinAndSelect('treatments.category', 'category')
+      .leftJoinAndSelect('treatments.clinic', 'clinic')
+      .getMany();
+  }
+
   async create(payload: TreatmentCreateDto): Promise<Treatment> {
     const oldTreatment = await this.getByName(payload.name);
 

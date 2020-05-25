@@ -14,6 +14,11 @@ export class TreatmentsController {
     return this.treatmentsService.getAll();
   }
 
+  @Get('find/:name')
+  findByName(@Param('name') name: string) {
+    return this.treatmentsService.findByName(name);
+  }
+
   @Post()
   @ApiResponse({ status: 201, description: 'Successful creation' })
   @ApiResponse({ status: 400, description: 'Bad Request' })

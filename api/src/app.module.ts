@@ -10,7 +10,7 @@ import { ClinicsModule } from './clinics/clinics.module';
 import { CommonModule } from './common/common.module';
 import configuration from './config';
 import { UsersModule } from './users/users.module';
-import { ImageUploadModule } from './imageUpload/imageUpload.module'
+import { ImageUploadModule } from './imageUpload/imageUpload.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 
 @Global()
@@ -33,6 +33,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
         database: configService.get<string>('database.name'),
         synchronize: configService.get<boolean>('database.synchronize'),
         autoLoadEntities: true,
+        logging: true,
       }),
     }),
     CacheModule.registerAsync({
@@ -58,7 +59,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
           //   user: configService.get<string>('email.user'),
           //   pass: configService.get<string>('email.pass')
           // },
-        }
+        },
       }),
     }),
     // PrometheusModule.register(),
@@ -84,4 +85,4 @@ import { MailerModule } from '@nestjs-modules/mailer';
     }),
   ],
 })
-export class AppModule { }
+export class AppModule {}
