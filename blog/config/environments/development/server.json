@@ -1,0 +1,13 @@
+{
+  "host": "blog",
+  "port": "${process.env.BLOG_PORT || 3002}",
+  "proxy": {
+    "enabled": false
+  },
+  "cron": {
+    "enabled": false
+  },
+  "admin": {
+    "autoOpen": false
+  }
+}
