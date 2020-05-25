@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors, Delete, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CitiesService } from './cities.service';
 import { CityCreateDto, CityUpdateDto } from './dto';
@@ -7,7 +7,7 @@ import { CityCreateDto, CityUpdateDto } from './dto';
 @UseInterceptors(CacheInterceptor)
 @ApiTags('cities')
 export class CitiesController {
-  constructor(private readonly citiesService: CitiesService) { }
+  constructor(private readonly citiesService: CitiesService) {}
 
   @Get()
   findAll() {
@@ -28,5 +28,13 @@ export class CitiesController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   update(@Body() payload: CityUpdateDto): Promise<any> {
     return this.citiesService.update(payload);
+  }
+
+  @Delete(':id')
+  @ApiResponse({ status: 200, description: 'Successful deletion' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  delete(@Param('id') id: number): Promise<any> {
+    return this.citiesService.delete(id);
   }
 }

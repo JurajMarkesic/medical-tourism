@@ -12,7 +12,7 @@ export class CitiesService {
     private readonly citiesRepository: Repository<City>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let cities = await this.cacheStore.get('all_cities');
@@ -59,5 +59,15 @@ export class CitiesService {
     }
 
     return await this.citiesRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<City> {
+    const oldCity = await this.get(id);
+
+    if (!oldCity) {
+      throw new NotAcceptableException('City does not exit.');
+    }
+
+    return await this.citiesRepository.remove(oldCity);
   }
 }

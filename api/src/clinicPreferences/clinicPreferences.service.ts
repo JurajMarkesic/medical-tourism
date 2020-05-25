@@ -12,7 +12,7 @@ export class ClinicPreferencesService {
     private readonly clinicPreferencesRepository: Repository<ClinicPreferences>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let clinicPreferences = await this.cacheStore.get('all_clinicPreferences');
@@ -48,7 +48,9 @@ export class ClinicPreferencesService {
       throw new NotAcceptableException('ClinicPreference with provided name already created.');
     }
 
-    return await this.clinicPreferencesRepository.save(this.clinicPreferencesRepository.create(payload as Record<string, any>));
+    return await this.clinicPreferencesRepository.save(
+      this.clinicPreferencesRepository.create(payload as Record<string, any>),
+    );
   }
 
   async update(payload: ClinicPreferencesUpdateDto): Promise<ClinicPreferences> {
@@ -59,5 +61,15 @@ export class ClinicPreferencesService {
     }
 
     return await this.clinicPreferencesRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<ClinicPreferences> {
+    const oldClinicPreferences = await this.get(id);
+
+    if (!oldClinicPreferences) {
+      throw new NotAcceptableException('ClinicPreferences does not exit.');
+    }
+
+    return await this.clinicPreferencesRepository.remove(oldClinicPreferences);
   }
 }

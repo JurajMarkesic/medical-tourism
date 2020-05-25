@@ -12,7 +12,7 @@ export class ReviewsService {
     private readonly reviewsRepository: Repository<Review>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let reviews = await this.cacheStore.get('all_reviews');
@@ -59,5 +59,15 @@ export class ReviewsService {
     }
 
     return await this.reviewsRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<Review> {
+    const oldReview = await this.get(id);
+
+    if (!oldReview) {
+      throw new NotAcceptableException('Review does not exit.');
+    }
+
+    return await this.reviewsRepository.remove(oldReview);
   }
 }

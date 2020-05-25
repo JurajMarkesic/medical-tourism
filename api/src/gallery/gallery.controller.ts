@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors, Delete, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { GalleryCreateDto, GalleryUpdateDto } from './dto';
 import { GallerysService } from './gallery.service';
@@ -7,7 +7,7 @@ import { GallerysService } from './gallery.service';
 @UseInterceptors(CacheInterceptor)
 @ApiTags('gallery')
 export class GallerysController {
-  constructor(private readonly galleryService: GallerysService) { }
+  constructor(private readonly galleryService: GallerysService) {}
 
   @Get()
   findAll() {
@@ -30,4 +30,11 @@ export class GallerysController {
     return this.galleryService.update(payload);
   }
 
+  @Delete(':id')
+  @ApiResponse({ status: 200, description: 'Successful deletion' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  delete(@Param('id') id: number): Promise<any> {
+    return this.galleryService.delete(id);
+  }
 }

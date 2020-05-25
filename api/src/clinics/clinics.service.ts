@@ -12,7 +12,7 @@ export class ClinicsService {
     private readonly clinicsRepository: Repository<Clinic>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let clinics = await this.cacheStore.get('all_clinics');
@@ -59,5 +59,15 @@ export class ClinicsService {
     }
 
     return await this.clinicsRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<Clinic> {
+    const oldClinic = await this.get(id);
+
+    if (!oldClinic) {
+      throw new NotAcceptableException('Clinic does not exit.');
+    }
+
+    return await this.clinicsRepository.remove(oldClinic);
   }
 }
