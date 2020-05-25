@@ -30,4 +30,7 @@ export default () => ({
     pass: process.env.SMTP_PASS,
     default: process.env.APP_EMAIL,
   },
+  url: {
+    api: process.env.API_URL_BROWSER,
+  }
 });
