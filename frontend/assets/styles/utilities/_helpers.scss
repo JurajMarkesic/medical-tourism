@@ -98,3 +98,15 @@
 .u-screen-reader-text.-focusable {
   @include u-accessibly-focusable;
 }
+
+
+
+
+
+
+
+// new
+
+.u-overflow-hidden {
+  overflow: hidden;
+}

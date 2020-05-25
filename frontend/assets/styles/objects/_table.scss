@@ -13,3 +13,54 @@
         table-layout: fixed;
     }
 }
+
+// custom
+.o-table {
+    border-top: 1px solid $black;
+}
+
+.o-table_row {
+    display: flex;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid $black;
+    position: relative;
+    &:hover:before {
+        transform: scaleY(1);
+    }
+    &:before {
+        content: "";
+        z-index: -1;
+        background-color: #000;
+        opacity: .025;
+        transform-origin: center top;
+        transform: scaleY(0);
+        transition: transform .3s cubic-bezier(.4,0,0,1);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.o-table_row_treatment {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+    // font-size: 1.25em;
+    margin-right: 2em;
+}
+
+.o-table_row_treatment_name {
+    margin-right: 2em;
+}
+
+.o-table_row_treatment_price {
+    text-align: right;
+}
+
+.o-table_row_treatment_button {
+    margin: auto;
+}
+

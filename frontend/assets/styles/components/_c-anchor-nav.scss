@@ -1,0 +1,69 @@
+
+.c-anchor-nav {
+	background-color: white;
+	white-space: nowrap;
+	font-size: 0;
+	text-transform: uppercase;
+	padding: 1.25rem 0;
+	pointer-events: all;
+}
+
+.c-anchor-nav_list_inner {
+	animation: railStatic 8s linear infinite;
+	display: inline-block;
+	font-size: 0;
+}
+
+.c-anchor-nav:hover .c-anchor-nav_list_inner {
+	animation-play-state: paused;
+}
+
+.c-anchor-nav_list_item {
+	display: inline-flex;
+	font-size: 2.375rem;
+	padding-right: 5rem;
+	align-items: baseline;
+
+	@media (max-width: $to-small) {
+		font-size: 1.5625rem;
+			padding-right: 2.5rem;
+		}
+}
+
+
+.c-anchor-nav_list_item a,
+.c-anchor-nav_list_item button {
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+.c-anchor-nav_list_item a:hover,
+.c-anchor-nav_list_item button:hover {
+	text-decoration: underline;
+}
+
+.c-anchor-nav_list_item_arrow {
+	font-size: 2.375rem;
+	display: inline-block;
+	margin-left: 5rem;
+	@media (max-width: $to-small) {
+		width: 1.25rem;
+		height: 1.25rem;
+		margin-left: 2.5rem;
+	}
+}
+
+.c-anchor-nav_list_item_arrow svg {
+	height: 100%;
+	width: 100%;
+	display: block;
+}
+
+@keyframes railStatic {
+	0% {
+		transform: translateZ(0);
+	}
+	to {
+		transform: translate3d(-100%, 0, 0);
+	}
+	}

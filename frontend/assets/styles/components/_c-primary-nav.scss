@@ -44,7 +44,8 @@
   @media (min-width: $from-small) {
     display: flex;
     justify-content: space-evenly;
-    font-size: xem(24);
+    // font-size: xem(24);
+    font-size: 1em;
     height: 100%;
   }
 }

@@ -80,3 +80,16 @@ $widths-fractions: 1 2 3 4 5 !default;
 }
 
 
+// customs
+.u-2\/5\@from-large {
+  @media (min-width: $from-large) {
+    width: span(2/5);
+  }
+}
+
+.u-3\/5\@from-large {
+  @media (min-width: $from-large) {
+    width: span(3/5);
+  }
+}
+
