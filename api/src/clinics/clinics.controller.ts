@@ -19,7 +19,7 @@ export class ClinicsController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: ClinicCreateDto): Promise<any> {
-    return this.clinicsService.create(payload as Object);
+    return this.clinicsService.create(payload as Record<string, any>);
   }
 
   @Put()

@@ -48,7 +48,7 @@ export class CitiesService {
       throw new NotAcceptableException('City with provided name already created.');
     }
 
-    return await this.citiesRepository.save(this.citiesRepository.create(payload as Object));
+    return await this.citiesRepository.save(this.citiesRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: CityUpdateDto): Promise<City> {

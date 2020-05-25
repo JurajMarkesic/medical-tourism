@@ -19,7 +19,7 @@ export class CategoriesController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: CategoryCreateDto): Promise<any> {
-    return this.categoriesService.create(payload as Object);
+    return this.categoriesService.create(payload as Record<string, any>);
   }
 
   @Put()

@@ -73,7 +73,7 @@ export class UsersService {
       throw new NotAcceptableException('User with provided email already created.');
     }
 
-    const newUser = await this.usersRepository.save(this.usersRepository.create(payload as Object));
+    const newUser = await this.usersRepository.save(this.usersRepository.create(payload as Record<string, any>));
     delete newUser.password;
     return newUser;
   }

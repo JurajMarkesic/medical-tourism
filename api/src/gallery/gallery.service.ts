@@ -48,7 +48,7 @@ export class GallerysService {
       throw new NotAcceptableException('Gallery with provided name already created.');
     }
 
-    return await this.galleryRepository.save(this.galleryRepository.create(payload as Object));
+    return await this.galleryRepository.save(this.galleryRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: GalleryUpdateDto): Promise<Gallery> {

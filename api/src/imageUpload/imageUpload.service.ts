@@ -35,7 +35,7 @@ export class ImageUploadService {
           fileFilter: this.imageFilter,
         }).any();
 
-        upload(request, response, function (error: String) {
+        upload(request, response, function (error: string) {
           if (error) {
             console.log(error);
             reject(`Failed to upload files: ${error}`);

@@ -46,7 +46,7 @@ export class ContactsService {
   }
 
   async create(payload: ContactCreateDto): Promise<Contact> {
-    const contact = await this.contactRepository.save(this.contactRepository.create(payload as Object));
+    const contact = await this.contactRepository.save(this.contactRepository.create(payload as Record<string, any>));
 
     // Send email to our default email if the clinic wasn't provided.
     const toEmail = contact.clinic ? contact.clinic.user.email : this.configService.get<string>('email.default');

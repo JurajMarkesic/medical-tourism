@@ -48,7 +48,7 @@ export class AmenitiesService {
       throw new NotAcceptableException('Amenity with provided name already created.');
     }
 
-    return await this.amenitiesRepository.save(this.amenitiesRepository.create(payload as Object));
+    return await this.amenitiesRepository.save(this.amenitiesRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: AmenityUpdateDto): Promise<Amenity> {

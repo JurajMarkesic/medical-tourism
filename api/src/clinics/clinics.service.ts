@@ -48,7 +48,7 @@ export class ClinicsService {
       throw new NotAcceptableException('Clinic with provided name already created.');
     }
 
-    return await this.clinicsRepository.save(this.clinicsRepository.create(payload as Object));
+    return await this.clinicsRepository.save(this.clinicsRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: ClinicUpdateDto): Promise<Clinic> {

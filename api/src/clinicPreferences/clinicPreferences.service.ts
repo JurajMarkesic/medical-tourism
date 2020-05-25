@@ -48,7 +48,7 @@ export class ClinicPreferencesService {
       throw new NotAcceptableException('ClinicPreference with provided name already created.');
     }
 
-    return await this.clinicPreferencesRepository.save(this.clinicPreferencesRepository.create(payload as Object));
+    return await this.clinicPreferencesRepository.save(this.clinicPreferencesRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: ClinicPreferencesUpdateDto): Promise<ClinicPreferences> {

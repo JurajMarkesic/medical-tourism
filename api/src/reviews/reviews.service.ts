@@ -48,7 +48,7 @@ export class ReviewsService {
       throw new NotAcceptableException('Review with provided name already created.');
     }
 
-    return await this.reviewsRepository.save(this.reviewsRepository.create(payload as Object));
+    return await this.reviewsRepository.save(this.reviewsRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: ReviewUpdateDto): Promise<Review> {

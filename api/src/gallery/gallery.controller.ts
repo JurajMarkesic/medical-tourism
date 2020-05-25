@@ -19,7 +19,7 @@ export class GallerysController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: GalleryCreateDto): Promise<any> {
-    return this.galleryService.create(payload as Object);
+    return this.galleryService.create(payload as Record<string, any>);
   }
 
   @Put()

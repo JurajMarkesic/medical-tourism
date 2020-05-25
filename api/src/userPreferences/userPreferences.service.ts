@@ -48,7 +48,7 @@ export class UserPreferencesService {
       throw new NotAcceptableException('UserPreferences with provided name already created.');
     }
 
-    return await this.userPreferencesRepository.save(this.userPreferencesRepository.create(payload as Object));
+    return await this.userPreferencesRepository.save(this.userPreferencesRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: UserPreferencesUpdateDto): Promise<UserPreferences> {

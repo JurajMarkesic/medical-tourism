@@ -48,7 +48,7 @@ export class CategoriesService {
       throw new NotAcceptableException('Category with provided name already created.');
     }
 
-    return await this.categoriesRepository.save(this.categoriesRepository.create(payload as Object));
+    return await this.categoriesRepository.save(this.categoriesRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: CategoryUpdateDto): Promise<Category> {

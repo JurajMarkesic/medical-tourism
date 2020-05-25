@@ -48,7 +48,7 @@ export class StaffsService {
       throw new NotAcceptableException('Staff with provided name already created.');
     }
 
-    return await this.staffRepository.save(this.staffRepository.create(payload as Object));
+    return await this.staffRepository.save(this.staffRepository.create(payload as Record<string, any>));
   }
 
   async update(payload: StaffuUdateDto): Promise<Staff> {
