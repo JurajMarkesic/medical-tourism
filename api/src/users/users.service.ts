@@ -63,8 +63,7 @@ export class UsersService {
       throw new NotAcceptableException('User with provided email already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.usersRepository.save(this.usersRepository.create(payload));
+    return await this.usersRepository.save(this.usersRepository.create(payload as Object));
   }
 
   async update(payload: UpdateUserDto): Promise<User> {

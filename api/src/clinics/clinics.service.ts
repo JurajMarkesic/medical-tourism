@@ -48,8 +48,7 @@ export class ClinicsService {
       throw new NotAcceptableException('Clinic with provided name already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.clinicsRepository.save(this.clinicsRepository.create(payload));
+    return await this.clinicsRepository.save(this.clinicsRepository.create(payload as Object));
   }
 
   async update(payload: ClinicUpdateDto): Promise<Clinic> {

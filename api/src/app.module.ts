@@ -48,15 +48,15 @@ import { MailerModule } from '@nestjs-modules/mailer';
     MailerModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: () => ({
+      useFactory: (configService: ConfigService) => ({
         transport: {
-          host: 'mailhog',
-          port: 1025,
+          host: configService.get<string>('email.host'),
+          port: configService.get<string>('email.port'),
           ignoreTLS: true,
           secure: false,
           // auth: {
-          //   user: process.env.MAILDEV_INCOMING_USER,
-          //   pass: process.env.MAILDEV_INCOMING_PASS,
+          //   user: configService.get<string>('email.user'),
+          //   pass: configService.get<string>('email.pass')
           // },
         }
       }),

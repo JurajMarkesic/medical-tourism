@@ -48,8 +48,7 @@ export class CitiesService {
       throw new NotAcceptableException('City with provided name already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.citiesRepository.save(this.citiesRepository.create(payload));
+    return await this.citiesRepository.save(this.citiesRepository.create(payload as Object));
   }
 
   async update(payload: CityUpdateDto): Promise<City> {

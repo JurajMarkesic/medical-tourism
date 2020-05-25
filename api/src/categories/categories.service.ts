@@ -48,8 +48,7 @@ export class CategoriesService {
       throw new NotAcceptableException('Category with provided name already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.categoriesRepository.save(this.categoriesRepository.create(payload));
+    return await this.categoriesRepository.save(this.categoriesRepository.create(payload as Object));
   }
 
   async update(payload: CategoryUpdateDto): Promise<Category> {

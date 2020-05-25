@@ -22,5 +22,12 @@ export default () => ({
     key: process.env.AWS_KEY,
     secret: process.env.AWS_SECRET,
     bucket: process.env.AWS_BUCKET_NAME,
-  }
+  },
+  email: {
+    host: process.env.SMTP_HOST,
+    port: process.env.SMTP_PORT,
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+    default: process.env.APP_EMAIL,
+  },
 });

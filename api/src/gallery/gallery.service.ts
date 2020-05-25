@@ -48,8 +48,7 @@ export class GallerysService {
       throw new NotAcceptableException('Gallery with provided name already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.galleryRepository.save(this.galleryRepository.create(payload));
+    return await this.galleryRepository.save(this.galleryRepository.create(payload as Object));
   }
 
   async update(payload: GalleryUpdateDto): Promise<Gallery> {

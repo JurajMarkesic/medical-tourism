@@ -62,8 +62,7 @@ export class AmenitiesService {
       .then(() => { })
       .catch(() => { });
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.amenitiesRepository.save(this.amenitiesRepository.create(payload));
+    return await this.amenitiesRepository.save(this.amenitiesRepository.create(payload as Object));
   }
 
   async update(payload: AmenityUpdateDto): Promise<Amenity> {
