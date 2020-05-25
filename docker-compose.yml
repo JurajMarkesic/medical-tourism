@@ -16,8 +16,7 @@ services:
     command: npm run start:debug
     networks:
       - api_network
-    env_file:
-      - .env
+    env_file: .env
     depends_on:
       - redis
       - postgres
@@ -33,13 +32,33 @@ services:
       - /usr/src/app/node_modules
     ports:
       - ${FRONTEND_PORT}:${FRONTEND_PORT}
-    env_file:
-      - .env
+    env_file: .env
     environment:
       HOST: 0.0.0.0
       PORT: ${FRONTEND_PORT}
     networks:
       - api_network
+  blog:
+    image: strapi/strapi
+    container_name: blog
+    env_file: .env
+    command: "strapi develop"
+    environment:
+      DATABASE_CLIENT: "postgres"
+      DATABASE_NAME: ${DB_NAME}
+      DATABASE_HOST: ${DB_HOST}
+      DATABASE_PORT: ${DB_PORT}
+      DATABASE_USERNAME: ${DB_USER}
+      DATABASE_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ./blog:/srv/app
+    ports:
+      - ${BLOG_PORT}:${BLOG_PORT}
+    networks:
+      - api_network
+    depends_on:
+      - redis
+      - postgres
   nginx:
     container_name: nginx
     build:
@@ -52,6 +71,9 @@ services:
       APP_PREFIX: ${APP_PREFIX}
       APP_PORT: ${APP_PORT}
       FRONTEND_PORT: ${FRONTEND_PORT}
+      BLOG_PORT: ${BLOG_PORT}
+      BLOG_PREFIX: ${BLOG_PREFIX}
+      BLOG_SERVER_NAME: ${BLOG_SERVER_NAME}
     networks:
       - api_network
     depends_on:
@@ -132,7 +154,7 @@ services:
   # restart: always
   mailhog:
     image: mailhog/mailhog
-    ports: 
+    ports:
       - 1025:1025 # smtp server
       - 8025:8025 # web ui
     networks:
