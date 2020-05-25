@@ -19,7 +19,7 @@ export class AmenitiesController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: AmenityCreateDto): Promise<any> {
-    return this.amenitiesService.create(payload);
+    return this.amenitiesService.create(payload as Object);
   }
 
   @Put()

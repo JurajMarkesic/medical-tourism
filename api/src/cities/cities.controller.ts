@@ -19,7 +19,7 @@ export class CitiesController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: CityCreateDto): Promise<any> {
-    return this.citiesService.create(payload);
+    return this.citiesService.create(payload as Object);
   }
 
   @Put()

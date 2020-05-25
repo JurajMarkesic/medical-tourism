@@ -19,7 +19,7 @@ export class ReviewsController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: ReviewCreateDto): Promise<any> {
-    return this.reviewsService.create(payload);
+    return this.reviewsService.create(payload as Object);
   }
 
   @Put()

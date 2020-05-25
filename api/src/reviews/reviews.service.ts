@@ -48,8 +48,7 @@ export class ReviewsService {
       throw new NotAcceptableException('Review with provided name already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.reviewsRepository.save(this.reviewsRepository.create(payload));
+    return await this.reviewsRepository.save(this.reviewsRepository.create(payload as Object));
   }
 
   async update(payload: ReviewUpdateDto): Promise<Review> {

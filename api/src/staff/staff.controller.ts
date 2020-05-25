@@ -19,7 +19,7 @@ export class StaffsController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: StaffCreateDto): Promise<any> {
-    return this.staffService.create(payload);
+    return this.staffService.create(payload as Object);
   }
 
   @Put()

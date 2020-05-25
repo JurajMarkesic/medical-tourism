@@ -19,7 +19,7 @@ export class UserPreferencesController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: UserPreferencesCreateDto): Promise<any> {
-    return this.userPreferencesService.create(payload);
+    return this.userPreferencesService.create(payload as Object);
   }
 
   @Put()

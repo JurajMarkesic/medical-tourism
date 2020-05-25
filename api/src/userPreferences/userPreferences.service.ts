@@ -48,8 +48,7 @@ export class UserPreferencesService {
       throw new NotAcceptableException('UserPreferences with provided name already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.userPreferencesRepository.save(this.userPreferencesRepository.create(payload));
+    return await this.userPreferencesRepository.save(this.userPreferencesRepository.create(payload as Object));
   }
 
   async update(payload: UserPreferencesUpdateDto): Promise<UserPreferences> {

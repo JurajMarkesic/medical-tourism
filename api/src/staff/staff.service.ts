@@ -48,8 +48,7 @@ export class StaffsService {
       throw new NotAcceptableException('Staff with provided name already created.');
     }
 
-    //@ts-ignore - wrong return type interference from an overloaded function
-    return await this.staffRepository.save(this.staffRepository.create(payload));
+    return await this.staffRepository.save(this.staffRepository.create(payload as Object));
   }
 
   async update(payload: StaffuUdateDto): Promise<Staff> {

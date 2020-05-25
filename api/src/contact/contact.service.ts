@@ -1,10 +1,11 @@
-import { CacheStore, CACHE_MANAGER, Inject, Injectable, NotAcceptableException } from '@nestjs/common';
+import { CacheStore, CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { LoggerService } from '../common/LoggerService';
 import { ContactCreateDto } from './dto';
 import { Contact } from './contact.entity';
 import { MailerService } from '@nestjs-modules/mailer';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ContactsService {
@@ -14,6 +15,7 @@ export class ContactsService {
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
     private readonly mailerService: MailerService,
+    private readonly configService: ConfigService,
   ) { }
 
   async getAll() {
@@ -44,9 +46,10 @@ export class ContactsService {
   }
 
   async create(payload: ContactCreateDto): Promise<Contact> {
-    const contact = await this.contactRepository.save(this.contactRepository.create(payload));
+    const contact = await this.contactRepository.save(this.contactRepository.create(payload as Object));
 
-    const toEmail = contact.clinic ? contact.clinic.email : 'medicro@primrose.agency';
+    // Send email to our default email if the clinic wasn't provided.
+    const toEmail = contact.clinic ? contact.clinic.user.email : this.configService.get<string>('email.default');
 
     this
       .mailerService

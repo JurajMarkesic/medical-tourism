@@ -19,6 +19,6 @@ export class ContactsController {
   @ApiResponse({ status: 400, description: 'Bad Request' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   create(@Body() payload: ContactCreateDto): Promise<any> {
-    return this.contactService.create(payload);
+    return this.contactService.create(payload as Object);
   }
 }
