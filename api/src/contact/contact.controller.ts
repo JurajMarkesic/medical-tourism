@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, UseInterceptors, Delete, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ContactCreateDto } from './dto';
 import { ContactsService } from './contact.service';

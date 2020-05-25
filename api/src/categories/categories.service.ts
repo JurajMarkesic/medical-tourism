@@ -12,7 +12,7 @@ export class CategoriesService {
     private readonly categoriesRepository: Repository<Category>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let categories = await this.cacheStore.get('all_categories');
@@ -59,5 +59,15 @@ export class CategoriesService {
     }
 
     return await this.categoriesRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<Category> {
+    const oldCategory = await this.get(id);
+
+    if (!oldCategory) {
+      throw new NotAcceptableException('Category does not exit.');
+    }
+
+    return await this.categoriesRepository.remove(oldCategory);
   }
 }

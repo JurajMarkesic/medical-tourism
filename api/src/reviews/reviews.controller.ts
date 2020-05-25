@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors, Delete, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ReviewCreateDto, ReviewUpdateDto } from './dto';
 import { ReviewsService } from './reviews.service';
@@ -7,7 +7,7 @@ import { ReviewsService } from './reviews.service';
 @UseInterceptors(CacheInterceptor)
 @ApiTags('reviews')
 export class ReviewsController {
-  constructor(private readonly reviewsService: ReviewsService) { }
+  constructor(private readonly reviewsService: ReviewsService) {}
 
   @Get()
   findAll() {
@@ -28,5 +28,13 @@ export class ReviewsController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   update(@Body() payload: ReviewUpdateDto): Promise<any> {
     return this.reviewsService.update(payload);
+  }
+
+  @Delete(':id')
+  @ApiResponse({ status: 200, description: 'Successful deletion' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  delete(@Param('id') id: number): Promise<any> {
+    return this.reviewsService.delete(id);
   }
 }

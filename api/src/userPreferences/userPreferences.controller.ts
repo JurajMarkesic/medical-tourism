@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors, Delete, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { UserPreferencesCreateDto, UserPreferencesUpdateDto } from './dto';
 import { UserPreferencesService } from './userPreferences.service';
@@ -7,7 +7,7 @@ import { UserPreferencesService } from './userPreferences.service';
 @UseInterceptors(CacheInterceptor)
 @ApiTags('userPreferences')
 export class UserPreferencesController {
-  constructor(private readonly userPreferencesService: UserPreferencesService) { }
+  constructor(private readonly userPreferencesService: UserPreferencesService) {}
 
   @Get()
   findAll() {
@@ -28,5 +28,13 @@ export class UserPreferencesController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   update(@Body() payload: UserPreferencesUpdateDto): Promise<any> {
     return this.userPreferencesService.update(payload);
+  }
+
+  @Delete(':id')
+  @ApiResponse({ status: 200, description: 'Successful deletion' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  delete(@Param('id') id: number): Promise<any> {
+    return this.userPreferencesService.delete(id);
   }
 }

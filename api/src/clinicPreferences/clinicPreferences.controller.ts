@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors, Delete, Param } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ClinicPreferencesService } from './clinicPreferences.service';
 import { ClinicPreferencesCreateDto, ClinicPreferencesUpdateDto } from './dto';
@@ -7,7 +7,7 @@ import { ClinicPreferencesCreateDto, ClinicPreferencesUpdateDto } from './dto';
 @UseInterceptors(CacheInterceptor)
 @ApiTags('clinicPreferences')
 export class ClinicPreferencesController {
-  constructor(private readonly clinicPreferencesService: ClinicPreferencesService) { }
+  constructor(private readonly clinicPreferencesService: ClinicPreferencesService) {}
 
   @Get()
   findAll() {
@@ -28,5 +28,13 @@ export class ClinicPreferencesController {
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   update(@Body() payload: ClinicPreferencesUpdateDto): Promise<any> {
     return this.clinicPreferencesService.update(payload);
+  }
+
+  @Delete(':id')
+  @ApiResponse({ status: 200, description: 'Successful deletion' })
+  @ApiResponse({ status: 400, description: 'Bad Request' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  delete(@Param('id') id: number): Promise<any> {
+    return this.clinicPreferencesService.delete(id);
   }
 }

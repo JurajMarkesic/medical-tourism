@@ -12,7 +12,7 @@ export class UserPreferencesService {
     private readonly userPreferencesRepository: Repository<UserPreferences>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let userPreferences = await this.cacheStore.get('all_userPreferences');
@@ -48,7 +48,9 @@ export class UserPreferencesService {
       throw new NotAcceptableException('UserPreferences with provided name already created.');
     }
 
-    return await this.userPreferencesRepository.save(this.userPreferencesRepository.create(payload as Record<string, any>));
+    return await this.userPreferencesRepository.save(
+      this.userPreferencesRepository.create(payload as Record<string, any>),
+    );
   }
 
   async update(payload: UserPreferencesUpdateDto): Promise<UserPreferences> {
@@ -59,5 +61,15 @@ export class UserPreferencesService {
     }
 
     return await this.userPreferencesRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<UserPreferences> {
+    const oldUserPreferences = await this.get(id);
+
+    if (!oldUserPreferences) {
+      throw new NotAcceptableException('UserPreferences does not exit.');
+    }
+
+    return await this.userPreferencesRepository.remove(oldUserPreferences);
   }
 }

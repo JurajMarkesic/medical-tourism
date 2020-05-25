@@ -12,7 +12,7 @@ export class StaffsService {
     private readonly staffRepository: Repository<Staff>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let staff = await this.cacheStore.get('all_staff');
@@ -59,5 +59,15 @@ export class StaffsService {
     }
 
     return await this.staffRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<Staff> {
+    const oldStaff = await this.get(id);
+
+    if (!oldStaff) {
+      throw new NotAcceptableException('Staff does not exit.');
+    }
+
+    return await this.staffRepository.remove(oldStaff);
   }
 }

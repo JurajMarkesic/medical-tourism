@@ -16,7 +16,7 @@ export class UsersService {
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
     @InjectMetric('all_users_count') public counter: Counter<string>,
-  ) { }
+  ) {}
 
   async getAll() {
     this.counter.inc();
@@ -57,7 +57,7 @@ export class UsersService {
   }
 
   async getByEmailAndHashedPass(email: string, hashedPass: string): Promise<User> {
-    console.log(email, hashedPass)
+    console.log(email, hashedPass);
     return await this.usersRepository
       .createQueryBuilder('users')
       .where('users.email = :email and users.password = :password')
@@ -88,5 +88,17 @@ export class UsersService {
     const updatedUser = await this.usersRepository.save(payload);
     delete updatedUser.password;
     return updatedUser;
+  }
+
+  async delete(id: number): Promise<User> {
+    const oldUser = await this.get(id);
+
+    if (!oldUser) {
+      throw new NotAcceptableException('User does not exit.');
+    }
+
+    const deletedUser = await this.usersRepository.remove(oldUser);
+    delete deletedUser.password;
+    return deletedUser;
   }
 }

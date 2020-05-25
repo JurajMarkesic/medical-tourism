@@ -12,7 +12,7 @@ export class GallerysService {
     private readonly galleryRepository: Repository<Gallery>,
     private logger: LoggerService,
     @Inject(CACHE_MANAGER) private readonly cacheStore: CacheStore,
-  ) { }
+  ) {}
 
   async getAll() {
     let gallery = await this.cacheStore.get('all_gallery');
@@ -59,5 +59,15 @@ export class GallerysService {
     }
 
     return await this.galleryRepository.save(payload);
+  }
+
+  async delete(id: number): Promise<Gallery> {
+    const oldGallery = await this.get(id);
+
+    if (!oldGallery) {
+      throw new NotAcceptableException('Gallery does not exit.');
+    }
+
+    return await this.galleryRepository.remove(oldGallery);
   }
 }
