@@ -1,85 +1,30 @@
 <template>
   <div :class="{ 'is-loaded': isLoaded }">
-    <section class="o-section -padding-top" data-colorset="generic">
+    <section class="o-section -padding-top">
       <div class="o-container">
-        <article class="">
+        <article class="c-clinic">
           <h1 class="o-h2">Poliklinika Bagatin</h1>
           <div class="">
             <span>Zagreb, Croatia</span>
           </div>
 
-          <div class="c-anchor-nav-wrap" :class="{ 'is-show': isShow }">
-            <nav class="c-anchor-nav">
-              <div class="c-anchor-nav_list">
-                <div class="c-anchor-nav_list_inner">
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-treatments">Treatments</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-amenities">Amenities</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-staff">Staff</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-gallery">Gallery</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-reviews">Reviews</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                </div>
-                <div class="c-anchor-nav_list_inner">
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-treatments">Treatments</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-amenities">Amenities</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-staff">Staff</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-gallery">Gallery</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-reviews">Reviews</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                </div>
-                <div class="c-anchor-nav_list_inner">
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-treatments">Treatments</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-amenities">Amenities</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-staff">Staff</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-gallery">Gallery</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                  <div class="c-anchor-nav_list_item u-color-primary">
-                    <a class="u-color-primary" href="#goto-reviews">Reviews</a>
-                    <span class="c-anchor-nav_list_item_arrow">/</span>
-                  </div>
-                </div>
-              </div>
-            </nav>
-          </div>
+          <ul class="c-clinic_menu">
+            <li class="c-clinic_menu_item is-current">
+              <a class="c-clinic_menu_item_link" href="#goto-treatments">Treatments</a>
+            </li>
+            <li class="c-clinic_menu_item">
+              <a class="c-clinic_menu_item_link" href="#goto-amenities">Amenities</a>
+            </li>
+            <li class="c-clinic_menu_item">
+              <a class="c-clinic_menu_item_link" href="#goto-staff">Staff</a>
+            </li>
+            <li class="c-clinic_menu_item">
+              <a class="c-clinic_menu_item_link" href="#goto-gallery">Gallery</a>
+            </li>
+            <li class="c-clinic_menu_item">
+              <a class="c-clinic_menu_item_link" href="#goto-reviews">Reviews</a>
+            </li>
+          </ul>
 
           <div id="goto-treatments" class="o-layout -gutter">
             <div class="o-layout_item || u-1/2@from-small u-2/5@from-large">

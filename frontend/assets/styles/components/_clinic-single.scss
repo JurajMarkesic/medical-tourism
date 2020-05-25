@@ -1,0 +1,21 @@
+.c-clinic {
+}
+.c-clinic_menu {
+	background-color: #00c7bd;
+	display: flex;
+	padding: 0.5rem;
+}
+.c-clinic_menu_item {
+	flex: 1;
+}
+.c-clinic_menu_item_link {
+	display: block;
+	padding: 0.5rem;
+	font-weight: 700;
+	transition: color 0.45s $Power2EaseOut, font-weight 0.3s $Power2EaseOut, letter-spacing 0.3s $Power2EaseOut;
+	&:hover {
+		color: #fff;
+		letter-spacing: 0.15em;
+		font-weight: 400;
+	}
+}
