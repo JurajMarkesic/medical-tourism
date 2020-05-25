@@ -7,6 +7,7 @@ import { Review } from '../reviews/reviews.entity';
 import { Staff } from '../staff/staff.entity';
 import { Treatment } from '../treatments/treatments.entity';
 import { User } from '../users/user.entity';
+import { Contact } from '../contact/contact.entity';
 
 @Entity({
   name: 'clinics',
@@ -74,6 +75,15 @@ export class Clinic {
     },
   )
   treatments: Treatment[];
+
+  @OneToMany(
+    type => Contact,
+    contact => contact.clinic,
+    {
+      eager: true,
+    },
+  )
+  contacts: Contact[];
 
   @OneToMany(
     type => Staff,
