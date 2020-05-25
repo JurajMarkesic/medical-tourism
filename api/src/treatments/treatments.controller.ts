@@ -14,7 +14,7 @@ export class TreatmentsController {
     return this.treatmentsService.getAll();
   }
 
-  @Get('find/:name')
+  @Get(':name')
   findByName(@Param('name') name: string) {
     return this.treatmentsService.findByName(name);
   }
