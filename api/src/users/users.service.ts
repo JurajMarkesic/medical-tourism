@@ -56,6 +56,16 @@ export class UsersService {
       .getOne();
   }
 
+  async getByEmailAndHashedPass(email: string, hashedPass: string): Promise<User> {
+    console.log(email, hashedPass)
+    return await this.usersRepository
+      .createQueryBuilder('users')
+      .where('users.email = :email and users.password = :password')
+      .setParameter('email', email)
+      .setParameter('password', hashedPass)
+      .getOne();
+  }
+
   async create(payload: RegisterDto): Promise<User> {
     const oldUser = await this.getByEmail(payload.email);
 
@@ -63,7 +73,9 @@ export class UsersService {
       throw new NotAcceptableException('User with provided email already created.');
     }
 
-    return await this.usersRepository.save(this.usersRepository.create(payload as Object));
+    const newUser = await this.usersRepository.save(this.usersRepository.create(payload as Object));
+    delete newUser.password;
+    return newUser;
   }
 
   async update(payload: UpdateUserDto): Promise<User> {
@@ -73,6 +85,8 @@ export class UsersService {
       throw new NotAcceptableException('User with provided id not yet created.');
     }
 
-    return await this.usersRepository.save(payload);
+    const updatedUser = await this.usersRepository.save(payload);
+    delete updatedUser.password;
+    return updatedUser;
   }
 }
