@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'is-loaded': isLoaded }">
+  <div class="is-loaded">
     <section class="o-section -padding-top">
       <div class="o-container">
         <article class="c-clinic">
@@ -118,21 +118,7 @@
 <script>
 export default {
   data() {
-    return {
-      isShow: false,
-      isLoaded: false,
-    };
-  },
-  created() {
-    this.isShow = true;
-  },
-  mounted() {
-    setTimeout(this.templateLoaded, 0); // doesn't work any other way :(
-  },
-  methods: {
-    templateLoaded() {
-      this.isLoaded = true;
-    },
+    return {};
   },
 };
 </script>

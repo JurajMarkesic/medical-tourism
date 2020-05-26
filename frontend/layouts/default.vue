@@ -44,3 +44,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.page-wrapper {
+  overflow: hidden;
+}
+</style>
