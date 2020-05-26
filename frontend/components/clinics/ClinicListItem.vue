@@ -4,34 +4,35 @@
       <figure class="c-preview_image-wrap || o-image">
         <div
           class="c-preview_image"
-          style="background-image: url('//placedog.net/400/200'); background-position: 50% 50%;"
+          :style="`background-image: url('` + imagePath + `'); background-position: 50% 50%;`"
         ></div>
       </figure>
 
       <div class="c-preview_body">
-        <h1 class="c-preview_title">Poliklinika Bagatin</h1>
+        <h1 class="c-preview_title">{{ clinic.name }}</h1>
         <div class="c-preview_location">
-          <span>Zagreb, Croatia</span>
+          <span>{{ clinic.city.name }}, Croatia</span>
         </div>
-        <div class="c-preview_accreditations">
+        <!-- <div class="c-preview_accreditations">
           <span>icon</span> <span>icon</span> <span>icon</span> <span>icon</span> <span>icon</span>
+        </div> -->
+        <div class="c-preview_author">
+          <span>Paul Chauffman, Head of Caridology</span>
         </div>
-        <div class="c-preview_review">
-          <div class="c-preview_procedure_name">
-            <span>icon maybe</span>
-            <span>FUE Hair Transplant Review</span>
-          </div>
-          <div class="c-preview_procedure_comment">
+        <div v-if="clinic.treatments[0]">
+          <div class="c-preview_review">
+            <div class="c-preview_procedure_name">
+              <span>{{ clinic.treatments[0].name }}</span>
+            </div>
+            <!-- <div class="c-preview_procedure_comment">
             <span>I thought the entire experience was exceptional. Highly recommended.</span>
+          </div> -->
           </div>
-          <div class="c-preview_author">
-            <span>Paul C., Canada, October 2019</span>
+          <div class="c-preview_price">
+            <span class="c-preview_price_title">PRICE UPON REQUEST</span>
+            <span class="c-preview_price_label">Price</span>
+            <span class="c-preview_price_amount">€ 5,850</span>
           </div>
-        </div>
-        <div class="c-preview_price">
-          <span class="c-preview_price_title">PRICE UPON REQUEST</span>
-          <span class="c-preview_price_label">Price</span>
-          <span class="c-preview_price_amount">€ 5,850</span>
         </div>
         <div class="c-preview_buttons">
           <span class="o-icon">
@@ -51,6 +52,15 @@ export default {
     clinic: {
       type: Object,
       required: true,
+    },
+  },
+  computed: {
+    imagePath() {
+      if (this.clinic.gallery) {
+        return this.clinic.gallery.images.split(',')[0];
+      }
+
+      return false;
     },
   },
 };

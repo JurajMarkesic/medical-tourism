@@ -18,8 +18,8 @@
           <div class="c-main-search_controls || o-container">
             <input
               id="main-search"
-              class="c-main-search_controls_input || o-input"
               v-model="searchValue"
+              class="c-main-search_controls_input || o-input"
               type="search"
               placeholder="Search..."
             />
