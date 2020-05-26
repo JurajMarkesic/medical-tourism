@@ -5,4 +5,10 @@ export default {
   changeFilteredClinics(state, filteredClinics) {
     state.filteredClinics = filteredClinics;
   },
+  changeFilters(state, localFilters) {
+    state.filters = localFilters;
+  },
+  changeSortBy(state, sortBy) {
+    state.sortBy = sortBy;
+  },
 };

@@ -4,16 +4,23 @@
       <span class="o-label || u-margin-bottom">Filter by:</span>
       <form class="c-filters_container">
         <div class="c-filters_item -fullwidth">
-          <input id="id-display-priced-listings" checked class="o-checkbox" type="checkbox" />
+          <input
+            id="id-display-priced-listings"
+            v-model="localFilters.priceOnly"
+            class="o-checkbox"
+            type="checkbox"
+            @change="changeFilter()"
+          />
           <label class="c-filters_item_checkbox_label || o-checkbox-label" for="id-display-priced-listings">
             <span class="o-checkbox-label_text">Display priced listings only</span>
           </label>
         </div>
         <div class="c-filters_item">
           <label class="c-filters_item_label" for="citySelector">Choose a City</label>
-          <select id="citySelector" class="c-filters_item_select">
-            <option value="">Choose a City</option>
+          <select id="citySelector" v-model="localFilters.city" class="c-filters_item_select" @change="changeFilter()">
+            <option :value="false">Choose a City</option>
             <option value="zagreb">Zagreb</option>
+            <option value="bjelovar">Bjelovar</option>
             <option value="split">Split</option>
             <option value="rijeka">Rijeka</option>
             <option value="osijek">Osijek</option>
@@ -33,7 +40,24 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      localFilters: {
+        city: false,
+        priceOnly: false,
+      },
+    };
+  },
+  created() {
+    this.changeFilter();
+  },
+  methods: {
+    changeFilter() {
+      this.$store.dispatch('clinics/filter', this.localFilters);
+    },
+  },
+};
 </script>
 
 <style></style>

@@ -35,8 +35,6 @@ export default {
       await store.dispatch('clinics/getAll');
     }
   },
-  watch: {
-    '$route.query': '$fetch',
-  },
+  watchQuery: ['search'],
 };
 </script>

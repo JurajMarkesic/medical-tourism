@@ -10,7 +10,7 @@
       </span>
     </button>
 
-    <form role="search" aria-labelledby="search-label" @submit="search()">
+    <form role="search" aria-labelledby="search-label" @submit.prevent="search()">
       <span class="screen-reader-text">Search</span>
 
       <div class="c-main-search_panel">
@@ -18,8 +18,8 @@
           <div class="c-main-search_controls || o-container">
             <input
               id="main-search"
-              class="c-main-search_controls_input || o-input"
               v-model="searchValue"
+              class="c-main-search_controls_input || o-input"
               type="search"
               placeholder="Search..."
             />
