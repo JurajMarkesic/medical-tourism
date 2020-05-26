@@ -10,7 +10,7 @@
       </span>
     </button>
 
-    <form role="search" aria-labelledby="search-label">
+    <form role="search" aria-labelledby="search-label" @submit="search()">
       <span class="screen-reader-text">Search</span>
 
       <div class="c-main-search_panel">
@@ -19,6 +19,7 @@
             <input
               id="main-search"
               class="c-main-search_controls_input || o-input"
+              v-model="searchValue"
               type="search"
               placeholder="Search..."
             />
@@ -43,11 +44,16 @@
 
 <script>
 export default {
-  name: 'MainSearch',
   data() {
     return {
       mainSearchOpen: false,
+      searchValue: '',
     };
+  },
+  methods: {
+    search() {
+      this.$router.push(`/clinics?search=${this.searchValue}`);
+    },
   },
 };
 </script>

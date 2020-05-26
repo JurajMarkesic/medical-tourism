@@ -1,8 +1,8 @@
 export default {
-  changeFullClinicsList(state, fullClinicsList) {
-    state.fullClinicsList = fullClinicsList;
+  changeAllClinics(state, allClinics) {
+    state.allClinics = allClinics;
   },
-  changeFilteredClinicsList(state, filteredClinicsList) {
-    state.filteredClinicsList = filteredClinicsList;
+  changeFilteredClinics(state, filteredClinics) {
+    state.filteredClinics = filteredClinics;
   },
 };
