@@ -46,7 +46,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  props: {
+    clinic: {
+      type: Object,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style></style>

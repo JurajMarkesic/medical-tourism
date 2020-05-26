@@ -18,9 +18,9 @@
 </template>
 
 <script>
-import ClinicFilter from '../components/clinics/ClinicFilter.vue';
-import ClinicSort from '../components/clinics/ClinicSort.vue';
-import ClinicList from '../components/clinics/ClinicList.vue';
+import ClinicFilter from '../../components/clinics/ClinicFilter.vue';
+import ClinicSort from '../../components/clinics/ClinicSort.vue';
+import ClinicList from '../../components/clinics/ClinicList.vue';
 
 export default {
   components: {
@@ -28,11 +28,15 @@ export default {
     ClinicSort,
     ClinicList,
   },
-  // async fetch({ store }) {
-  // await store.dispatch('clinics/findByTreatmentName', 'uho');
-  // },
-  data() {
-    return {};
+  async fetch({ store, query }) {
+    if (query.search) {
+      await store.dispatch('clinics/findByTreatmentName', { name: query.search });
+    } else {
+      await store.dispatch('clinics/getAll');
+    }
+  },
+  watch: {
+    '$route.query': '$fetch',
   },
 };
 </script>
