@@ -19,19 +19,18 @@
         <div class="c-preview_author">
           <span>Paul Chauffman, Head of Caridology</span>
         </div>
-        <div v-if="clinic.treatments[0]">
+        <div v-if="firstTreatment">
           <div class="c-preview_review">
             <div class="c-preview_procedure_name">
-              <span>{{ clinic.treatments[0].name }}</span>
+              <span>{{ firstTreatment.name }}</span>
             </div>
             <!-- <div class="c-preview_procedure_comment">
             <span>I thought the entire experience was exceptional. Highly recommended.</span>
           </div> -->
           </div>
           <div class="c-preview_price">
-            <span class="c-preview_price_title">PRICE UPON REQUEST</span>
-            <span class="c-preview_price_label">Price</span>
-            <span class="c-preview_price_amount">€ 5,850</span>
+            <span v-if="firstTreatment.price" class="c-preview_price"> Price: $ {{ firstTreatment.price }} </span>
+            <span v-else class="c-preview_price">PRICE UPON REQUEST</span>
           </div>
         </div>
         <div class="c-preview_buttons">
@@ -61,6 +60,9 @@ export default {
       }
 
       return false;
+    },
+    firstTreatment() {
+      return this.clinic.treatments[0] || false;
     },
   },
 };

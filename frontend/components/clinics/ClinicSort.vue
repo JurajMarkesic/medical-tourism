@@ -2,13 +2,13 @@
   <form class="c-filters_container">
     <div class="c-filters_item">
       <label class="c-filters_item_label" for="sortBySelector">Sort by</label>
-      <select id="sortBySelector" class="c-filters_item_select">
-        <option value="">Relevancy</option>
-        <option value="">Number of Reviews</option>
-        <option value="">A-Z</option>
-        <option value="">Z-A</option>
-        <option value="">Price - lowest first</option>
-        <option value="">Price - highest first</option>
+      <select id="sortBySelector" class="c-filters_item_select" @change="changeSort">
+        <option value="relevancy">Relevancy</option>
+        <option value="numReviews">Number of Reviews</option>
+        <option value="az">A-Z</option>
+        <option value="za">Z-A</option>
+        <option value="priceLow">Price - lowest first</option>
+        <option value="priceHigh">Price - highest first</option>
       </select>
 
       <span class="c-filters_item_arrow || o-icon">
@@ -21,7 +21,13 @@
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    changeSort(e) {
+      this.$store.dispatch('clinics/sort', e.target.value);
+    },
+  },
+};
 </script>
 
 <style></style>

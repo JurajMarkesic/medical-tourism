@@ -10,7 +10,7 @@
       </span>
     </button>
 
-    <form role="search" aria-labelledby="search-label" @submit="search()">
+    <form role="search" aria-labelledby="search-label" @submit.prevent="search()">
       <span class="screen-reader-text">Search</span>
 
       <div class="c-main-search_panel">
