@@ -11,4 +11,16 @@ export default {
   changeSortBy(state, sortBy) {
     state.sortBy = sortBy;
   },
+  changeSelectedClinic(state, selectedClinic) {
+    state.selectedClinic = selectedClinic;
+  },
+  changeSelectedTreatment(state, selectedTreatment) {
+    state.selectedTreatment = selectedTreatment;
+  },
+  changeShownTab(state, shownTab) {
+    state.shownTab = shownTab;
+  },
+  toggleContactModal(state) {
+    state.showContactModal = !state.showContactModal;
+  },
 };

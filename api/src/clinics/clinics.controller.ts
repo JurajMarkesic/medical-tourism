@@ -1,4 +1,4 @@
-import { Body, CacheInterceptor, Controller, Get, Post, Put, UseInterceptors, Delete, Param } from '@nestjs/common';
+import { Body, CacheInterceptor, Controller, Delete, Get, Param, Post, Put, UseInterceptors } from '@nestjs/common';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ClinicsService } from './clinics.service';
 import { ClinicCreateDto, ClinicUpdateDto } from './dto';
@@ -12,6 +12,11 @@ export class ClinicsController {
   @Get()
   findAll() {
     return this.clinicsService.getAll();
+  }
+
+  @Get(':id')
+  findByID(@Param('id') id: number) {
+    return this.clinicsService.get(id);
   }
 
   @Post()

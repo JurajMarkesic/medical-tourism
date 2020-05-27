@@ -1,6 +1,6 @@
 <template>
   <article class="o-layout_item || u-1/2@from-small">
-    <a class="c-preview" href="">
+    <a class="c-preview" :href="clinicUrl">
       <figure class="c-preview_image-wrap || o-image">
         <div
           class="c-preview_image"
@@ -63,6 +63,9 @@ export default {
     },
     firstTreatment() {
       return this.clinic.treatments[0] || false;
+    },
+    clinicUrl() {
+      return `/clinics/${this.clinic.id}`;
     },
   },
 };

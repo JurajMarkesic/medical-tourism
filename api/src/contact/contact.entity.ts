@@ -21,6 +21,9 @@ export class Contact {
   @ManyToOne(
     type => Clinic,
     clinic => clinic.contacts,
+    {
+      eager: true,
+    }
   )
   clinic: Clinic;
 }
