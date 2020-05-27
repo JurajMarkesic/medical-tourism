@@ -3,6 +3,8 @@ export const state = () => ({
   filteredClinics: [],
   filters: {},
   sortBy: 'relevancy',
+  shownTab: 'overview',
+  selectedClinic: {},
 });
 
 export const getters = {};

@@ -11,4 +11,10 @@ export default {
   changeSortBy(state, sortBy) {
     state.sortBy = sortBy;
   },
+  changeSelectedClinic(state, selectedClinic) {
+    state.selectedClinic = selectedClinic;
+  },
+  changeShownTab(state, shownTab) {
+    state.shownTab = shownTab;
+  },
 };

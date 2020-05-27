@@ -15,6 +15,11 @@ export default {
     context.commit('changeAllClinics', clinics);
     context.commit('changeFilteredClinics', clinics);
   },
+  async findByID(context, { id }) {
+    const response = await this.$axios.get(`clinics/${id}`);
+
+    context.commit('changeSelectedClinic', response.data);
+  },
   filter({ state, commit, dispatch }, filters) {
     // Using JSON parse/stringify to clone an object so no vue warning is thrown when mutated
     commit('changeFilters', JSON.parse(JSON.stringify(filters)));
