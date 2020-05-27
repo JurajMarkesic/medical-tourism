@@ -4,7 +4,7 @@
       Contact
     </template>
     <template v-slot:content>
-      <form class="o-form" @submit.prevent="contact()">
+      <form ref="contactForm" class="o-form" @submit.prevent="contact($event)">
         <div class="o-input-wrap">
           <label class="o-label" for="CONTACT-MODAL-EMAIL">Email*</label>
           <input id="CONTACT-MODAL-EMAIL" v-model="form.email" class="o-input" name="email" type="email" />
@@ -47,11 +47,20 @@ export default {
   computed: {
     ...mapState({
       showContactModal: (state) => state.clinics.showContactModal,
+      selectedTreatment: (state) => state.clinics.selectedTreatment,
     }),
   },
   methods: {
     contact() {
-      this.$store.dispatch('clinics/contact', this.form);
+      let message = this.form.body;
+      if (this.selectedTreatment) {
+        message = `Contacted for treatment: ${this.selectedTreatment.name}. \n ${this.form.body}`;
+      }
+
+      this.$store.dispatch('clinics/contact', {
+        ...this.form,
+        body: message,
+      });
     },
   },
 };

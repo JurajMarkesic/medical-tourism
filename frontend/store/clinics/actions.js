@@ -93,5 +93,6 @@ export default {
   async contact({ state, commit }, payload) {
     await this.$axios.post('contact', { ...payload, clinic: state.selectedClinic });
     commit('toggleContactModal');
+    commit('changeSelectedTreatment', {});
   },
 };

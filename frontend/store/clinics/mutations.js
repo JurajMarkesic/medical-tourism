@@ -14,6 +14,9 @@ export default {
   changeSelectedClinic(state, selectedClinic) {
     state.selectedClinic = selectedClinic;
   },
+  changeSelectedTreatment(state, selectedTreatment) {
+    state.selectedTreatment = selectedTreatment;
+  },
   changeShownTab(state, shownTab) {
     state.shownTab = shownTab;
   },

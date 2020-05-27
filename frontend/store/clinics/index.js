@@ -5,6 +5,7 @@ export const state = () => ({
   sortBy: 'relevancy',
   shownTab: 'overview',
   selectedClinic: {},
+  selectedTreatment: {},
   showContactModal: false,
 });
 
