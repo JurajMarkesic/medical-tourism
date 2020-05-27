@@ -4,9 +4,14 @@
       <div class="o-container">
         <article class="c-clinic">
           <h1 class="o-h2">Poliklinika Bagatin</h1>
-          <div class="">
+          <div>
             <span>Zagreb, Croatia</span>
           </div>
+          <div>
+            <button class="o-button -padding" @click="showClinicContact()">CONTACT</button>
+          </div>
+
+          <ClinicContactModal />
 
           <ClinicSingleTabs />
 
@@ -30,11 +35,17 @@
 <script>
 import ClinicSingleTabs from '../../components/clinics/single/ClinicSingleTabs.vue';
 import ClinicSingleTabContent from '../../components/clinics/single/ClinicSingleTabContent.vue';
+import ClinicContactModal from '../../components/clinics/single/ClinicContactModal.vue';
 
 export default {
-  components: { ClinicSingleTabs, ClinicSingleTabContent },
+  components: { ClinicSingleTabs, ClinicSingleTabContent, ClinicContactModal },
   async fetch({ store, params }) {
     await store.dispatch('clinics/findByID', { id: params.id });
+  },
+  methods: {
+    showClinicContact() {
+      this.$store.commit('clinics/toggleContactModal');
+    },
   },
 };
 </script>

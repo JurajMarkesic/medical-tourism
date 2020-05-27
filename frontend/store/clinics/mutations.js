@@ -17,4 +17,7 @@ export default {
   changeShownTab(state, shownTab) {
     state.shownTab = shownTab;
   },
+  toggleContactModal(state) {
+    state.showContactModal = !state.showContactModal;
+  },
 };

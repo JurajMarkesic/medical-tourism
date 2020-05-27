@@ -2,12 +2,12 @@ import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, 
 import { Amenity } from '../amenities/amenities.entity';
 import { City } from '../cities/cities.entity';
 import { ClinicPreferences } from '../clinicPreferences/clinicPreferences.entity';
+import { Contact } from '../contact/contact.entity';
 import { Gallery } from '../gallery/gallery.entity';
 import { Review } from '../reviews/reviews.entity';
 import { Staff } from '../staff/staff.entity';
 import { Treatment } from '../treatments/treatments.entity';
 import { User } from '../users/user.entity';
-import { Contact } from '../contact/contact.entity';
 
 @Entity({
   name: 'clinics',
@@ -79,9 +79,6 @@ export class Clinic {
   @OneToMany(
     type => Contact,
     contact => contact.clinic,
-    {
-      eager: true,
-    },
   )
   contacts: Contact[];
 

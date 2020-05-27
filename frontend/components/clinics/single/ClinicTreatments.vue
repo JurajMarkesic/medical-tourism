@@ -1,14 +1,5 @@
 <template>
   <div id="goto-treatments" class="o-layout -gutter">
-    <div class="o-layout_item || u-1/2@from-small u-2/5@from-large">
-      <figure class="c-preview_image-wrap || o-image">
-        <div
-          class="c-preview_image"
-          style="background-image: url('//placedog.net/400/200'); background-position: 50% 50%;"
-        ></div>
-      </figure>
-    </div>
-
     <div class="o-layout_item u-1/2@from-small u-3/5@from-large">
       <div class="o-table -no-first-top-border">
         <div class="o-table_row">

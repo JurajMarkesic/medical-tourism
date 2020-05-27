@@ -1,24 +1,24 @@
 import { addRelevancyScore } from '../../utils';
 
 export default {
-  async getAll(context) {
+  async getAll({ commit }) {
     const response = await this.$axios.get('clinics');
     const clinics = addRelevancyScore(response.data);
 
-    context.commit('changeAllClinics', clinics);
-    context.commit('changeFilteredClinics', clinics);
+    commit('changeAllClinics', clinics);
+    commit('changeFilteredClinics', clinics);
   },
-  async findByTreatmentName(context, { name }) {
+  async findByTreatmentName({ commit }, { name }) {
     const response = await this.$axios.get(`clinics/treatment/${name}`);
     const clinics = addRelevancyScore(response.data);
 
-    context.commit('changeAllClinics', clinics);
-    context.commit('changeFilteredClinics', clinics);
+    commit('changeAllClinics', clinics);
+    commit('changeFilteredClinics', clinics);
   },
-  async findByID(context, { id }) {
+  async findByID({ commit }, { id }) {
     const response = await this.$axios.get(`clinics/${id}`);
 
-    context.commit('changeSelectedClinic', response.data);
+    commit('changeSelectedClinic', response.data);
   },
   filter({ state, commit, dispatch }, filters) {
     // Using JSON parse/stringify to clone an object so no vue warning is thrown when mutated
@@ -39,10 +39,10 @@ export default {
     commit('changeFilteredClinics', filteredClinics);
     dispatch('sort', state.sortBy);
   },
-  sort(context, sortBy) {
-    context.commit('changeSortBy', sortBy);
+  sort({ state, commit }, sortBy) {
+    commit('changeSortBy', sortBy);
 
-    const filteredClinics = JSON.parse(JSON.stringify(context.state.filteredClinics)).sort((a, b) => {
+    const filteredClinics = JSON.parse(JSON.stringify(state.filteredClinics)).sort((a, b) => {
       let comparisonValue = true;
 
       if (sortBy === 'relevancy') {
@@ -88,6 +88,10 @@ export default {
       return comparisonValue;
     });
 
-    context.commit('changeFilteredClinics', filteredClinics);
+    commit('changeFilteredClinics', filteredClinics);
+  },
+  async contact({ state, commit }, payload) {
+    await this.$axios.post('contact', { ...payload, clinic: state.selectedClinic });
+    commit('toggleContactModal');
   },
 };
