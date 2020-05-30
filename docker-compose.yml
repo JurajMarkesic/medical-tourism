@@ -59,6 +59,7 @@ services:
     depends_on:
       - redis
       - postgres
+      - api
   nginx:
     container_name: nginx
     build:
