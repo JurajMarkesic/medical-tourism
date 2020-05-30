@@ -17,13 +17,35 @@
 
           <ClinicSingleTabContent />
 
+          <h3>ADRESA</h3>
+          <h1>KARTA SA LOKACIJOM</h1>
+
           <div id="goto-amenities" class="o-layout -gutter">
             <div class="o-layout_item || u-1/2@from-small u-2/5@from-large">
-              amenities
+              amenity a
+            </div>
+            <div class="o-layout_item || u-1/2@from-small u-2/5@from-large">
+              amenity b
+            </div>
+            <div class="o-layout_item || u-1/2@from-small u-2/5@from-large">
+              amenity d
+            </div>
+            <div class="o-layout_item u-1/2@from-small u-3/5@from-large">
+              amenity d,e,f,g,sdglfd,fsdfsd
             </div>
 
             <div class="o-layout_item u-1/2@from-small u-3/5@from-large">
-              amenities
+              Opening hours Monday08:30 - 16:00 Tuesday08:30 - 16:00 Wednesday08:30 - 16:00 Thursday08:30 - 16:00
+              Friday08:30 - 16:00 Saturday09:00 - 12:00 Sunday - closed
+            </div>
+
+            <div class="o-layout_item u-1/2@from-small u-3/5@from-large">
+              <ul>
+                Payment methods
+                <li>Credit cards</li>
+                <li>Up to 12 rates</li>
+                <li>CAsh discount</li>
+              </ul>
             </div>
           </div>
         </article>
