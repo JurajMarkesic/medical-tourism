@@ -7,6 +7,31 @@
             <span class="o-table_row_treatment_name">Tummy tuck</span>
             <span class="o-table_row_treatment_price">Had a great time wow so good</span>
             <span class="o-table_row_treatment_price">5 stars</span>
+            <span class="o-table_row_treatment_price">12.12.2012</span>
+          </div>
+        </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Tummy tuck</span>
+            <span class="o-table_row_treatment_price">Had a great time wow so good</span>
+            <span class="o-table_row_treatment_price">5 stars</span>
+            <span class="o-table_row_treatment_price">12.12.2012</span>
+          </div>
+        </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Tummy tuck</span>
+            <span class="o-table_row_treatment_price">Had a great time wow so good</span>
+            <span class="o-table_row_treatment_price">5 stars</span>
+            <span class="o-table_row_treatment_price">12.12.2012</span>
+          </div>
+        </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Tummy tuck</span>
+            <span class="o-table_row_treatment_price">Had a great time wow so good</span>
+            <span class="o-table_row_treatment_price">5 stars</span>
+            <span class="o-table_row_treatment_price">12.12.2012</span>
           </div>
         </div>
       </div>

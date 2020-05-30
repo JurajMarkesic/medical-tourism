@@ -8,6 +8,36 @@
             <span class="o-table_row_treatment_price">Martin Marcus</span>
           </div>
         </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Head of Surgery</span>
+            <span class="o-table_row_treatment_price">Martin Marcus</span>
+          </div>
+        </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Head of Surgery</span>
+            <span class="o-table_row_treatment_price">Martin Marcus</span>
+          </div>
+        </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Head of Surgery</span>
+            <span class="o-table_row_treatment_price">Martin Marcus</span>
+          </div>
+        </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Head of Surgery</span>
+            <span class="o-table_row_treatment_price">Martin Marcus</span>
+          </div>
+        </div>
+        <div class="o-table_row">
+          <div class="o-table_row_treatment">
+            <span class="o-table_row_treatment_name">Head of Surgery</span>
+            <span class="o-table_row_treatment_price">Martin Marcus</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

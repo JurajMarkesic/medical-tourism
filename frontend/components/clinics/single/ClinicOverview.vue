@@ -4,7 +4,7 @@
       <figure class="c-preview_image-wrap || o-image">
         <div
           class="c-preview_image"
-          style="background-image: url('//placedog.net/400/200'); background-position: 50% 50%;"
+          :style="`background-image: url('` + imagePath + `'); background-position: 50% 50%;`"
         ></div>
       </figure>
     </div>
@@ -36,6 +36,13 @@ export default {
     }),
     recommendedClinics() {
       return this.selectedClinic.treatments.slice(0, 5);
+    },
+    imagePath() {
+      if (this.selectedClinic.gallery) {
+        return this.selectedClinic.gallery.images.split(',')[0];
+      }
+
+      return false;
     },
   },
 };
