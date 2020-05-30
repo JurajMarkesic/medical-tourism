@@ -33,19 +33,19 @@ export class GallerysService {
     return this.galleryRepository.findOne(id);
   }
 
-  async getByName(name: string) {
+  async getByClinicID(id: string) {
     return await this.galleryRepository
       .createQueryBuilder('gallery')
-      .where('gallery.name = :name')
-      .setParameter('name', name)
+      .where('gallery.clinic = :id')
+      .setParameter('id', id)
       .getOne();
   }
 
   async create(payload: GalleryCreateDto): Promise<Gallery> {
-    const oldGallery = await this.getByName(payload.name);
+    const oldGallery = await this.getByClinicID(payload.clinic);
 
     if (oldGallery) {
-      throw new NotAcceptableException('Gallery with provided name already created.');
+      throw new NotAcceptableException('Gallery for provided clinic already created.');
     }
 
     return await this.galleryRepository.save(this.galleryRepository.create(payload as Record<string, any>));
