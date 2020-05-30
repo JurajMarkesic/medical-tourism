@@ -4,8 +4,8 @@
 }
 
 .c-main-search_toggle {
-  width: xem(60);
-  height: xem(60);
+  width: rem(60px);
+  height: rem(60px);
   text-align: center;
 }
 
@@ -47,8 +47,8 @@
   position: relative;
   display: flex;
   // align-items: center;
-  padding-top: xem(64, 28);
-  padding-bottom: xem(64, 28);
+  padding-top: rem(64px);
+  padding-bottom: rem(64px);
   transform: translateY(-100%) skew(3deg, -3deg);
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }

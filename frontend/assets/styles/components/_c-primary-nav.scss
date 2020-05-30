@@ -2,7 +2,7 @@
   width: 100%;
   @media (max-width: $to-small) {
     background-color: #e6e6e6;
-    padding: xem(60) xem(20);
+    padding: rem(60px) rem(20px);
     height: 100vh;
     position: absolute;
     top: 0;
@@ -17,8 +17,8 @@
   }
 }
 .c-primary-nav_toggle {
-  width: xem(120);
-  height: xem(120);
+  width: rem(120px);
+  height: rem(120px);
   position: relative;
   @media (min-width: $from-small) {
     display: none;
@@ -44,7 +44,7 @@
   @media (min-width: $from-small) {
     display: flex;
     justify-content: space-evenly;
-    // font-size: xem(24);
+    // font-size: rem(24px);
     font-size: 1em;
     height: 100%;
   }
@@ -79,7 +79,7 @@
   }
   
   &:focus {
-    outline-offset: xem(-4);
+    outline-offset: rem(-4px);
   }
 }
 

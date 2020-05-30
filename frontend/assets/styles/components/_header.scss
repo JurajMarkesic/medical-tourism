@@ -17,11 +17,11 @@
   // transition: transform 0.3s $Power2EaseOut;
 
   @media (max-width: $to-small) {
-    width: xem(32);
+    width: rem(32px);
   }
 
   @media (min-width: $from-small) {
-    width: xem(96);
+    width: rem(96px);
   }
 
   svg {
