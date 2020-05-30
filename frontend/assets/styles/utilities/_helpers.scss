@@ -15,6 +15,10 @@
 .u-icon {
   font-family: $font-poppins;
   font-size: rem(18px);
+  //
+  padding: rem(8px);
+  display: inline-block;
+  border: rem(1px) solid $gray-400;
 }
 
 .u-text {

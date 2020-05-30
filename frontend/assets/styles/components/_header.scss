@@ -13,8 +13,8 @@
 .c-header_logo_inner {
   display: block;
   height: 100%;
-  transform: translateY(100%);
-  transition: transform 0.3s $Power2EaseOut;
+  // transform: translateY(100%);
+  // transition: transform 0.3s $Power2EaseOut;
 
   @media (max-width: $to-small) {
     width: xem(32);
