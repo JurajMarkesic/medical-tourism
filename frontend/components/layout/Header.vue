@@ -47,15 +47,30 @@
 
     <!-- All 3 auth modals need to be rendered for the transition to work. -->
     <AuthModal :is-selected="shownAuthComponent === 'Login'">
-      <Login />
+      <template v-slot:title>
+        Login
+      </template>
+      <template v-slot:content>
+        <Login />
+      </template>
     </AuthModal>
 
     <AuthModal :is-selected="shownAuthComponent === 'Register'">
-      <Register />
+      <template v-slot:title>
+        Register
+      </template>
+      <template v-slot:content>
+        <Register />
+      </template>
     </AuthModal>
 
     <AuthModal :is-selected="shownAuthComponent === 'Forgotten Password'">
-      <ForgottenPasword />
+      <template v-slot:title>
+        Forgotten password
+      </template>
+      <template v-slot:content>
+        <ForgottenPasword />
+      </template>
     </AuthModal>
   </div>
 </template>

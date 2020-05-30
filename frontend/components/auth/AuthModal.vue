@@ -1,10 +1,10 @@
 <template>
   <Modal :is-open="isSelected && isAuthModalOpened" closing-mutation="common/toggleAuthModal">
     <template v-slot:title>
-      {{ shownAuthComponent }}
+      <slot name="title"></slot>
     </template>
     <template v-slot:content>
-      <slot></slot>
+      <slot name="content"></slot>
     </template>
   </Modal>
 </template>
