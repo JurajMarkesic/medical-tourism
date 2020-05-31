@@ -1,6 +1,6 @@
 .c-preview-list {
   &.-max-width {
-    max-width: xem(787.5);
+    max-width: rem(786px);
   }
   @media (min-width: $from-small) {
     // max-width: 85%;
@@ -11,7 +11,7 @@
 .c-preview {
   position: relative;
   display: block;
-  margin-bottom: xem(70);
+  margin-bottom: rem(70px);
   &:hover {
     .c-preview_body {
       color: #fff;
@@ -39,7 +39,7 @@
 }
 
 .c-preview_body {
-  padding: xem(16);
+  padding: rem(16px);
   //   padding: 5%; // 5% of preview card width
   background-color: #fff;
   z-index: 1;
@@ -68,7 +68,7 @@
 
 .c-preview_title {
   //   width: 80%;
-  font-size: xem(36);
+  font-size: rem(36px);
 }
 
 .c-preview_arrow {

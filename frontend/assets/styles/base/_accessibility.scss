@@ -1,7 +1,7 @@
 // https://www.w3.org/WAI/
 
 :focus {
-  outline: xem(2) dotted $black;
+  outline: rem(2px) dotted $black;
   outline-offset: 0;
 }
 
@@ -19,7 +19,7 @@ button:focus,
 input:focus,
 select:focus:focus,
 textarea:focus {
-  outline-offset: xem(-4);
+  outline-offset: rem(-4px);
 }
 
 .screen-reader-text {

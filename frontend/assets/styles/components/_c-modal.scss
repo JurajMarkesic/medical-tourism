@@ -38,7 +38,7 @@
 	padding: 6em 3em;
 	&.-smaller {
 		// max-width: 28.57143rem;
-		max-width: xem(560);
+		max-width: rem(560px);
 		margin-left: auto;
 		margin-right: auto;
 	}
@@ -46,19 +46,19 @@
 
 .c-modal_title {
 	// font-size: 7.85714rem;
-	font-size: xem(110);
+	font-size: rem(110px);
 	line-height: 1;
 	// margin-bottom: 6.42857rem;
-	margin-bottom: xem(90, 110);
+	margin-bottom: rem(90px);
 	display: block;
 
 	@media (max-width: $to-tiny) {
 		// font-size: 4.28571rem;
-		font-size: xem(64);
+		font-size: rem(64px);
 	}
 	@media (max-width: $to-small) {
 		// font-size: 5.71429rem;
-		font-size: xem(86);
+		font-size: rem(86px);
 	}
 }
 

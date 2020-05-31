@@ -1,5 +1,5 @@
 <template>
-  <div class="o-layout_item u-1/3@from-medium u-1/4@from-big">
+  <div class="o-layout_item u-1/3@from-medium">
     <div class="c-filters || u-margin-bottom-4">
       <span class="o-label || u-margin-bottom">Filter by:</span>
       <form class="c-filters_container">

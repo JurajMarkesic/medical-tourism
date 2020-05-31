@@ -13,7 +13,7 @@
   text-align: left;
 
   &.-padding {
-    // padding: xem(32) xem(35); // not good
+    // padding: rem(32px) rem(35px); // not good
     padding: 2em 3em;
   }
 
@@ -35,7 +35,8 @@
     transition: transform 0.3s $easing;
   }
 
-  @include u-hocus {
+  // @include u-hocus {
+  &:hover {
     color: $black;
 
     &::before {
@@ -51,8 +52,8 @@
   // width: rem(55px);
   // height: rem(55px);
   // margin-right: rem($unit / 4);
-  width: xem(24);
-  height: xem(24);
+  width: rem(24px);
+  height: rem(24px);
 
   svg {
     display: block;

@@ -15,24 +15,41 @@
   display: flex;
   flex-wrap: wrap;
   //   border: 1px solid #00c7bd;
-  border-top: 1px solid #00c7bd;
-  border-bottom: 1px solid #00c7bd;
-  margin-bottom: 4em;
+  border-top: rem(1px) solid #00c7bd;
+  margin-bottom: rem(64px);
   @media (max-width: $to-medium) {
     flex-direction: column;
   }
 }
 
 .c-filters_item {
+  border-bottom: rem(1px) solid #00c7bd;
   position: relative;
   width: 100%;
+  &:hover:before {
+      transform: scaleY(1);
+  }
+  &:before {
+      content: "";
+      z-index: -1;
+      background-color: #000;
+      opacity: .025;
+      transform-origin: center top;
+      transform: scaleY(0);
+      transition: transform .3s cubic-bezier(.4,0,0,1);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+  }
 }
 
 .c-filters_item_checkbox_label {
   display: block;
   margin: 0;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding-top: rem(12px);
+  padding-bottom: rem(12px);
 }
 
 .c-filters_item_select {
@@ -44,21 +61,21 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: 1em;
-  padding-right: 4em;
-  font-size: 1.5em;
+  padding: rem(12px);
+  padding-right: rem(64px);
+  font-size: rem(20px);
   cursor: pointer;
 }
 
 .is-mobile .c-filters_item_select {
-  font-size: 16px;
+  font-size: rem(16px);
 }
 
 .c-filters_item_arrow {
   display: block;
   position: absolute;
   top: 50%;
-  right: 1.5em;
+  right: rem(24px);
   transform: translateY(-50%);
   pointer-events: none;
   svg {
@@ -76,8 +93,8 @@
   //   line-height: 1;
   display: block;
   opacity: 0;
-  padding: 1em;
+  padding: rem(12px);
   // padding-right: 4em;
-  font-size: 1.5em;
+  font-size: rem(20px);
   pointer-events: none;
 }
