@@ -27,7 +27,13 @@
 
               <div class="o-layout_item u-1/2@from-medium">
                 <ul class="c-footer_contact_info -phone-fax-email">
-                  <li><span class="u-icon">icon</span>091 555 1234</li>
+                  <li>
+                    <div itemscope itemtype="https://schema.org/MFC">
+                      <h1 class="o-h2" itemprop="name">MFC</h1>
+                      <span class="u-icon">phone</span>
+                      <span itemprop="telephone"><a href="tel:+385915551234">091 555 1234</a></span>
+                    </div>
+                  </li>
                   <li><span class="u-icon">icon</span><a href="mailto:info@mfc.com">info@mfc.com</a></li>
                 </ul>
 

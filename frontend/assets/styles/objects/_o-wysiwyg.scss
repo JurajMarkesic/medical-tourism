@@ -1,0 +1,59 @@
+.o-wysiwyg {
+	h1, h2, h3, h4, h5, h6 {
+		font-weight: 400;
+		line-height: 1;
+	}
+	h1, h2 {
+		margin-bottom: rem(32px);
+
+		@media (max-width: $to-small) {
+			font-size: rem(28px);
+		}
+
+		@media (max-width: $to-medium) {
+			font-size: rem(32px);
+		}
+
+		@media (min-width: $from-medium) {
+			font-size: rem(40px);
+		}
+	}
+	h3, h4, h5, h6 {
+		display: block;
+		font-size: rem(20px);
+		margin-bottom: rem(24px);
+
+		@media (max-width: $to-small) {
+			font-size: rem(16px);
+			margin-bottom: rem(12px);
+		}
+
+		@media (min-width: $from-small) {
+			font-size: rem(24px);
+		}
+	}
+	p {
+		// font-size: rem(16px);
+		// line-height: 1.5;
+		margin-bottom: rem(20px);
+	}
+	ul {
+		margin-bottom: rem(20px);
+		padding-left: rem(20px);
+	}
+	li {
+		margin-bottom: rem(5px);
+	}
+	img {
+		margin: rem(12px) 0;
+		display: block;
+		width: 100%;
+	}
+	a {
+		display: inline-block;
+		text-decoration: underline;
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

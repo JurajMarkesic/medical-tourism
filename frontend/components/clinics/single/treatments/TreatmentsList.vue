@@ -1,6 +1,6 @@
 <template>
   <div class="o-layout_item u-1/2@from-small u-3/5@from-large">
-    <div class="o-table -no-first-top-border">
+    <div class="o-table">
       <TreatmentListItem v-for="treatment in treatments" :key="treatment.id" :treatment="treatment" />
     </div>
   </div>

@@ -11,8 +11,8 @@
 
     <TreatmentList :treatments="recommendedClinics" />
 
-    <div class="o-layout_item u-1/2@from-small u-3/5@from-large">
-      <h4>About us:</h4>
+    <div class="o-layout_item u-1/2@from-small u-3/5@from-large || o-wysiwyg">
+      <h2>About us</h2>
       <p>
         Lorem ispum wow dolor sit amet wowo asdlkfjs ldkfj slkdf. Asjfdh sjkdfhskd ksdfj hskdf sdfj h. Lorem ispum wow
         dolor sit amet wowo asdlkfjs ldkfj slkdf. Asjfdh sjkdfhskd ksdfj hskdf sdfj h. Lorem ispum wow dolor sit amet
