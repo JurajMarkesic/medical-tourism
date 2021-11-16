@@ -32,7 +32,7 @@
     "@nestjs/typeorm": "^7.0.0",
     "@types/dotenv": "^8.2.0",
     "@willsoto/nestjs-prometheus": "^0.1.1",
-    "aws-sdk": "^2.681.0",
+    "aws-sdk": "^2.814.0",
     "cache-manager": "^3.2.1",
     "cache-manager-redis-store": "^2.0.0",
     "class-transformer": "^0.3.1",
